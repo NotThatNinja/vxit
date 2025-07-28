@@ -1,4 +1,6 @@
 ---
+const { title, subtitle, cta } = Astro.props;
+
 import heroImage from "../assets/hero.jpg";
 ---
 
@@ -10,34 +12,25 @@ import heroImage from "../assets/hero.jpg";
     </video>
     <div class="hero-content">
         <h1>
-            <span>C</span>
-            <span>r</span>
-            <span>e</span>
-            <span>a</span>
-            <span>t</span>
-            <span>i</span>
-            <span>v</span>
-            <span>e</span>
-            <span>&nbsp;</span>
-            <span>E</span>
-            <span>x</span>
-            <span>c</span>
-            <span>e</span>
-            <span>l</span>
-            <span>l</span>
-            <span>e</span>
-            <span>n</span>
-            <span>c</span>
-            <span>e</span>
+            {
+                title
+                    .split("")
+                    .map((char, index) => (
+                        <span key={index}>
+                            {char === " " ? "\u00A0" : char}
+                        </span>
+                    ))
+            }
         </h1>
-        <p>
-            VXIT engineers sleek, high-performing sites that drive growth. We
-            handle the tech, so you can focus on your success.
-        </p>
-        <a href="/services" class="cta-button">
-            Explore Our Services
-            <i class="fa-solid fa-arrow-right"></i>
-        </a>
+        <p>{subtitle}</p>
+        {
+            cta && (
+                <a href="/services" class="cta-button">
+                    Explore Our Services
+                    <i class="fa-solid fa-arrow-right" />
+                </a>
+            )
+        }
     </div>
 </section>
 
@@ -163,7 +156,7 @@ import heroImage from "../assets/hero.jpg";
         padding: var(--space-3) var(--space-6);
         border: 1px solid var(--color-accent);
         border-radius: var(--radius-full);
-        box-shadow: -5px -2px 20px 3px var(--color-accent);
+        box-shadow: var(--shadow-base);
         background: var(--color-black);
         color: var(--color-white);
         font-size: var(--font-size-xl);
@@ -171,7 +164,7 @@ import heroImage from "../assets/hero.jpg";
         transition: box-shadow 0.3s ease;
     }
     .cta-button:hover {
-        box-shadow: -5px -2px 30px 5px var(--color-accent);
+        box-shadow: var(--shadow-hover);
     }
 
     @keyframes blur-animation {
@@ -192,7 +185,7 @@ import heroImage from "../assets/hero.jpg";
                 var(--color-white)
             );
             background-clip: text;
-            color: transparent;
+            -webkit-text-fill-color: transparent;
         }
     }
 </style>

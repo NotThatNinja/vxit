@@ -34,6 +34,9 @@ import Footer from "../components/Footer.astro";
 		--color-accent: #8b49e2;
 		--color-gray: #2f2f2f;
 
+		/* Color RGBs */
+		--color-accent-rgb: 139, 73, 226;
+
 		/* Font Sizes */
 		--font-size-xs: 0.75rem; /* 12px */
 		--font-size-sm: 0.875rem; /* 14px */
@@ -88,16 +91,8 @@ import Footer from "../components/Footer.astro";
 		--radius-full: 9999px;
 
 		/* Shadows */
-		--shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-		--shadow-base: 0 1px 3px 0 rgb(0 0 0 / 0.1),
-			0 1px 2px -1px rgb(0 0 0 / 0.1);
-		--shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1),
-			0 2px 4px -2px rgb(0 0 0 / 0.1);
-		--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
-			0 4px 6px -4px rgb(0 0 0 / 0.1);
-		--shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1),
-			0 8px 10px -6px rgb(0 0 0 / 0.1);
-		--shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+		--shadow-base: -5px -2px 20px 3px var(--color-accent);
+		--shadow-hover: -5px -2px 30px 3px var(--color-accent);
 	}
 
 	html,
@@ -118,9 +113,14 @@ import Footer from "../components/Footer.astro";
 	h2,
 	h3,
 	p,
-	a {
+	a,
+	li {
 		margin: 0;
 		padding: 0;
 		line-height: var(--line-height-normal);
+	}
+
+	button {
+		font-family: inherit;
 	}
 </style>

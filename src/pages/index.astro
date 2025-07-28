@@ -1,11 +1,216 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Hero from "../components/Hero.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+
+import { Image } from "astro:assets";
+import websiteDevelopment from "../assets/services/website-development.jpg";
+import aiIntegration from "../assets/services/ai-integration.jpg";
+import seoOptimization from "../assets/services/seo-optimization.jpg";
+import ecommerceSolutions from "../assets/services/ecommerce-solutions.jpg";
+
+const services = [
+    {
+        title: "Website Development",
+        description: "Custom websites tailored to your business needs.",
+        image: websiteDevelopment,
+    },
+    {
+        title: "AI Integration",
+        description: "Integrate AI solutions into your websites.",
+        image: aiIntegration,
+    },
+    {
+        title: "Ecommerce Solutions",
+        description:
+            "Comprehensive ecommerce solutions to grow your online store.",
+        image: ecommerceSolutions,
+    },
+    {
+        title: "SEO Optimization",
+        description: "Boost your online presence with our SEO services.",
+        image: seoOptimization,
+    },
+];
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Home - VXIT">
+    <main>
+        <Hero />
+        <section>
+            <SectionTitle>Our Services</SectionTitle>
+            <div class="services">
+                {
+                    services.map((service) => (
+                        <div class="service-card">
+                            <Image src={service.image} alt={service.title} />
+                            <div class="service-info">
+                                <i class="fa-solid fa-arrow-up-right-from-square" />
+                                <h3>{service.title}</h3>
+                                <p>{service.description}</p>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </section>
+        <section class="about-us">
+            <SectionTitle>About Us</SectionTitle>
+            <p id="animatedParagraph">
+                <span>VXIT</span>
+                <span>is</span>
+                <span>dedicated</span>
+                <span>to</span>
+                <span>delivering</span>
+                <span>high-quality</span>
+                <span>digital</span>
+                <span>solutions</span>
+                <span>that</span>
+                <span>empower</span>
+                <span>businesses</span>
+                <span>to</span>
+                <span>thrive</span>
+                <span>in</span>
+                <span>the</span>
+                <span>digital</span>
+                <span>landscape.</span>
+                <span>Our</span>
+                <span>team</span>
+                <span>of</span>
+                <span>experts</span>
+                <span>is</span>
+                <span>committed</span>
+                <span>to</span>
+                <span>excellence,</span>
+                <span>innovation,</span>
+                <span>and</span>
+                <span>customer</span>
+                <span>satisfaction.</span>
+            </p>
+        </section>
+    </main>
 </Layout>
+
+<style>
+    /* --- Services Section --- */
+    .services {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .service-card {
+        overflow: hidden;
+        position: relative;
+        height: 400px;
+        background: var(--color-black);
+        border: 1px solid var(--color-gray);
+        cursor: pointer;
+    }
+    .service-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+    .service-card:hover img {
+        opacity: 1;
+    }
+    .service-info {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: calc(100% - 2 * var(--space-6));
+        height: calc(100% - 2 * var(--space-6));
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        padding: var(--space-6);
+        background: rgba(0, 0, 0, 0.5);
+    }
+    .service-info i {
+        position: absolute;
+        top: var(--space-6);
+        right: var(--space-6);
+        font-size: var(--font-size-xl);
+        transform: translateX(20px);
+        transition:
+            transform 0.4s ease,
+            opacity 0.4s ease;
+        opacity: 0;
+    }
+    .service-info h3 {
+        position: absolute;
+        font-size: var(--font-size-3xl);
+        opacity: 0.5;
+        transition:
+            transform 0.4s ease,
+            opacity 0.4s ease;
+    }
+    .service-info p {
+        font-size: var(--font-size-lg);
+        opacity: 0;
+        transform: translateY(40px);
+        transition:
+            transform 0.4s ease,
+            opacity 0.4s ease;
+    }
+    .service-info:hover h3 {
+        transform: translateY(-40px);
+        opacity: 0.8;
+    }
+    .service-info:hover p {
+        display: block;
+        opacity: 0.8;
+        transform: translateY(-5px);
+    }
+    .service-info:hover i {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    /* --- About Us Section --- */
+    .about-us p {
+        max-width: 1200px;
+        margin: auto;
+        font-size: var(--font-size-4xl);
+        word-break: break-word;
+    }
+    .about-us p span {
+        opacity: 0.25;
+        transition: opacity 0.5s;
+        display: inline-block;
+    }
+</style>
+<script>
+    // Word-by-word scroll reveal for About Us
+    window.addEventListener("scroll", () => {
+        const p = document.querySelector("#animatedParagraph");
+        if (!p) return;
+        const words = p.querySelectorAll("#animatedParagraph span");
+
+        const rect = p.getBoundingClientRect();
+        const windowHeight =
+            window.innerHeight || document.documentElement.clientHeight;
+
+        if (rect.top < windowHeight && rect.bottom > 0) {
+            // Calculate how much of the paragraph is visible
+            const visibleRatio = Math.min(
+                1,
+                (windowHeight - rect.top - 250) / rect.height,
+            );
+            const revealCount = Math.floor(words.length * visibleRatio);
+            words.forEach((word, i) => {
+                (word as HTMLElement).style.opacity =
+                    i < revealCount ? "1" : "0.25";
+            });
+        } else {
+            words.forEach(
+                (word) => ((word as HTMLElement).style.opacity = "0.25"),
+            );
+        }
+    });
+</script>

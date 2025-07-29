@@ -15,9 +15,7 @@ const { title, subtitle, cta } = Astro.props;
                     <span class="hero-word">
                         {word.split("").map((char, j) => (
                             <span
-                                data-nth={
-                                    i * title.split(" ")[0].length + j + 1
-                                }
+                                style={`animation-delay: ${i * title.split(" ")[0].length * 0.05 + j * 0.05}s`}
                                 class="hero-char"
                             >
                                 {char}
@@ -28,7 +26,18 @@ const { title, subtitle, cta } = Astro.props;
                 ))
             }
         </h1>
-        <p>{subtitle}</p>
+        <p>
+            {
+                subtitle.split(" ").map((word, i) => (
+                    <span
+                        style={`animation-delay: ${i * 0.05}s`}
+                        class="sub-char"
+                    >
+                        {word}
+                    </span>
+                ))
+            }
+        </p>
         {
             cta && (
                 <a href="/vxit/contact" class="cta-button">
@@ -92,73 +101,23 @@ const { title, subtitle, cta } = Astro.props;
         display: inline-flex;
         flex-wrap: wrap;
     }
-    .hero-char {
+    .hero-char,
+    .sub-char {
         filter: blur(100px);
-        animation: 1s linear 1 blur-animation;
+        animation: 1s linear 1 hero-animation;
         animation-fill-mode: forwards;
     }
-    .hero-char[data-nth="1"] {
-        animation-delay: 0s;
-    }
-    .hero-char[data-nth="2"] {
-        animation-delay: 0.05s;
-    }
-    .hero-char[data-nth="3"] {
-        animation-delay: 0.1s;
-    }
-    .hero-char[data-nth="4"] {
-        animation-delay: 0.15s;
-    }
-    .hero-char[data-nth="5"] {
-        animation-delay: 0.2s;
-    }
-    .hero-char[data-nth="6"] {
-        animation-delay: 0.25s;
-    }
-    .hero-char[data-nth="7"] {
-        animation-delay: 0.3s;
-    }
-    .hero-char[data-nth="8"] {
-        animation-delay: 0.35s;
-    }
-    .hero-char[data-nth="9"] {
-        animation-delay: 0.4s;
-    }
-    .hero-char[data-nth="10"] {
-        animation-delay: 0.45s;
-    }
-    .hero-char[data-nth="11"] {
-        animation-delay: 0.5s;
-    }
-    .hero-char[data-nth="12"] {
-        animation-delay: 0.55s;
-    }
-    .hero-char[data-nth="13"] {
-        animation-delay: 0.6s;
-    }
-    .hero-char[data-nth="14"] {
-        animation-delay: 0.65s;
-    }
-    .hero-char[data-nth="15"] {
-        animation-delay: 0.7s;
-    }
-    .hero-char[data-nth="16"] {
-        animation-delay: 0.75s;
-    }
-    .hero-char[data-nth="17"] {
-        animation-delay: 0.8s;
-    }
-    .hero-char[data-nth="18"] {
-        animation-delay: 0.85s;
-    }
-    .hero-char[data-nth="19"] {
-        animation-delay: 0.9s;
+    .sub-char {
+        animation: 1s linear 1 sub-animation;
+        animation-fill-mode: forwards;
     }
 
     p {
         text-align: center;
         max-width: 750px;
         font-size: var(--font-size-2xl);
+        animation: 1.5s linear 1 opacityAnimation;
+        animation-fill-mode: forwards;
     }
 
     .cta-button {
@@ -179,7 +138,7 @@ const { title, subtitle, cta } = Astro.props;
         box-shadow: var(--shadow-hover);
     }
 
-    @keyframes blur-animation {
+    @keyframes hero-animation {
         0% {
             filter: blur(100px);
         }
@@ -199,5 +158,23 @@ const { title, subtitle, cta } = Astro.props;
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+    }
+
+    @keyframes sub-animation {
+        0% {
+            filter: blur(100px);
+        }
+        50% {
+            filter: blur(50px);
+        }
+        75% {
+            filter: blur(10px);
+        }
+        100% {
+            filter: blur(0);
+        }
+    }
+
+    @keyframes opacityAnimation {
     }
 </style>

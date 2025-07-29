@@ -2,7 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 
 import Hero from "../components/Hero.astro";
-import SectionTitle from "../components/SectionTitle.astro";
 
 import { Image } from "astro:assets";
 import websiteDevelopment from "../assets/services/website-development.jpg";
@@ -11,7 +10,9 @@ import seoOptimization from "../assets/services/seo-optimization.jpg";
 import ecommerceSolutions from "../assets/services/ecommerce-solutions.jpg";
 
 const services = [
+    // Website Development
     {
+        business: true,
         title: "Website Development",
         description:
             "We design and build fast, responsive, and visually striking websites tailored to your brand, audience, and business goals.",
@@ -22,9 +23,24 @@ const services = [
             "Performance optimization",
             "CMS integration (WordPress, headless, etc.)",
         ],
-        tags: ["Frontend", "Responsive", "Performance", "UX"],
     },
     {
+        business: false,
+        title: "Website Development",
+        description:
+            "Need a personal website, portfolio, or blog? We’ll help you create a clean, responsive site that looks great on all devices.",
+        image: websiteDevelopment,
+        features: [
+            "Simple, modern design",
+            "Mobile-friendly layouts",
+            "Fast load times",
+            "Easy-to-manage content",
+        ],
+    },
+
+    // AI Integration
+    {
+        business: true,
         title: "AI Integration",
         description:
             "Bring intelligent features to your platform with seamless AI integration — from chatbots and automation to data analysis and personalization.",
@@ -35,9 +51,24 @@ const services = [
             "Personalized user experiences",
             "API & third-party AI tools integration",
         ],
-        tags: ["AI", "Automation", "Chatbots", "Machine Learning"],
     },
     {
+        business: false,
+        title: "AI Integration",
+        description:
+            "Add smart tools like chatbots or writing assistants to your website or digital space with easy AI features that enhance your experience.",
+        image: aiIntegration,
+        features: [
+            "Simple chatbot setup",
+            "Content suggestions",
+            "Voice or image tools",
+            "Smart personalization basics",
+        ],
+    },
+
+    // Ecommerce Solutions
+    {
+        business: true,
         title: "Ecommerce Solutions",
         description:
             "We build scalable ecommerce platforms optimized for conversions, user experience, and seamless inventory/payment integrations.",
@@ -48,9 +79,24 @@ const services = [
             "Product management tools",
             "Sales & analytics dashboards",
         ],
-        tags: ["Ecommerce", "Shopify", "Payments", "Product Management"],
     },
     {
+        business: false,
+        title: "Ecommerce Solutions",
+        description:
+            "Want to sell products online? We’ll help you set up a simple and secure online shop so you can start selling right away.",
+        image: ecommerceSolutions,
+        features: [
+            "Easy online store setup",
+            "Payment methods (Stripe, PayPal)",
+            "Basic product uploads",
+            "Order notifications",
+        ],
+    },
+
+    // SEO Optimization
+    {
+        business: true,
         title: "SEO Optimization",
         description:
             "Enhance your visibility on search engines with proven SEO strategies, technical audits, content optimization, and performance improvements.",
@@ -61,7 +107,19 @@ const services = [
             "On-page optimization",
             "Performance & Core Web Vitals tuning",
         ],
-        tags: ["SEO", "Performance", "Traffic", "Growth"],
+    },
+    {
+        business: false,
+        title: "SEO Optimization",
+        description:
+            "Want your personal site to show up on Google? We’ll help you improve search visibility with simple SEO tips and tweaks.",
+        image: seoOptimization,
+        features: [
+            "Google search setup",
+            "Keyword basics",
+            "Simple meta tags",
+            "Performance tips",
+        ],
     },
 ];
 ---
@@ -74,32 +132,78 @@ const services = [
         />
         <section>
             <div class="categories">
-                <button type="button">
+                <button type="button" id="individualsButton">
                     Individuals
                     <i class="fa-solid fa-house"></i>
                 </button>
-                <button type="button" class="active">
+                <button type="button" class="active" id="businessesButton">
                     Businesses
                     <i class="fa-solid fa-building"></i>
                 </button>
             </div>
             <div class="services">
-                {
-                    services.map((service) => (
-                        <div class="service-card">
-                            <div class="service-info">
-                                <h3>{service.title}</h3>
-                                <p>{service.description}</p>
-                                <ul>
-                                    {service.features.map((feature) => (
-                                        <li>{feature}</li>
-                                    ))}
-                                </ul>
-                            </div>
-                            <Image src={service.image} alt={service.title} />
-                        </div>
-                    ))
-                }
+                <div class="business-services">
+                    {
+                        services.map((service) => (
+                            <>
+                                {service.business && (
+                                    <div class="service-card">
+                                        <div class="service-info">
+                                            <h3>{service.title}</h3>
+                                            <p>{service.description}</p>
+                                            <ul>
+                                                {service.features.map(
+                                                    (feature) => (
+                                                        <li>{feature}</li>
+                                                    ),
+                                                )}
+                                            </ul>
+                                            <a class="button" href="#">
+                                                Contact Us
+                                                <i class="fa-solid fa-arrow-right" />
+                                            </a>
+                                        </div>
+                                        <Image
+                                            src={service.image}
+                                            alt={service.title}
+                                        />
+                                    </div>
+                                )}
+                            </>
+                        ))
+                    }
+                </div>
+                <div class="individual-services">
+                    {
+                        services.map((service) => (
+                            <>
+                                {!service.business && (
+                                    <div class="service-card">
+                                        <div class="service-info">
+                                            <h3>{service.title}</h3>
+                                            <p>{service.description}</p>
+                                            <ul>
+                                                {service.features.map(
+                                                    (feature) => (
+                                                        <li>{feature}</li>
+                                                    ),
+                                                )}
+                                            </ul>
+                                            <a class="button" href="#">
+                                                Contact Us
+                                                <i class="fa-solid fa-arrow-right" />
+                                            </a>
+                                        </div>
+                                        <Image
+                                            src={service.image}
+                                            alt={service.title}
+                                        />
+                                    </div>
+                                )}
+                            </>
+                        ))
+                    }
+                </div>
             </div>
         </section>
     </main>
@@ -125,7 +229,9 @@ const services = [
         font-size: var(--font-size-xl);
         color: var(--color-white);
         cursor: pointer;
-        transition: border 0.3s ease;
+        transition:
+            border 0.3s ease,
+            background 0.3s ease;
     }
     .categories button:hover {
         border-color: var(--color-accent);
@@ -133,6 +239,22 @@ const services = [
     .categories button.active {
         border-color: var(--color-accent);
         background: rgba(var(--color-accent-rgb), 0.2);
+    }
+
+    .services {
+        display: grid;
+        width: 100%;
+        overflow-x: hidden;
+    }
+    .business-services,
+    .individual-services {
+        grid-area: 1 / 1;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.4s ease;
+    }
+    .individual-services {
+        transform: translateX(-100%);
     }
 
     .service-card {
@@ -143,6 +265,13 @@ const services = [
         padding: var(--space-8);
         border-top: 1px solid var(--color-gray);
         border-bottom: 1px solid var(--color-gray);
+        background: radial-gradient(
+            circle at center,
+            rgba(var(--color-accent-rgb), 0.15) 0%,
+            rgba(var(--color-accent-rgb), 0.1) 30%,
+            rgba(var(--color-accent-rgb), 0.05) 60%,
+            transparent 100%
+        );
     }
     .service-card img {
         width: 50%;
@@ -180,4 +309,53 @@ const services = [
         padding-left: var(--space-6);
         font-size: var(--font-size-lg);
     }
+    .service-info .button {
+        display: flex;
+        width: fit-content;
+        gap: var(--space-2);
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: var(--color-white);
+        border: 1px solid var(--color-gray);
+        border-radius: var(--radius-full);
+        padding: var(--space-4) var(--space-8);
+        transition:
+            border 0.3s ease,
+            background 0.3s ease;
+    }
+    .button:hover {
+        border-color: var(--color-accent);
+        background: rgba(var(--color-accent-rgb), 0.2);
+    }
 </style>
+
+<script>
+    const individualsButton = document.getElementById("individualsButton");
+    const businessesButton = document.getElementById("businessesButton");
+    const businessServices = document.querySelector(".business-services");
+    const individualServices = document.querySelector(".individual-services");
+
+    individualsButton?.addEventListener("click", () => {
+        switchView(false);
+    });
+    businessesButton?.addEventListener("click", () => {
+        switchView(true);
+    });
+
+    function switchView(business = true) {
+        if (business) {
+            businessesButton?.classList.add("active");
+            individualsButton?.classList.remove("active");
+
+            businessServices.style.transform = "translateX(0)";
+            individualServices.style.transform = "translateX(-100%)";
+        } else {
+            individualsButton?.classList.add("active");
+            businessesButton?.classList.remove("active");
+
+            businessServices.style.transform = "translateX(100%)";
+            individualServices.style.transform = "translateX(0)";
+        }
+    }
+</script>

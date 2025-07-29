@@ -66,8 +66,12 @@ import Button from "../components/Button.astro";
                         <label for="subject">Subject</label>
                     </div>
                     <div class="form-message">
-                        <textarea placeholder=" " required></textarea>
-                        <label for="subject">Message</label>
+                        <textarea
+                            id="message"
+                            name="message"
+                            placeholder=" "
+                            required></textarea>
+                        <label for="message">Message</label>
                     </div>
                     <Button type="submit" class="button">
                         Send Message
@@ -81,7 +85,7 @@ import Button from "../components/Button.astro";
 
 <style>
     section {
-        padding: var(--space-16) 0;
+        padding: var(--space-16) var(--space-6);
     }
 
     .container {
@@ -166,7 +170,7 @@ import Button from "../components/Button.astro";
     }
     textarea {
         height: 150px;
-        resize: vertical;
+        resize: none;
     }
     input:focus + label,
     input:not(:placeholder-shown) + label,
@@ -179,5 +183,28 @@ import Button from "../components/Button.astro";
     form button {
         align-self: center;
         margin-top: var(--space-4);
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            flex-direction: column;
+            max-width: auto;
+            gap: var(--space-12);
+        }
+        .contact-info {
+            width: 100%;
+        }
+        .contact-form {
+            width: 100%;
+        }
+
+        input:focus + label,
+        input:not(:placeholder-shown) + label,
+        textarea:focus + label,
+        textarea:not(:placeholder-shown) + label {
+            transform: translateY(-30px);
+            font-size: var(--font-size-sm);
+            color: var(--color-accent);
+        }
     }
 </style>

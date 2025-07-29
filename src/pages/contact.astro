@@ -1,0 +1,184 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import Hero from "../components/Hero.astro";
+import Button from "../components/Button.astro";
+---
+
+<Layout title="Contact Us - VXIT">
+    <main>
+        <Hero
+            title="Contact Us"
+            subtitle="Connect with us to discuss your project needs and how we can help."
+        />
+        <section>
+            <div class="container">
+                <div class="contact-info">
+                    <h2>Get in Touch</h2>
+                    <p>
+                        If you have any questions or would like to discuss your
+                        project, please reach out to us:
+                    </p>
+                    <a href="mailto:info@vxit.com">
+                        <i class="fa-solid fa-envelope"></i>
+                        info@vxit.com
+                    </a>
+                    <a href="tel:+1234567890">
+                        <i class="fa-solid fa-phone"></i>
+                        +1 (234) 567-890
+                    </a>
+                    <a
+                        href="https://www.google.com/maps/place/VXIT+Headquarters"
+                    >
+                        <i class="fa-solid fa-map-marker-alt"></i>
+                        123 VXIT Lane, Tech City, TX 12345
+                    </a>
+                </div>
+                <form class="contact-form">
+                    <div class="form-input">
+                        <input
+                            id="name"
+                            name="name"
+                            type="text"
+                            placeholder=" "
+                            required
+                        />
+                        <label for="name">Name</label>
+                    </div>
+                    <div class="form-input">
+                        <input
+                            id="email"
+                            name="email"
+                            type="email"
+                            placeholder=" "
+                            required
+                        />
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="form-input">
+                        <input
+                            id="subject"
+                            name="subject"
+                            type="text"
+                            placeholder=" "
+                            required
+                        />
+                        <label for="subject">Subject</label>
+                    </div>
+                    <div class="form-message">
+                        <textarea placeholder=" " required></textarea>
+                        <label for="subject">Message</label>
+                    </div>
+                    <Button type="submit" class="button">
+                        Send Message
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </Button>
+                </form>
+            </div>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    section {
+        padding: var(--space-16) 0;
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        gap: var(--space-8);
+    }
+
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: var(--space-4);
+        width: 50%;
+    }
+    h2 {
+        background: linear-gradient(
+            to right,
+            var(--color-accent),
+            var(--color-white)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: var(--font-size-6xl);
+    }
+    p {
+        font-size: var(--font-size-xl);
+        font-weight: var(--font-weight-medium);
+    }
+    a {
+        display: flex;
+        width: fit-content;
+        gap: var(--space-4);
+        align-items: center;
+        text-decoration: none;
+        color: inherit;
+        font-size: var(--font-size-xl);
+    }
+
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-8);
+        width: 50%;
+    }
+    .form-input,
+    .form-message {
+        position: relative;
+    }
+    .form-message {
+        margin-top: var(--space-2);
+    }
+    .form-input label,
+    .form-message label {
+        cursor: text;
+        position: absolute;
+        left: var(--space-2);
+        bottom: var(--space-4);
+        font-size: var(--font-size-xl);
+        transition:
+            transform 0.3s ease,
+            font-size 0.3s ease,
+            color 0.3s ease;
+    }
+    .form-message label {
+        top: var(--space-4);
+    }
+    input,
+    textarea {
+        width: 100%;
+        font-family: inherit;
+        font-size: var(--font-size-xl);
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid var(--color-gray);
+        padding: var(--space-4) var(--space-3);
+        color: var(--color-white);
+        outline: none;
+        transition: border 0.3s ease;
+        font-weight: var(--font-weight-medium);
+    }
+    textarea {
+        height: 150px;
+        resize: vertical;
+    }
+    input:focus + label,
+    input:not(:placeholder-shown) + label,
+    textarea:focus + label,
+    textarea:not(:placeholder-shown) + label {
+        transform: translateY(-35px);
+        font-size: var(--font-size-sm);
+        color: var(--color-accent);
+    }
+    form button {
+        align-self: center;
+        margin-top: var(--space-4);
+    }
+</style>

@@ -1,13 +1,11 @@
 ---
 const { title, subtitle, cta } = Astro.props;
-
-import heroImage from "../assets/hero.jpg";
 ---
 
 <section>
     <div class="overlay"></div>
 
-    <video loop muted autoplay playsinline poster={heroImage.src}>
+    <video loop muted autoplay playsinline poster="/vxit/poster.jpg">
         <source src="/vxit/hero.mp4" type="video/mp4" />
     </video>
     <div class="hero-content">
@@ -25,8 +23,8 @@ import heroImage from "../assets/hero.jpg";
         <p>{subtitle}</p>
         {
             cta && (
-                <a href="/vxit/services" class="cta-button">
-                    Explore Our Services
+                <a href="/vxit/contact" class="cta-button">
+                    Contact Us
                     <i class="fa-solid fa-arrow-right" />
                 </a>
             )

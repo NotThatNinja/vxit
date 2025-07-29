@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 
 import Hero from "../components/Hero.astro";
+import Button from "../components/Button.astro";
 
 import { Image } from "astro:assets";
 import websiteDevelopment from "../assets/services/website-development.jpg";
@@ -124,7 +125,7 @@ const services = [
 ];
 ---
 
-<Layout title="Home - VXIT">
+<Layout title="Services - VXIT">
     <main>
         <Hero
             title="Our Services"
@@ -132,14 +133,14 @@ const services = [
         />
         <section>
             <div class="categories">
-                <button type="button" id="individualsButton">
+                <Button type="button" id="individualsButton">
                     Individuals
                     <i class="fa-solid fa-house"></i>
-                </button>
-                <button type="button" class="active" id="businessesButton">
+                </Button>
+                <Button class="active" id="businessesButton">
                     Businesses
                     <i class="fa-solid fa-building"></i>
-                </button>
+                </Button>
             </div>
             <div class="services">
                 <div class="business-services">
@@ -158,7 +159,10 @@ const services = [
                                                     ),
                                                 )}
                                             </ul>
-                                            <a class="button" href="#">
+                                            <a
+                                                class="button"
+                                                href="/vxit/contact"
+                                            >
                                                 Contact Us
                                                 <i class="fa-solid fa-arrow-right" />
                                             </a>
@@ -189,7 +193,10 @@ const services = [
                                                     ),
                                                 )}
                                             </ul>
-                                            <a class="button" href="#">
+                                            <a
+                                                class="button"
+                                                href="/vxit/contact"
+                                            >
                                                 Contact Us
                                                 <i class="fa-solid fa-arrow-right" />
                                             </a>
@@ -216,29 +223,6 @@ const services = [
         align-items: center;
         gap: var(--space-12);
         margin-bottom: var(--space-8);
-    }
-    .categories button {
-        display: flex;
-        gap: var(--space-2);
-        justify-content: center;
-        align-items: center;
-        padding: var(--space-4) var(--space-8);
-        background: var(--color-black);
-        border: 1px solid var(--color-gray);
-        border-radius: var(--radius-full);
-        font-size: var(--font-size-xl);
-        color: var(--color-white);
-        cursor: pointer;
-        transition:
-            border 0.3s ease,
-            background 0.3s ease;
-    }
-    .categories button:hover {
-        border-color: var(--color-accent);
-    }
-    .categories button.active {
-        border-color: var(--color-accent);
-        background: rgba(var(--color-accent-rgb), 0.2);
     }
 
     .services {
@@ -309,7 +293,7 @@ const services = [
         padding-left: var(--space-6);
         font-size: var(--font-size-lg);
     }
-    .service-info .button {
+    .button {
         display: flex;
         width: fit-content;
         gap: var(--space-2);

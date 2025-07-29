@@ -11,13 +11,21 @@ const { title, subtitle, cta } = Astro.props;
     <div class="hero-content">
         <h1>
             {
-                title
-                    .split("")
-                    .map((char, index) => (
-                        <span key={index}>
-                            {char === " " ? "\u00A0" : char}
-                        </span>
-                    ))
+                title.split(" ").map((word, i) => (
+                    <span class="hero-word">
+                        {word.split("").map((char, j) => (
+                            <span
+                                data-nth={
+                                    i * title.split(" ")[0].length + j + 1
+                                }
+                                class="hero-char"
+                            >
+                                {char}
+                            </span>
+                        ))}
+                        &nbsp;
+                    </span>
+                ))
             }
         </h1>
         <p>{subtitle}</p>
@@ -36,9 +44,9 @@ const { title, subtitle, cta } = Astro.props;
     section {
         position: relative;
         display: flex;
-        width: 100%;
+        width: calc(100% - 2 * var(--space-6));
         height: 100vh;
-        padding: 0;
+        padding: 0 var(--space-6);
         justify-content: center;
         align-items: center;
         color: var(--color-white);
@@ -73,71 +81,77 @@ const { title, subtitle, cta } = Astro.props;
     }
 
     h1 {
-        display: flex;
+        display: inline-flex;
+        flex-wrap: wrap;
+        justify-content: center;
         font-size: var(--font-size-hero);
         font-weight: var(--font-weight-bold);
         text-align: center;
     }
-    h1 span {
+    .hero-word {
+        display: inline-flex;
+        flex-wrap: wrap;
+    }
+    .hero-char {
         filter: blur(100px);
         animation: 1s linear 1 blur-animation;
         animation-fill-mode: forwards;
     }
-    h1 span:nth-child(1) {
+    .hero-char[data-nth="1"] {
         animation-delay: 0s;
     }
-    h1 span:nth-child(2) {
+    .hero-char[data-nth="2"] {
         animation-delay: 0.05s;
     }
-    h1 span:nth-child(3) {
+    .hero-char[data-nth="3"] {
         animation-delay: 0.1s;
     }
-    h1 span:nth-child(4) {
+    .hero-char[data-nth="4"] {
         animation-delay: 0.15s;
     }
-    h1 span:nth-child(5) {
+    .hero-char[data-nth="5"] {
         animation-delay: 0.2s;
     }
-    h1 span:nth-child(6) {
+    .hero-char[data-nth="6"] {
         animation-delay: 0.25s;
     }
-    h1 span:nth-child(7) {
+    .hero-char[data-nth="7"] {
         animation-delay: 0.3s;
     }
-    h1 span:nth-child(8) {
+    .hero-char[data-nth="8"] {
         animation-delay: 0.35s;
     }
-    h1 span:nth-child(9) {
+    .hero-char[data-nth="9"] {
         animation-delay: 0.4s;
     }
-    h1 span:nth-child(10) {
+    .hero-char[data-nth="10"] {
         animation-delay: 0.45s;
     }
-    h1 span:nth-child(11) {
+    .hero-char[data-nth="11"] {
         animation-delay: 0.5s;
     }
-    h1 span:nth-child(12) {
+    .hero-char[data-nth="12"] {
         animation-delay: 0.55s;
     }
-    h1 span:nth-child(13) {
+    .hero-char[data-nth="13"] {
         animation-delay: 0.6s;
     }
-    h1 span:nth-child(14) {
+    .hero-char[data-nth="14"] {
         animation-delay: 0.65s;
     }
-    h1 span:nth-child(15) {
+    .hero-char[data-nth="15"] {
         animation-delay: 0.7s;
     }
-    h1 span:nth-child(16) {
+    .hero-char[data-nth="16"] {
         animation-delay: 0.75s;
     }
-    h1 span:nth-child(17) {
+    .hero-char[data-nth="17"] {
         animation-delay: 0.8s;
     }
-    h1 span:nth-child(18) {
+    .hero-char[data-nth="18"] {
         animation-delay: 0.85s;
     }
-    h1 span:nth-child(19) {
+    .hero-char[data-nth="19"] {
         animation-delay: 0.9s;
     }
 

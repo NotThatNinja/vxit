@@ -18,7 +18,7 @@ import Footer from "../components/Footer.astro";
 		<title>{title}</title>
 	</head>
 	<body>
-		<Header />
+		<!-- <Header /> -->
 		<slot />
 		<Footer />
 	</body>
@@ -120,7 +120,41 @@ import Footer from "../components/Footer.astro";
 		line-height: var(--line-height-normal);
 	}
 
-	button {
+	button,
+	input,
+	textarea {
 		font-family: inherit;
+	}
+
+	@media (max-width: 768px) {
+		:root {
+			/* Font Sizes */
+			--font-size-xs: 0.6875rem; /* 11px */
+			--font-size-sm: 0.75rem; /* 12px */
+			--font-size-base: 0.875rem; /* 14px */
+			--font-size-lg: 1rem; /* 16px */
+			--font-size-xl: 1.125rem; /* 18px */
+			--font-size-2xl: 1.25rem; /* 20px */
+			--font-size-3xl: 1.5rem; /* 24px */
+			--font-size-4xl: 1.75rem; /* 28px */
+			--font-size-5xl: 2rem; /* 32px */
+			--font-size-6xl: 2.5rem; /* 40px */
+			--font-size-hero: 3rem; /* 128px */
+
+			/* Spacing */
+			--space-1: 0.125rem; /* 2px */
+			--space-2: 0.25rem; /* 4px */
+			--space-3: 0.5rem; /* 8px */
+			--space-4: 0.75rem; /* 12px */
+			--space-5: 1rem; /* 16px */
+			--space-6: 1.25rem; /* 20px */
+			--space-8: 1.5rem; /* 24px */
+			--space-10: 2rem; /* 32px */
+			--space-12: 2.5rem; /* 40px */
+			--space-16: 3rem; /* 48px */
+			--space-20: 4rem; /* 64px */
+			--space-24: 5rem; /* 80px */
+			--space-32: 6rem; /* 96px */
+		}
 	}
 </style>

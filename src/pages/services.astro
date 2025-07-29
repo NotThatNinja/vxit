@@ -312,6 +312,23 @@ const services = [
         border-color: var(--color-accent);
         background: rgba(var(--color-accent-rgb), 0.2);
     }
+
+    @media (max-width: 768px) {
+        .categories {
+            gap: 0;
+            justify-content: space-evenly;
+        }
+
+        .service-card {
+            flex-direction: column;
+        }
+        .service-info {
+            width: auto;
+        }
+        .service-card img {
+            width: 100%;
+        }
+    }
 </style>
 
 <script>

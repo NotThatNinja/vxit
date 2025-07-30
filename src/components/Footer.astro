@@ -1,5 +1,167 @@
 <footer>
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
-    /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
-    /><br /><br /><br /><br />
+    <div class="content">
+        <div class="section">
+            <h4>VXIT</h4>
+            <p>
+                Engineering sleek, high-performing sites that drive growth. We
+                handle the tech, so you can focus on your success.
+            </p>
+        </div>
+        <div class="section">
+            <h4>Links</h4>
+            <ul>
+                <li><a href="/vxit">Home</a></li>
+                <li><a href="/vxit/services">Services</a></li>
+                <li><a href="/vxit/portfolio">Portfolio</a></li>
+                <li><a href="/vxit/contact">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="section">
+            <h4>Services</h4>
+            <ul>
+                <li><a href="/vxit/services">Website Development</a></li>
+                <li><a href="/vxit/services">AI Integration</a></li>
+                <li><a href="/vxit/services">Ecommerce Solutions</a></li>
+                <li><a href="/vxit/services">SEO Optimization</a></li>
+            </ul>
+        </div>
+        <div class="section">
+            <h4>Contact Info</h4>
+            <a href="mailto:hello@vxit.com">
+                <i class="fas fa-envelope"></i> hello@vxit.com
+            </a>
+            <a href="tel:+1234567890">
+                <i class="fas fa-phone"></i>
+                +1 (234) 567-890
+            </a>
+            <a href="https://www.google.com/maps/place/VXIT+Headquarters">
+                <i class="fas fa-map-marker-alt"></i>
+                San Francisco, CA
+            </a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 VXIT. All rights reserved.</p>
+        <ul>
+            <li><a href="/vxit/privacy">Privacy Policy</a></li>
+            <li><a href="/vxit/terms">Terms of Service</a></li>
+        </ul>
+    </div>
 </footer>
+
+<style>
+    footer {
+        margin-top: var(--space-32);
+        padding: var(--space-16) var(--space-12) 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(var(--color-accent-rgb), 0.3) 20%,
+            var(--color-accent) 50%,
+            rgba(var(--color-accent-rgb), 0.3) 80%,
+            transparent 100%
+        );
+        animation: borderPulse 3s ease-in-out infinite;
+    }
+
+    .content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 300px);
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-6);
+    }
+
+    .section {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        gap: var(--space-4);
+    }
+    h4 {
+        font-size: var(--font-size-xl);
+    }
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    a {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-2);
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    a:hover {
+        color: var(--color-white);
+    }
+    a i {
+        color: var(--color-accent);
+    }
+
+    .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: var(--space-12);
+        padding: var(--space-6) 0;
+        border-top: 1px solid var(--color-gray);
+    }
+    .footer-bottom p {
+        color: rgba(255, 255, 255, 0.7);
+    }
+    .footer-bottom ul {
+        flex-direction: row;
+        gap: var(--space-12);
+    }
+
+    @media (max-width: 768px) {
+        footer {
+            padding: var(--space-10) var(--space-8) 0;
+        }
+
+        .content {
+            grid-template-columns: 1fr;
+            gap: var(--space-10);
+        }
+
+        .footer-bottom {
+            flex-direction: column;
+            gap: var(--space-4);
+        }
+        .footer-bottom ul {
+            width: 100%;
+            gap: 0;
+            justify-content: space-evenly;
+        }
+    }
+
+    /* Border Animation Keyframes */
+    @keyframes borderPulse {
+        0%,
+        100% {
+            opacity: 0.8;
+            transform: scaleX(1);
+        }
+        50% {
+            opacity: 1;
+            transform: scaleX(1.2);
+        }
+    }
+</style>

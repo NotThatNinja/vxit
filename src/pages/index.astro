@@ -33,6 +33,34 @@ const services = [
         image: seoOptimization,
     },
 ];
+
+const faq = [
+    {
+        question:
+            "What makes VXIT different from other web development agencies?",
+        answer: "VXIT specializes in creating high-performance, custom websites with cutting-edge AI integration. We focus on delivering sleek designs that drive real business growth, not just pretty websites.",
+    },
+    {
+        question: "How long does a typical project take?",
+        answer: "Project timelines vary based on complexity. A standard website takes 2-4 weeks, while custom AI integrations or complex ecommerce solutions may take 6-8 weeks. We'll provide a detailed timeline during consultation.",
+    },
+    {
+        question: "Do you provide ongoing support and maintenance?",
+        answer: "Absolutely! We offer comprehensive post-launch support including updates, security monitoring, performance optimization, and technical assistance to ensure your site continues to perform at its best.",
+    },
+    {
+        question: "What's included in your AI integration services?",
+        answer: "Our AI integration services include chatbots, automated content generation, personalized user experiences, predictive analytics, and custom AI tools tailored to your business needs.",
+    },
+    {
+        question: "Can you help improve my existing website's performance?",
+        answer: "Yes! We offer website audits, performance optimization, SEO improvements, and modernization services to transform your existing site into a high-performing digital asset.",
+    },
+    {
+        question: "What's your pricing structure?",
+        answer: "We offer flexible pricing based on project scope and requirements. Contact us for a free consultation where we'll provide a detailed quote tailored to your specific needs and budget.",
+    },
+];
 ---
 
 <Layout title="Home - VXIT">
@@ -94,6 +122,24 @@ const services = [
                                 </div>
                             </div>
                         </a>
+                    ))
+                }
+            </div>
+        </section>
+        <section>
+            <SectionTitle>Frequently Asked Questions</SectionTitle>
+            <div class="faq">
+                {
+                    faq.map((item, index) => (
+                        <div class="faq-item">
+                            <button class="faq-question" data-index={index}>
+                                <span>{item.question}</span>
+                                <i class="fa-solid fa-chevron-down" />
+                            </button>
+                            <div class="faq-answer">
+                                <p>{item.answer}</p>
+                            </div>
+                        </div>
                     ))
                 }
             </div>
@@ -202,6 +248,65 @@ const services = [
         display: inline-block;
     }
 
+    /* --- FAQ Section --- */
+    .faq {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 var(--space-6);
+    }
+    .faq-item {
+        border-bottom: 1px solid var(--color-gray);
+    }
+
+    .faq-question {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--space-6) 0;
+        background: none;
+        border: none;
+        color: inherit;
+        cursor: pointer;
+        font-size: var(--font-size-2xl);
+        font-weight: var(--font-weight-semibold);
+        text-align: left;
+        transition: color 0.3s ease;
+    }
+    .faq-question:hover {
+        color: var(--color-accent);
+    }
+    .faq-question i {
+        font-size: var(--font-size-lg);
+        transition: transform 0.3s ease;
+        color: var(--color-accent);
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition:
+            max-height 0.3s ease,
+            padding 0.3s ease;
+    }
+    .faq-answer p {
+        font-size: var(--font-size-lg);
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.8);
+        margin: 0;
+    }
+
+    .faq-item.active .faq-question i {
+        transform: rotate(180deg);
+    }
+    .faq-item.active .faq-answer {
+        max-height: 200px;
+        padding-bottom: var(--space-6);
+    }
+
     @media (max-width: 768px) {
         .about-us p {
             font-size: var(--font-size-3xl);
@@ -259,5 +364,29 @@ const services = [
                 (word) => ((word as HTMLElement).style.opacity = "0.25"),
             );
         }
+    });
+
+    // FAQ accordion functionality
+    document.addEventListener("DOMContentLoaded", () => {
+        const faqQuestions = document.querySelectorAll(".faq-question");
+
+        faqQuestions.forEach((question) => {
+            question.addEventListener("click", () => {
+                const faqItem = question.parentElement;
+                if (!faqItem) return;
+
+                const isActive = faqItem.classList.contains("active");
+
+                // Close all other FAQ items
+                document.querySelectorAll(".faq-item").forEach((item) => {
+                    item.classList.remove("active");
+                });
+
+                // Toggle current item
+                if (!isActive) {
+                    faqItem.classList.add("active");
+                }
+            });
+        });
     });
 </script>

@@ -13,7 +13,6 @@ import ecommerceSolutions from "../assets/services/ecommerce-solutions.jpg";
 const services = [
     // Website Development
     {
-        business: true,
         title: "Website Development",
         description:
             "We design and build fast, responsive, and visually striking websites tailored to your brand, audience, and business goals.",
@@ -25,23 +24,9 @@ const services = [
             "CMS integration (WordPress, headless, etc.)",
         ],
     },
-    {
-        business: false,
-        title: "Website Development",
-        description:
-            "Need a personal website, portfolio, or blog? We’ll help you create a clean, responsive site that looks great on all devices.",
-        image: websiteDevelopment,
-        features: [
-            "Simple, modern design",
-            "Mobile-friendly layouts",
-            "Fast load times",
-            "Easy-to-manage content",
-        ],
-    },
 
     // AI Integration
     {
-        business: true,
         title: "AI Integration",
         description:
             "Bring intelligent features to your platform with seamless AI integration — from chatbots and automation to data analysis and personalization.",
@@ -53,23 +38,9 @@ const services = [
             "API & third-party AI tools integration",
         ],
     },
-    {
-        business: false,
-        title: "AI Integration",
-        description:
-            "Add smart tools like chatbots or writing assistants to your website or digital space with easy AI features that enhance your experience.",
-        image: aiIntegration,
-        features: [
-            "Simple chatbot setup",
-            "Content suggestions",
-            "Voice or image tools",
-            "Smart personalization basics",
-        ],
-    },
 
     // Ecommerce Solutions
     {
-        business: true,
         title: "Ecommerce Solutions",
         description:
             "We build scalable ecommerce platforms optimized for conversions, user experience, and seamless inventory/payment integrations.",
@@ -81,23 +52,9 @@ const services = [
             "Sales & analytics dashboards",
         ],
     },
-    {
-        business: false,
-        title: "Ecommerce Solutions",
-        description:
-            "Want to sell products online? We’ll help you set up a simple and secure online shop so you can start selling right away.",
-        image: ecommerceSolutions,
-        features: [
-            "Easy online store setup",
-            "Payment methods (Stripe, PayPal)",
-            "Basic product uploads",
-            "Order notifications",
-        ],
-    },
 
     // SEO Optimization
     {
-        business: true,
         title: "SEO Optimization",
         description:
             "Enhance your visibility on search engines with proven SEO strategies, technical audits, content optimization, and performance improvements.",
@@ -107,19 +64,6 @@ const services = [
             "Keyword research",
             "On-page optimization",
             "Performance & Core Web Vitals tuning",
-        ],
-    },
-    {
-        business: false,
-        title: "SEO Optimization",
-        description:
-            "Want your personal site to show up on Google? We’ll help you improve search visibility with simple SEO tips and tweaks.",
-        image: seoOptimization,
-        features: [
-            "Google search setup",
-            "Keyword basics",
-            "Simple meta tags",
-            "Performance tips",
         ],
     },
 ];
@@ -145,69 +89,31 @@ const services = [
             <div class="services">
                 <div class="business-services">
                     {
-                        services.map((service) => (
-                            <>
-                                {service.business && (
-                                    <div class="service-card">
-                                        <div class="service-info">
-                                            <h3>{service.title}</h3>
-                                            <p>{service.description}</p>
-                                            <ul>
-                                                {service.features.map(
-                                                    (feature) => (
-                                                        <li>{feature}</li>
-                                                    ),
-                                                )}
-                                            </ul>
-                                            <a
-                                                class="button"
-                                                href="/vxit/contact"
-                                            >
-                                                Contact Us
-                                                <i class="fa-solid fa-arrow-right" />
-                                            </a>
-                                        </div>
-                                        <Image
-                                            src={service.image}
-                                            alt={service.title}
-                                        />
-                                    </div>
-                                )}
-                            </>
-                        ))
-                    }
-                </div>
-                <div class="individual-services">
-                    {
-                        services.map((service) => (
-                            <>
-                                {!service.business && (
-                                    <div class="service-card">
-                                        <div class="service-info">
-                                            <h3>{service.title}</h3>
-                                            <p>{service.description}</p>
-                                            <ul>
-                                                {service.features.map(
-                                                    (feature) => (
-                                                        <li>{feature}</li>
-                                                    ),
-                                                )}
-                                            </ul>
-                                            <a
-                                                class="button"
-                                                href="/vxit/contact"
-                                            >
-                                                Contact Us
-                                                <i class="fa-solid fa-arrow-right" />
-                                            </a>
-                                        </div>
-                                        <Image
-                                            src={service.image}
-                                            alt={service.title}
-                                        />
-                                    </div>
-                                )}
-                            </>
+                        services.map((service, i) => (
+                            <div
+                                class="service-card"
+                                data-aos={
+                                    i % 2 === 0 ? "fade-left" : "fade-right"
+                                }
+                            >
+                                <div class="service-info">
+                                    <h3>{service.title}</h3>
+                                    <p>{service.description}</p>
+                                    <ul>
+                                        {service.features.map((feature) => (
+                                            <li>{feature}</li>
+                                        ))}
+                                    </ul>
+                                    <a class="button" href="/vxit/contact">
+                                        Learn More
+                                        <i class="fa-solid fa-arrow-right" />
+                                    </a>
+                                </div>
+                                <Image
+                                    src={service.image}
+                                    alt={service.title}
+                                />
+                            </div>
                         ))
                     }
                 </div>
@@ -247,8 +153,6 @@ const services = [
         justify-content: center;
         align-items: center;
         padding: var(--space-8);
-        border-top: 1px solid var(--color-gray);
-        border-bottom: 1px solid var(--color-gray);
         background: radial-gradient(
             circle at center,
             rgba(var(--color-accent-rgb), 0.15) 0%,
@@ -257,9 +161,12 @@ const services = [
             transparent 100%
         );
     }
+    .service-card:nth-child(odd) {
+        flex-direction: row-reverse;
+    }
     .service-card img {
-        width: 50%;
-        height: 100%;
+        width: 33%;
+        height: 75%;
         object-fit: cover;
         padding: var(--space-8);
         border-radius: 3rem;
@@ -269,7 +176,7 @@ const services = [
         flex-direction: column;
         justify-content: center;
         gap: var(--space-4);
-        width: 50%;
+        width: 66%;
     }
     .service-info h3 {
         font-size: var(--font-size-5xl);

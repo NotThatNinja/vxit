@@ -11,26 +11,64 @@ import seoOptimization from "../assets/services/seo-optimization.jpg";
 import ecommerceSolutions from "../assets/services/ecommerce-solutions.jpg";
 
 const services = [
+    // Website Development
     {
         title: "Website Development",
-        description: "Custom websites tailored to your business needs.",
+        description:
+            "We design and build fast, responsive, and visually striking websites tailored to your brand, audience, and business goals.",
         image: websiteDevelopment,
+        features: [
+            "Custom design & UX",
+            "Mobile-first development",
+            "Performance optimization",
+            "CMS integration (WordPress, headless, etc.)",
+        ],
+        url: "/vxit/services/website-development",
     },
+
+    // AI Integration
     {
         title: "AI Integration",
-        description: "Integrate AI solutions into your websites.",
+        description:
+            "Bring intelligent features to your platform with seamless AI integration — from chatbots and automation to data analysis and personalization.",
         image: aiIntegration,
+        features: [
+            "AI-powered chatbots",
+            "Data processing & analytics",
+            "Personalized user experiences",
+            "API & third-party AI tools integration",
+        ],
+        url: "/vxit/services/ai-integration",
     },
+
+    // Ecommerce Solutions
     {
         title: "Ecommerce Solutions",
         description:
-            "Comprehensive ecommerce solutions to grow your online store.",
+            "We build scalable ecommerce platforms optimized for conversions, user experience, and seamless inventory/payment integrations.",
         image: ecommerceSolutions,
+        features: [
+            "Custom storefronts",
+            "Secure payment integration",
+            "Product management tools",
+            "Sales & analytics dashboards",
+        ],
+        url: "/vxit/services/ecommerce-solutions",
     },
+
+    // SEO Optimization
     {
         title: "SEO Optimization",
-        description: "Boost your online presence with our SEO services.",
+        description:
+            "Enhance your visibility on search engines with proven SEO strategies, technical audits, content optimization, and performance improvements.",
         image: seoOptimization,
+        features: [
+            "Technical SEO audits",
+            "Keyword research",
+            "On-page optimization",
+            "Performance & Core Web Vitals tuning",
+        ],
+        url: "/vxit/services/seo-optimization",
     },
 ];
 
@@ -192,20 +230,26 @@ const faq = [
             <SectionTitle>Our Services</SectionTitle>
             <div class="services">
                 {
-                    services.map((service) => (
-                        <a href="/vxit/services">
-                            <div class="service-card">
-                                <Image
-                                    src={service.image}
-                                    alt={service.title}
-                                />
-                                <div class="service-info">
-                                    <i class="fa-solid fa-arrow-up-right-from-square" />
-                                    <h3>{service.title}</h3>
-                                    <p>{service.description}</p>
-                                </div>
+                    services.map((service, i) => (
+                        <div
+                            class="service-card"
+                            data-aos={i % 2 === 0 ? "fade-left" : "fade-right"}
+                        >
+                            <div class="service-info">
+                                <h3>{service.title}</h3>
+                                <p>{service.description}</p>
+                                <ul>
+                                    {service.features.map((feature) => (
+                                        <li>{feature}</li>
+                                    ))}
+                                </ul>
+                                <a class="button" href="/vxit/contact">
+                                    Learn More
+                                    <i class="fa-solid fa-arrow-right" />
+                                </a>
                             </div>
-                        </a>
+                            <Image src={service.image} alt={service.title} />
+                        </div>
                     ))
                 }
             </div>
@@ -234,86 +278,81 @@ const faq = [
 <style>
     /* --- Services Section --- */
     .services {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-        max-width: 1400px;
-        margin: 0 auto;
-    }
-    .services a {
-        display: block;
-        text-decoration: none;
-        color: inherit;
-    }
-
-    .service-card {
-        overflow: hidden;
-        position: relative;
-        height: 400px;
-        background: var(--color-black);
-        border: 1px solid var(--color-gray);
-        cursor: pointer;
-    }
-    .service-card img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 0;
-        transition: opacity 0.4s ease;
-    }
-    .service-card:hover img {
-        opacity: 1;
-    }
-    .service-info {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: calc(100% - 2 * var(--space-6));
-        height: calc(100% - 2 * var(--space-6));
         display: flex;
         flex-direction: column;
-        justify-content: end;
-        padding: var(--space-6);
-        background: rgba(0, 0, 0, 0.5);
+        transition: transform 0.4s ease;
+        overflow-x: hidden;
+        padding-top: var(--space-4);
+        background: radial-gradient(
+            circle at center,
+            rgba(var(--color-accent-rgb), 0.15) 0%,
+            rgba(var(--color-accent-rgb), 0.05) 100%
+        );
     }
-    .service-info i {
-        position: absolute;
-        top: var(--space-6);
-        right: var(--space-6);
-        font-size: var(--font-size-xl);
-        transform: translateX(20px);
-        transition:
-            transform 0.4s ease,
-            opacity 0.4s ease;
-        opacity: 0;
+    .service-card {
+        display: flex;
+        gap: var(--space-8);
+        justify-content: center;
+        align-items: center;
+        padding: var(--space-4) var(--space-8);
+    }
+    .service-card:nth-child(odd) {
+        flex-direction: row-reverse;
+    }
+    .service-card img {
+        width: 33%;
+        height: 100%;
+        object-fit: cover;
+        padding: var(--space-8);
+        border-radius: 3rem;
+    }
+    .service-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: var(--space-4);
+        width: 66%;
     }
     .service-info h3 {
-        position: absolute;
-        font-size: var(--font-size-3xl);
-        opacity: 0.5;
-        transition:
-            transform 0.4s ease,
-            opacity 0.4s ease;
+        font-size: var(--font-size-4xl);
+        background: linear-gradient(
+            to bottom,
+            var(--color-accent),
+            var(--color-white)
+        );
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
     .service-info p {
+        font-size: var(--font-size-xl);
+    }
+    .service-info ul {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-4);
+    }
+    .service-info ul li {
+        padding-left: var(--space-6);
         font-size: var(--font-size-lg);
-        opacity: 0;
-        transform: translateY(40px);
+    }
+    .button {
+        display: flex;
+        width: fit-content;
+        gap: var(--space-2);
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: var(--color-white);
+        border: 1px solid var(--color-gray);
+        border-radius: var(--radius-full);
+        padding: var(--space-4) var(--space-8);
         transition:
-            transform 0.4s ease,
-            opacity 0.4s ease;
+            border 0.3s ease,
+            background 0.3s ease;
     }
-    .service-info:hover h3 {
-        transform: translateY(-40px);
-        opacity: 0.8;
-    }
-    .service-info:hover p {
-        display: block;
-        opacity: 0.8;
-        transform: translateY(-5px);
-    }
-    .service-info:hover i {
-        transform: translateX(0);
-        opacity: 1;
+    .button:hover {
+        border-color: var(--color-accent);
+        background: rgba(var(--color-accent-rgb), 0.2);
     }
 
     /* --- About Us Section --- */
@@ -509,28 +548,17 @@ const faq = [
             font-size: var(--font-size-3xl);
         }
 
-        .services {
-            grid-template-columns: 1fr;
+        .service-card {
+            flex-direction: column;
         }
-        .service-card img {
-            opacity: 1;
+        .service-card:nth-child(odd) {
+            flex-direction: column;
         }
         .service-info {
-            gap: var(--space-2);
+            width: auto;
         }
-        .service-info h3,
-        .service-info p {
-            position: static;
-            opacity: 0.8;
-            transform: translate(0);
-        }
-        .service-info i {
-            opacity: 1;
-            transform: translate(0);
-        }
-        .service-info:hover * {
-            transform: translate(0);
-            opacity: 1;
+        .service-card img {
+            width: 100%;
         }
 
         .stats-grid {

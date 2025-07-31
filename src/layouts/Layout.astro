@@ -1,6 +1,8 @@
 ---
 const { title } = Astro.props;
 
+import "aos/dist/aos.css";
+
 import "@fontsource-variable/inter";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
@@ -159,3 +161,13 @@ import Footer from "../components/Footer.astro";
 		}
 	}
 </style>
+
+<script>
+	import AOS from "aos";
+
+	AOS.init({
+		duration: 800,
+		easing: "ease-in-out",
+		once: true,
+	});
+</script>

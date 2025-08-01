@@ -1,0 +1,118 @@
+---
+import ServiceLayout from "../../layouts/ServiceLayout.astro";
+
+const websiteData = {
+    title: "Website Development - VXIT",
+    hero: {
+        title: "Website Development",
+        subtitle:
+            "Create stunning, responsive websites that drive results. From personal portfolios to enterprise solutions, we build websites that work beautifully across all devices.",
+    },
+    individualPlan: {
+        name: "Personal Website",
+        price: "Starting from 800€",
+        description: "Perfect for freelancers, artists, and personal brands",
+        features: [
+            "Single or multi-page responsive website",
+            "Custom design & branding",
+            "Mobile optimization",
+            "Contact form integration",
+            "Basic SEO setup",
+            "1 month support included",
+            "Social media integration",
+            "90+/100 Google performance score",
+        ],
+        timeline: "2-3 weeks",
+    },
+    businessPlan: {
+        name: "Business Website",
+        price: "Starting from 1500€",
+        description: "Comprehensive solution for growing businesses",
+        features: [
+            "Everything in Personal plan",
+            "As many pages as needed",
+            "Custom design & development",
+            "Advanced mobile optimization",
+            "Advanced SEO optimization",
+            "Analytics integration",
+            "3 months support included",
+            "Performance optimization",
+            "Security features",
+            "Priority support and maintenance",
+        ],
+        timeline: "4-6 weeks",
+    },
+    benefits: [
+        {
+            title: "Responsive Design",
+            description:
+                "Your website will look perfect on all devices - desktop, tablet, and mobile.",
+            icon: "fas fa-mobile-alt",
+        },
+        {
+            title: "Fast Loading",
+            description:
+                "Optimized for speed with best practices to ensure quick loading times.",
+            icon: "fas fa-bolt",
+        },
+        {
+            title: "SEO Optimized",
+            description:
+                "Built with SEO best practices to help your site rank higher in search results.",
+            icon: "fas fa-search",
+        },
+        {
+            title: "Secure & Reliable",
+            description:
+                "Industry-standard security measures and reliable hosting solutions.",
+            icon: "fas fa-shield-alt",
+        },
+        {
+            title: "Fully Managed",
+            description:
+                "We handle all requested changes and edits—just let us know what you need (additional fees may apply).",
+            icon: "fas fa-cog",
+        },
+        {
+            title: "Ongoing Support",
+            description:
+                "Dedicated support team to help you maintain and grow your website.",
+            icon: "fas fa-headset",
+        },
+    ],
+    process: [
+        {
+            step: 1,
+            title: "Discovery & Planning",
+            description:
+                "We start by understanding your goals, target audience, and requirements to create a comprehensive project roadmap.",
+        },
+        {
+            step: 2,
+            title: "Design & Prototyping",
+            description:
+                "Our designers create wireframes and visual designs that align with your brand and user experience goals.",
+        },
+        {
+            step: 3,
+            title: "Development & Testing",
+            description:
+                "We build your website using modern technologies and conduct thorough testing across all devices and browsers.",
+        },
+        {
+            step: 4,
+            title: "Launch & Optimization",
+            description:
+                "We deploy your website and optimize it for performance, security, and search engines.",
+        },
+        {
+            step: 5,
+            title: "Support & Maintenance",
+            description:
+                "Ongoing support, updates, and maintenance to ensure your website continues to perform at its best.",
+        },
+    ],
+};
+---
+
+<ServiceLayout {...websiteData} />

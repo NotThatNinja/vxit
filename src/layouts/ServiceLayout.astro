@@ -1,0 +1,534 @@
+---
+import Layout from "./Layout.astro";
+import Hero from "../components/Hero.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import { Image } from "astro:assets";
+
+const { title, hero, individualPlan, businessPlan, benefits, process } =
+    Astro.props;
+---
+
+<Layout title={title}>
+    <main>
+        <Hero title={hero.title} subtitle={hero.subtitle} />
+
+        <!-- Benefits Section -->
+        <section class="benefits">
+            <SectionTitle>Why Choose Us?</SectionTitle>
+            <div class="benefits-grid">
+                {
+                    benefits.map((benefit) => (
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <i class={benefit.icon} />
+                            </div>
+                            <h3>{benefit.title}</h3>
+                            <p>{benefit.description}</p>
+                        </div>
+                    ))
+                }
+            </div>
+        </section>
+
+        <!-- Pricing Toggle Section -->
+        <section>
+            <SectionTitle>Our Plans</SectionTitle>
+            <div class="plans">
+                <div class="toggle-plans">
+                    <button id="individualPlansToggle"> Individual </button>
+                    <button class="active" id="businessPlansToggle"
+                        >Business</button
+                    >
+                </div>
+
+                <div class="plan-cards">
+                    <div class="plan-card" id="individualPlanCard">
+                        <div class="card-header">
+                            <h3>{individualPlan.name}</h3>
+                            <p class="price">{individualPlan.price}</p>
+                            <p>{individualPlan.description}</p>
+                        </div>
+                        <ul>
+                            {
+                                individualPlan.features.map((feature) => (
+                                    <li>
+                                        <i class="fas fa-check" /> {feature}
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                        <p class="timeline">
+                            <i class="fas fa-clock"></i>
+                            {individualPlan.timeline}
+                        </p>
+                        <a class="active" href="/vxit/contact">
+                            Contact Us
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <div class="plan-card active" id="businessPlanCard">
+                        <div class="card-header">
+                            <h3>{businessPlan.name}</h3>
+                            <p class="price">{businessPlan.price}</p>
+                            <p>{businessPlan.description}</p>
+                        </div>
+                        <ul>
+                            {
+                                businessPlan.features.map((feature) => (
+                                    <li>
+                                        <i class="fas fa-check" /> {feature}
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                        <p class="timeline">
+                            <i class="fas fa-clock"></i>
+                            {businessPlan.timeline}
+                        </p>
+                        <a href="/vxit/contact">
+                            Contact Us
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="process">
+            <SectionTitle>Our Process</SectionTitle>
+            <div class="process-timeline">
+                {
+                    process.map((step, index) => (
+                        <div class="process-step">
+                            <div class="step-number">{step.step}</div>
+                            <div class="step-content">
+                                <h3>{step.title}</h3>
+                                <p>{step.description}</p>
+                            </div>
+                            {index < process.length - 1 && (
+                                <div class="step-connector" />
+                            )}
+                        </div>
+                    ))
+                }
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="cta-content">
+                <h2>Ready to Get Started?</h2>
+                <p>
+                    Contact us today for a free consultation and let's bring
+                    your vision to life.
+                </p>
+                <div class="cta-buttons">
+                    <a href="/vxit/contact" class="btn-primary"
+                        >Start Your Project</a
+                    >
+                    <a href="/vxit/portfolio" class="btn-secondary"
+                        >View Our Work</a
+                    >
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    /* --- Plans Section --- */
+    .plans {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-12);
+        padding: 0 var(--space-6);
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .toggle-plans {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        gap: var(--space-4);
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: var(--radius-full);
+        padding: var(--space-2) var(--space-3);
+    }
+
+    .toggle-plans button {
+        z-index: 10;
+        padding: var(--space-3) var(--space-8);
+        background: transparent;
+        width: 50%;
+        color: rgba(255, 255, 255, 0.6);
+        border: none;
+        border-radius: var(--radius-full);
+        font-size: var(--font-size-base);
+        font-weight: var(--font-weight-medium);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .toggle-plans button.active {
+        color: var(--color-white);
+        background: linear-gradient(
+            135deg,
+            var(--color-accent) 0%,
+            var(--color-secondary) 100%
+        );
+    }
+
+    .plan-cards {
+        display: flex;
+        gap: var(--space-16);
+        max-width: 1000px;
+    }
+
+    .plan-card {
+        display: flex;
+        flex-direction: column;
+        width: calc(100% - 2 * var(--space-8));
+        gap: var(--space-2);
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius-2xl);
+        padding: var(--space-8);
+        transition: all 0.3s ease;
+        opacity: 0.5;
+    }
+    .plan-card.active {
+        opacity: 1;
+        scale: 1.05;
+        border-color: rgba(var(--color-accent-rgb), 0.5);
+        box-shadow: 0 20px 40px rgba(var(--color-accent-rgb), 0.2);
+    }
+
+    .card-header {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-1);
+    }
+    .card-header h3 {
+        font-size: var(--font-size-2xl);
+        font-weight: var(--font-weight-bold);
+        margin: 0;
+    }
+    .card-header .price {
+        font-size: var(--font-size-4xl);
+        font-weight: var(--font-weight-bold);
+        background: linear-gradient(
+            135deg,
+            var(--color-accent) 0%,
+            var(--color-tertiary) 100%
+        );
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .plan-card ul {
+        list-style: none;
+        padding: 0;
+    }
+    .plan-card ul li {
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+        color: rgba(255, 255, 255, 0.9);
+    }
+    .plan-card ul li i {
+        color: var(--color-accent);
+        font-size: var(--font-size-sm);
+    }
+
+    .plan-card a {
+        display: inline-flex;
+        width: fit-content;
+        justify-content: center;
+        align-items: center;
+        gap: var(--space-2);
+        padding: var(--space-3) var(--space-6);
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--color-gray);
+        color: var(--color-white);
+        border-radius: var(--radius-full);
+        text-decoration: none;
+        transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
+    }
+    .plan-card a.active {
+        background: linear-gradient(
+            135deg,
+            var(--color-accent) 0%,
+            var(--color-secondary) 100%
+        );
+        border: none;
+    }
+    .plan-card a.active:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-hover);
+    }
+    .plan-card .timeline {
+        margin: 0 0 var(--space-4);
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+        color: rgba(255, 255, 255, 0.7);
+        font-size: var(--font-size-sm);
+    }
+
+    /* Benefits Section */
+    .benefits {
+        padding: var(--space-16) var(--space-6);
+    }
+
+    .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--space-8);
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .benefit-card {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-4);
+        justify-content: center;
+        align-items: center;
+        border: 1px solid var(--color-gray);
+        border-radius: var(--radius-xl);
+        padding: var(--space-8);
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+    .benefit-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(var(--color-accent-rgb), 0.5);
+        box-shadow: 0 15px 30px rgba(var(--color-accent-rgb), 0.2);
+    }
+
+    .benefit-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(
+            135deg,
+            var(--color-accent) 0%,
+            var(--color-secondary) 100%
+        );
+        border-radius: var(--radius-full);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .benefit-icon i {
+        font-size: var(--font-size-xl);
+        color: var(--color-white);
+    }
+
+    /* Process Section */
+    .process {
+        padding: var(--space-16) var(--space-6);
+    }
+
+    .process-timeline {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .process-step {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-6);
+        position: relative;
+        margin-bottom: var(--space-12);
+    }
+
+    .step-number {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(
+            135deg,
+            var(--color-accent) 0%,
+            var(--color-secondary) 100%
+        );
+        border-radius: var(--radius-full);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: var(--font-size-xl);
+        font-weight: var(--font-weight-bold);
+        color: var(--color-white);
+        flex-shrink: 0;
+    }
+
+    .step-connector {
+        position: absolute;
+        left: 25px;
+        top: 50px;
+        width: 2px;
+        height: calc(100% + var(--space-12));
+        background: linear-gradient(
+            180deg,
+            var(--color-accent) 0%,
+            transparent 100%
+        );
+    }
+
+    .step-content h3 {
+        font-size: var(--font-size-xl);
+        font-weight: var(--font-weight-semibold);
+        margin-bottom: var(--space-2);
+    }
+
+    /* CTA Section */
+    .cta {
+        padding: var(--space-16) var(--space-6);
+        text-align: center;
+        background: linear-gradient(
+            135deg,
+            rgba(var(--color-accent-rgb), 0.05) 0%,
+            rgba(0, 0, 0, 0.8) 100%
+        );
+    }
+
+    .cta-content h2 {
+        font-size: var(--font-size-4xl);
+        font-weight: var(--font-weight-bold);
+        margin-bottom: var(--space-4);
+    }
+
+    .cta-content p {
+        font-size: var(--font-size-xl);
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: var(--space-8);
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .cta-buttons {
+        display: flex;
+        gap: var(--space-4);
+        justify-content: center;
+    }
+
+    /* Buttons */
+    .btn-primary,
+    .btn-secondary,
+    .btn-plan {
+        padding: var(--space-4) var(--space-8);
+        border-radius: var(--radius-full);
+        font-size: var(--font-size-base);
+        font-weight: var(--font-weight-medium);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .btn-primary,
+    .btn-plan.featured {
+        background: linear-gradient(
+            135deg,
+            var(--color-accent) 0%,
+            var(--color-secondary) 100%
+        );
+        color: var(--color-white);
+        box-shadow: 0 4px 15px rgba(var(--color-accent-rgb), 0.3);
+    }
+
+    .btn-primary:hover,
+    .btn-plan.featured:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(var(--color-accent-rgb), 0.4);
+    }
+
+    .btn-secondary,
+    .btn-plan {
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--color-white);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-secondary:hover,
+    .btn-plan:hover {
+        background: rgba(255, 255, 255, 0.2);
+        border-color: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .benefits-grid {
+            grid-template-columns: 1fr;
+            gap: var(--space-6);
+        }
+
+        .plan-cards {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .plan-card {
+            display: none;
+        }
+        .plan-card.active {
+            display: flex;
+        }
+
+        .process-step {
+            flex-direction: column;
+            text-align: center;
+            gap: var(--space-4);
+        }
+        .process-step .step-number {
+            margin: auto;
+        }
+
+        .step-connector {
+            display: none;
+        }
+
+        .cta-buttons {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+</style>
+
+<script>
+    document
+        .getElementById("individualPlansToggle")
+        .addEventListener("click", function () {
+            document
+                .getElementById("individualPlanCard")
+                .classList.add("active");
+            document
+                .getElementById("businessPlanCard")
+                .classList.remove("active");
+            this.classList.add("active");
+            document
+                .getElementById("businessPlansToggle")
+                .classList.remove("active");
+        });
+
+    document
+        .getElementById("businessPlansToggle")
+        .addEventListener("click", function () {
+            document.getElementById("businessPlanCard").classList.add("active");
+            document
+                .getElementById("individualPlanCard")
+                .classList.remove("active");
+            this.classList.add("active");
+            document
+                .getElementById("individualPlansToggle")
+                .classList.remove("active");
+        });
+</script>

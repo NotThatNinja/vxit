@@ -1,0 +1,127 @@
+---
+import ServiceLayout from "../../layouts/ServiceLayout.astro";
+import seoOptimization from "../../assets/services/seo-optimization.jpg";
+
+const seoData = {
+    title: "SEO Optimization - VXIT",
+    description:
+        "Professional SEO services to boost your website's visibility and drive organic traffic. Technical SEO, content optimization, and analytics.",
+    hero: {
+        title: "SEO Optimization",
+        subtitle:
+            "Boost your online visibility and drive organic traffic. Comprehensive SEO strategies that improve rankings and deliver measurable results.",
+        image: seoOptimization,
+    },
+    individualPlan: {
+        name: "SEO Essentials",
+        price: "$1,200",
+        description:
+            "Foundation SEO package for personal websites and small businesses",
+        features: [
+            "Technical SEO audit",
+            "Keyword research (25 keywords)",
+            "On-page optimization",
+            "Meta tags optimization",
+            "Image optimization",
+            "Site speed optimization",
+            "Google Analytics setup",
+            "Monthly progress report",
+            "Local SEO basics",
+            "2 months monitoring",
+        ],
+        timeline: "2-3 weeks",
+    },
+    businessPlan: {
+        name: "SEO Growth Package",
+        price: "$4,500",
+        description: "Comprehensive SEO strategy for competitive markets",
+        features: [
+            "Comprehensive SEO audit",
+            "Keyword research (100+ keywords)",
+            "Advanced on-page optimization",
+            "Technical SEO fixes",
+            "Content strategy development",
+            "Link building campaign",
+            "Local SEO optimization",
+            "Competitor analysis",
+            "Google My Business optimization",
+            "Monthly detailed reports",
+            "6 months ongoing optimization",
+            "Performance tracking & analytics",
+        ],
+        timeline: "4-6 weeks",
+    },
+    benefits: [
+        {
+            title: "Increased Visibility",
+            description:
+                "Improve your search engine rankings and get found by more potential customers.",
+            icon: "fas fa-eye",
+        },
+        {
+            title: "Organic Traffic Growth",
+            description:
+                "Drive quality traffic to your website without paying for ads.",
+            icon: "fas fa-chart-line",
+        },
+        {
+            title: "Better User Experience",
+            description:
+                "SEO improvements enhance site speed, navigation, and overall user experience.",
+            icon: "fas fa-user-check",
+        },
+        {
+            title: "Local Search Dominance",
+            description:
+                "Optimize for local searches to attract customers in your area.",
+            icon: "fas fa-map-marker-alt",
+        },
+        {
+            title: "Competitive Advantage",
+            description:
+                "Outrank competitors and capture more market share in search results.",
+            icon: "fas fa-trophy",
+        },
+        {
+            title: "Long-term Results",
+            description:
+                "Build sustainable organic growth that continues to deliver value over time.",
+            icon: "fas fa-seedling",
+        },
+    ],
+    process: [
+        {
+            step: 1,
+            title: "SEO Audit & Analysis",
+            description:
+                "Comprehensive analysis of your current SEO performance, technical issues, and opportunities for improvement.",
+        },
+        {
+            step: 2,
+            title: "Keyword Research",
+            description:
+                "In-depth keyword research to identify high-value opportunities and understand user search intent.",
+        },
+        {
+            step: 3,
+            title: "Technical Optimization",
+            description:
+                "Fix technical SEO issues including site speed, mobile-friendliness, and crawlability problems.",
+        },
+        {
+            step: 4,
+            title: "Content Optimization",
+            description:
+                "Optimize existing content and create new SEO-focused content that ranks and converts.",
+        },
+        {
+            step: 5,
+            title: "Monitoring & Reporting",
+            description:
+                "Continuous monitoring of rankings, traffic, and performance with detailed monthly reports.",
+        },
+    ],
+};
+---
+
+<ServiceLayout {...seoData} />

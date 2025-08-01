@@ -1,0 +1,135 @@
+---
+import ServiceLayout from "../../layouts/ServiceLayout.astro";
+import ecommerceSolutions from "../../assets/services/ecommerce-solutions.jpg";
+
+const ecommerceData = {
+    title: "Ecommerce Solutions - VXIT",
+    description:
+        "Complete ecommerce development services. From online stores to marketplace platforms, we build solutions that drive sales.",
+    hero: {
+        title: "Ecommerce Solutions",
+        subtitle:
+            "Build powerful online stores that convert visitors into customers. Complete ecommerce solutions with payment processing, inventory management, and analytics.",
+        image: ecommerceSolutions,
+    },
+    individualPlan: {
+        name: "Online Store",
+        price: "$3,200",
+        description:
+            "Perfect for small businesses and entrepreneurs starting online",
+        features: [
+            "Up to 50 products",
+            "Mobile-responsive design",
+            "Payment gateway integration",
+            "Inventory management",
+            "Order tracking system",
+            "Basic analytics",
+            "SSL certificate included",
+            "2 months support",
+            "Product image optimization",
+            "Customer account portal",
+        ],
+        timeline: "3-4 weeks",
+    },
+    businessPlan: {
+        name: "Enterprise Ecommerce",
+        price: "$12,500",
+        description: "Advanced ecommerce platform for growing businesses",
+        features: [
+            "Unlimited products",
+            "Custom design & development",
+            "Multi-payment gateways",
+            "Advanced inventory system",
+            "Customer management (CRM)",
+            "Advanced analytics & reports",
+            "SEO optimization",
+            "6 months support",
+            "Multi-store management",
+            "Wholesale pricing tiers",
+            "Abandoned cart recovery",
+            "Email marketing integration",
+            "API integrations",
+            "Advanced security features",
+        ],
+        timeline: "8-10 weeks",
+    },
+    benefits: [
+        {
+            title: "Secure Payments",
+            description:
+                "Industry-standard payment processing with multiple gateway options and fraud protection.",
+            icon: "fas fa-credit-card",
+        },
+        {
+            title: "Inventory Management",
+            description:
+                "Real-time inventory tracking with automated alerts and restocking notifications.",
+            icon: "fas fa-boxes",
+        },
+        {
+            title: "Mobile Commerce",
+            description:
+                "Optimized for mobile shopping with responsive design and fast loading times.",
+            icon: "fas fa-shopping-bag",
+        },
+        {
+            title: "Analytics & Insights",
+            description:
+                "Comprehensive sales analytics and customer behavior insights to grow your business.",
+            icon: "fas fa-chart-bar",
+        },
+        {
+            title: "SEO Optimized",
+            description:
+                "Built with ecommerce SEO best practices to improve search engine visibility.",
+            icon: "fas fa-search-plus",
+        },
+        {
+            title: "Scalable Platform",
+            description:
+                "Architecture designed to handle growth from startup to enterprise level.",
+            icon: "fas fa-rocket",
+        },
+    ],
+    process: [
+        {
+            step: 1,
+            title: "Business Analysis",
+            description:
+                "We analyze your business model, target market, and competition to create the optimal ecommerce strategy.",
+        },
+        {
+            step: 2,
+            title: "Platform Setup",
+            description:
+                "Set up the ecommerce platform with payment gateways, shipping options, and essential integrations.",
+        },
+        {
+            step: 3,
+            title: "Design & Development",
+            description:
+                "Create a custom design that reflects your brand and develop functionality for optimal user experience.",
+        },
+        {
+            step: 4,
+            title: "Product Integration",
+            description:
+                "Upload products, configure pricing, set up categories, and optimize for search and conversions.",
+        },
+        {
+            step: 5,
+            title: "Testing & Launch",
+            description:
+                "Thorough testing of all functionality, payment processing, and user flows before going live.",
+        },
+        {
+            step: 6,
+            title: "Growth & Optimization",
+            description:
+                "Ongoing optimization, marketing integration, and feature enhancements to maximize sales.",
+        },
+    ],
+};
+---
+
+<ServiceLayout {...ecommerceData} />

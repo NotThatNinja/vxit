@@ -15,7 +15,7 @@ const { title, hero, individualPlan, businessPlan, benefits, process } =
         <!-- Benefits Section -->
         <section class="benefits">
             <SectionTitle>Why Choose Us?</SectionTitle>
-            <div class="benefits-grid">
+            <div class="benefits-grid" data-aos="fade-up">
                 {
                     benefits.map((benefit) => (
                         <div class="benefit-card">
@@ -41,7 +41,7 @@ const { title, hero, individualPlan, businessPlan, benefits, process } =
                     >
                 </div>
 
-                <div class="plan-cards">
+                <div class="plan-cards" data-aos="zoom-in">
                     <div class="plan-card" id="individualPlanCard">
                         <div class="card-header">
                             <h3>{individualPlan.name}</h3>
@@ -101,7 +101,7 @@ const { title, hero, individualPlan, businessPlan, benefits, process } =
             <div class="process-timeline">
                 {
                     process.map((step, index) => (
-                        <div class="process-step">
+                        <div class="process-step" data-aos="fade-bottom">
                             <div class="step-number">{step.step}</div>
                             <div class="step-content">
                                 <h3>{step.title}</h3>
@@ -481,6 +481,7 @@ const { title, hero, individualPlan, businessPlan, benefits, process } =
         }
         .plan-card.active {
             display: flex;
+            scale: 1;
         }
 
         .process-step {

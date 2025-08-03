@@ -21,7 +21,7 @@ const services = [
             "Custom design & UX",
             "Mobile-first development",
             "Performance optimization",
-            "CMS integration (WordPress, headless, etc.)",
+            "CMS integration",
         ],
         url: "/vxit/services/website-development",
     },
@@ -98,14 +98,48 @@ const faq = [
         question: "What's your pricing structure?",
         answer: "We offer flexible pricing based on project scope and requirements. Contact us for a free consultation where we'll provide a detailed quote tailored to your specific needs and budget.",
     },
+    // Additional FAQ items
+    {
+        question: "Do you offer CMS (Content Management System) solutions?",
+        answer: "Yes, we can integrate popular CMS platforms like WordPress, Strapi, or build custom headless CMS solutions to give you full control over your website content and workflows.",
+    },
+    {
+        question: "What technologies and frameworks do you work with?",
+        answer: "We work with modern technologies including Astro, TypeScript, Node.js, React, PHP, and various AI APIs. We choose the best technology stack based on your project requirements and long-term goals.",
+    },
+    {
+        question: "Can you integrate third-party services and APIs?",
+        answer: "Absolutely! We can integrate any third-party services and APIs, such as analytics, payment processing and social media.",
+    },
+    {
+        question: "How do you ensure website security?",
+        answer: "We implement industry-standard security measures including SSL certificates, secure coding practices, regular security updates, backup systems, and monitoring for potential threats. Security is built into every project from the ground up.",
+    },
+    {
+        question: "Can you help with mobile app development?",
+        answer: "While our primary focus is web development, we can create progressive web apps (PWAs) that provide app-like experiences on mobile devices. For native mobile apps, we can recommend trusted partners in our network.",
+    },
+    {
+        question:
+            "What happens if I need changes after the website is launched?",
+        answer: "We offer flexible post-launch support packages that include content updates, feature additions, design modifications, and technical maintenance. Small updates are often included in our maintenance plans.",
+    },
+    {
+        question: "Do you work with businesses of all sizes?",
+        answer: "Yes, we work with startups, small businesses, mid-size companies, and enterprise clients. Our solutions are scalable and can be tailored to fit any budget and business requirements.",
+    },
+    {
+        question: "What if I already have a website but need it redesigned?",
+        answer: "We specialize in website redesigns and modernization. We can migrate your existing content, improve the design and user experience, add new features, and ensure everything works seamlessly with modern standards.",
+    },
 ];
 ---
 
 <Layout title="Home - VXIT">
     <main>
         <Hero
-            title="Creative Excellence"
-            subtitle="VXIT engineers sleek, high-performing sites that drive growth. We handle the tech, so you can focus on your success."
+            title="VXIT"
+            subtitle="Innovative web solutions and AI-powered platforms to accelerate your business growth, enhance customer engagement, and future-proof your digital presence."
             cta
         />
         <section class="about-us">
@@ -163,7 +197,7 @@ const faq = [
                         <p class="stat-label">Years of Experience</p>
                     </div>
                 </div>
-                <div class="reviews" data-aos="flip-up">
+                <div class="reviews" data-aos="fade-down">
                     <div class="review-card">
                         <div class="stars">
                             <i class="fas fa-star"></i>
@@ -259,7 +293,9 @@ const faq = [
             <div class="faq">
                 {
                     faq.map((item, index) => (
-                        <div class="faq-item">
+                        <div
+                            class={`faq-item ${index >= 6 ? "additional-faq" : ""}`}
+                        >
                             <button class="faq-question" data-index={index}>
                                 <span>{item.question}</span>
                                 <i class="fa-solid fa-chevron-down" />
@@ -270,6 +306,15 @@ const faq = [
                         </div>
                     ))
                 }
+                <div class="faq-more-container">
+                    <button class="faq-more-button" id="faqMoreButton">
+                        <span class="more-text">Show More Questions</span>
+                        <span class="less-text" style="display: none;"
+                            >Show Less Questions</span
+                        >
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                </div>
             </div>
         </section>
     </main>
@@ -497,6 +542,57 @@ const faq = [
         border-bottom: 1px solid var(--color-gray);
     }
 
+    .additional-faq {
+        display: none;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+    }
+
+    .additional-faq.show {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .faq-more-container {
+        display: flex;
+        justify-content: center;
+        padding: var(--space-8) 0 var(--space-4) 0;
+    }
+
+    .faq-more-button {
+        display: flex;
+        gap: var(--space-2);
+        justify-content: center;
+        align-items: center;
+        background: none;
+        border: 1px solid var(--color-gray);
+        border-radius: var(--radius-full);
+        padding: var(--space-4) var(--space-8);
+        color: var(--color-white);
+        cursor: pointer;
+        font-size: var(--font-size-lg);
+        font-weight: var(--font-weight-semibold);
+        transition: all 0.3s ease;
+    }
+
+    .faq-more-button:hover {
+        border-color: var(--color-accent);
+        background: rgba(var(--color-accent-rgb), 0.2);
+        transform: translateY(-2px);
+    }
+
+    .faq-more-button i {
+        font-size: var(--font-size-base);
+        transition: transform 0.3s ease;
+        color: var(--color-accent);
+    }
+
+    .faq-more-button.expanded i {
+        transform: rotate(180deg);
+    }
+
     .faq-question {
         width: 100%;
         display: flex;
@@ -607,7 +703,16 @@ const faq = [
     // FAQ accordion functionality
     document.addEventListener("DOMContentLoaded", () => {
         const faqQuestions = document.querySelectorAll(".faq-question");
+        const faqMoreButton = document.getElementById("faqMoreButton");
+        const additionalFaqs = document.querySelectorAll(".additional-faq");
+        const moreText = faqMoreButton?.querySelector(
+            ".more-text",
+        ) as HTMLElement;
+        const lessText = faqMoreButton?.querySelector(
+            ".less-text",
+        ) as HTMLElement;
 
+        // FAQ accordion functionality
         faqQuestions.forEach((question) => {
             question.addEventListener("click", () => {
                 const faqItem = question.parentElement;
@@ -626,5 +731,42 @@ const faq = [
                 }
             });
         });
+
+        // Show More/Less functionality
+        if (faqMoreButton) {
+            faqMoreButton.addEventListener("click", () => {
+                const isExpanded = faqMoreButton.classList.contains("expanded");
+
+                if (isExpanded) {
+                    // Hide additional FAQs
+                    additionalFaqs.forEach((faq, index) => {
+                        setTimeout(() => {
+                            faq.classList.remove("show");
+                            (faq as HTMLElement).style.display = "none";
+                        }, index * 50);
+                    });
+
+                    // Update button text and icon
+                    if (moreText) moreText.style.display = "inline";
+                    if (lessText) lessText.style.display = "none";
+                    faqMoreButton.classList.remove("expanded");
+                } else {
+                    // Show additional FAQs
+                    additionalFaqs.forEach((faq, index) => {
+                        setTimeout(() => {
+                            (faq as HTMLElement).style.display = "block";
+                            setTimeout(() => {
+                                faq.classList.add("show");
+                            }, 10);
+                        }, index * 50);
+                    });
+
+                    // Update button text and icon
+                    if (moreText) moreText.style.display = "none";
+                    if (lessText) lessText.style.display = "inline";
+                    faqMoreButton.classList.add("expanded");
+                }
+            });
+        }
     });
 </script>

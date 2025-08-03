@@ -73,11 +73,22 @@ import Button from "../components/Button.astro";
                             required></textarea>
                         <label for="message">Message</label>
                     </div>
+                    <div class="form-checkbox">
+                        <input
+                            id="privacy"
+                            name="privacy"
+                            type="checkbox"
+                            required
+                        />
+                        <label for="privacy">
+                            I have read and agree to the
+                            <a href="/privacy-policy">Privacy Policy</a>
+                        </label>
+                    </div>
                     <Button type="submit" class="button">
                         Send Message
                         <i class="fa-solid fa-paper-plane"></i>
                     </Button>
-                    <!-- TODO: Add privacy policy check -->
                 </form>
             </div>
         </section>
@@ -118,7 +129,7 @@ import Button from "../components/Button.astro";
         font-size: var(--font-size-xl);
         font-weight: var(--font-weight-medium);
     }
-    a {
+    .contact-info a {
         display: flex;
         width: fit-content;
         gap: var(--space-4);
@@ -174,10 +185,10 @@ import Button from "../components/Button.astro";
         height: 150px;
         resize: none;
     }
-    input:focus + label,
-    input:not(:placeholder-shown) + label,
-    textarea:focus + label,
-    textarea:not(:placeholder-shown) + label {
+    .form-input input:focus + label,
+    .form-message textarea:focus + label,
+    .form-input input:not(:placeholder-shown) + label,
+    .form-message textarea:not(:placeholder-shown) + label {
         transform: translateY(-35px);
         font-size: var(--font-size-sm);
         color: var(--color-accent);
@@ -185,6 +196,28 @@ import Button from "../components/Button.astro";
     form button {
         align-self: center;
         margin-top: var(--space-4);
+    }
+
+    .form-checkbox {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+        justify-content: center;
+    }
+    .form-checkbox input {
+        width: 17.5px;
+        height: 17.5px;
+        accent-color: var(--color-accent);
+    }
+    .form-checkbox label {
+        font-size: var(--font-size-lg);
+        color: var(--color-white);
+    }
+    .form-checkbox label a {
+        font-size: var(--font-size-lg);
+        color: var(--color-accent);
+        text-decoration: underline;
     }
 
     @media (max-width: 768px) {
@@ -200,13 +233,22 @@ import Button from "../components/Button.astro";
             width: 100%;
         }
 
-        input:focus + label,
-        input:not(:placeholder-shown) + label,
-        textarea:focus + label,
-        textarea:not(:placeholder-shown) + label {
+        .form-input input:focus + label,
+        .form-message textarea:focus + label,
+        .form-input input:not(:placeholder-shown) + label,
+        .form-message textarea:not(:placeholder-shown) + label {
             transform: translateY(-30px);
             font-size: var(--font-size-sm);
             color: var(--color-accent);
+        }
+
+        .form-checkbox input {
+            width: 15px;
+            height: 15px;
+        }
+        .form-checkbox label,
+        .form-checkbox label a {
+            font-size: var(--font-size-base);
         }
     }
 </style>

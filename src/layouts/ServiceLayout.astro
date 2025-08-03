@@ -4,8 +4,15 @@ import Hero from "../components/Hero.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import { Image } from "astro:assets";
 
-const { title, hero, individualPlan, businessPlan, benefits, process } =
-    Astro.props;
+const {
+    title,
+    hero,
+    individualPlan,
+    businessPlan,
+    benefits,
+    process,
+    additionalServices,
+} = Astro.props;
 ---
 
 <Layout title={title}>
@@ -115,6 +122,31 @@ const { title, hero, individualPlan, businessPlan, benefits, process } =
                 }
             </div>
         </section>
+
+        <!-- Additional Services Section -->
+        {
+            additionalServices && (
+                <section class="additional-services">
+                    <SectionTitle>Additional Services</SectionTitle>
+                    <div class="additional-services-grid">
+                        {additionalServices.map((service) => (
+                            <div
+                                class="additional-service-card"
+                                data-aos="fade-up"
+                            >
+                                <h3>{service.title}</h3>
+                                <p>{service.description}</p>
+                                <div class="service-price">{service.price}</div>
+                                <a href="/vxit/contact" class="service-link">
+                                    Get Quote
+                                    <i class="fas fa-arrow-right" />
+                                </a>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            )
+        }
 
         <!-- CTA Section -->
         <section class="cta">
@@ -382,6 +414,85 @@ const { title, hero, individualPlan, businessPlan, benefits, process } =
         font-size: var(--font-size-xl);
         font-weight: var(--font-weight-semibold);
         margin-bottom: var(--space-2);
+    }
+
+    /* Additional Services Section */
+    .additional-services {
+        padding: var(--space-16) var(--space-6);
+        background: linear-gradient(
+            135deg,
+            rgba(var(--color-accent-rgb), 0.03) 0%,
+            rgba(0, 0, 0, 0.5) 100%
+        );
+    }
+
+    .additional-services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: var(--space-6);
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .additional-service-card {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius-2xl);
+        padding: var(--space-6);
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-4);
+    }
+
+    .additional-service-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(var(--color-accent-rgb), 0.3);
+        box-shadow: 0 8px 25px rgba(var(--color-accent-rgb), 0.15);
+    }
+
+    .additional-service-card h3 {
+        font-size: var(--font-size-xl);
+        font-weight: var(--font-weight-semibold);
+        color: var(--color-white);
+        margin-bottom: var(--space-2);
+    }
+
+    .additional-service-card p {
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.6;
+        flex-grow: 1;
+    }
+
+    .service-price {
+        font-size: var(--font-size-lg);
+        font-weight: var(--font-weight-semibold);
+        color: var(--color-accent);
+        margin: var(--space-2) 0;
+    }
+
+    .service-link {
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+        color: var(--color-accent);
+        text-decoration: none;
+        font-weight: var(--font-weight-medium);
+        transition: all 0.3s ease;
+        width: fit-content;
+    }
+
+    .service-link:hover {
+        color: var(--color-white);
+        transform: translateX(4px);
+    }
+
+    .service-link i {
+        transition: transform 0.3s ease;
+    }
+
+    .service-link:hover i {
+        transform: translateX(4px);
     }
 
     /* CTA Section */

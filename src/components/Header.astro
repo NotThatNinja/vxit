@@ -27,6 +27,9 @@ import logo from "../assets/logo.png";
                     <a href="/vxit/services/seo-optimization">
                         SEO Optimization
                     </a>
+                    <a href="/vxit/services/maintenance">
+                        Maintenance & Additional Services
+                    </a>
                 </div>
             </li>
             <li><a href="/vxit/portfolio">Portfolio</a></li>
@@ -240,6 +243,8 @@ import logo from "../assets/logo.png";
             transform: none;
         }
         .dropdown-menu {
+            display: flex;
+            flex-direction: column;
             position: static;
             transform: none;
             background: transparent;
@@ -257,8 +262,8 @@ import logo from "../assets/logo.png";
             margin-top: 0;
         }
         .dropdown-menu a {
+            padding-left: var(--space-8);
             font-size: var(--font-size-3xl) !important;
-            text-align: center;
         }
         .dropdown-menu a:hover {
             background: transparent;

@@ -1,0 +1,157 @@
+---
+import ServiceLayout from "../../layouts/ServiceLayout.astro";
+
+const maintenanceData = {
+    title: "Maintenance & Additional Services  - VXIT",
+    hero: {
+        title: "Maintenance & Additional Services",
+        subtitle:
+            "Keep your website running smoothly with our comprehensive maintenance services. From security updates to performance optimization, we ensure your site stays secure, fast, and up-to-date.",
+    },
+    individualPlan: {
+        name: "Basic Maintenance",
+        price: "From 9.99€/month",
+        description:
+            "Essential maintenance for small websites and personal projects",
+        features: [
+            "Weekly security updates",
+            "Monthly performance monitoring",
+            "Basic backup service (weekly)",
+            "SSL certificate management",
+            "Minor content updates",
+            "Email support",
+            "Uptime monitoring",
+            "Basic security scans",
+        ],
+        timeline: "Ongoing monthly service",
+    },
+    businessPlan: {
+        name: "Professional Maintenance",
+        price: "From 19.99€/month",
+        description: "Comprehensive maintenance for business websites",
+        features: [
+            "Everything in Basic plan",
+            "Advanced backup service (daily)",
+            "Performance optimization",
+            "Priority email & phone support",
+            "SEO monitoring & reporting",
+            "Advanced security scans",
+            "Database optimization",
+            "Emergency support included",
+            "Monthly detailed reports",
+            "A/B testing support",
+        ],
+        timeline: "Ongoing monthly service",
+    },
+    benefits: [
+        {
+            title: "Security Protection",
+            description:
+                "Continuous monitoring and updates to protect against security threats and vulnerabilities.",
+            icon: "fas fa-shield-alt",
+        },
+        {
+            title: "Performance Optimization",
+            description:
+                "Regular optimization to ensure your website loads quickly and performs efficiently.",
+            icon: "fas fa-tachometer-alt",
+        },
+        {
+            title: "Regular Backups",
+            description:
+                "Automated backups to protect your data and ensure quick recovery if needed.",
+            icon: "fas fa-cloud-upload-alt",
+        },
+        {
+            title: "Content Updates",
+            description:
+                "Professional assistance with content updates, changes, and additions to your website.",
+            icon: "fas fa-edit",
+        },
+        {
+            title: "Uptime Monitoring",
+            description:
+                "24/7 monitoring to ensure your website is always accessible to your visitors.",
+            icon: "fas fa-eye",
+        },
+        {
+            title: "Technical Support",
+            description:
+                "Expert technical support when you need help or encounter issues with your website.",
+            icon: "fas fa-headset",
+        },
+    ],
+    process: [
+        {
+            step: 1,
+            title: "Initial Assessment",
+            description:
+                "We conduct a comprehensive audit of your website to identify current issues and maintenance needs.",
+        },
+        {
+            step: 2,
+            title: "Setup & Configuration",
+            description:
+                "We configure monitoring tools, backup systems, and security measures tailored to your website.",
+        },
+        {
+            step: 3,
+            title: "Regular Maintenance",
+            description:
+                "Ongoing scheduled maintenance including updates, optimization, and security monitoring.",
+        },
+        {
+            step: 4,
+            title: "Monitoring & Reporting",
+            description:
+                "Continuous monitoring of your website's performance, security, and uptime with regular reports.",
+        },
+        {
+            step: 5,
+            title: "Support & Emergency Response",
+            description:
+                "Immediate response to critical issues and ongoing support for all your website needs.",
+        },
+    ],
+    additionalServices: [
+        {
+            title: "Emergency Fixes",
+            description: "Critical issue resolution within 24 hours",
+            price: "Starting from 150€",
+        },
+        {
+            title: "Performance Audit",
+            description:
+                "Comprehensive performance analysis and optimization recommendations",
+            price: "Starting from 250€",
+        },
+        {
+            title: "Security Audit",
+            description:
+                "In-depth security assessment and vulnerability testing",
+            price: "Starting from 300€",
+        },
+        {
+            title: "Migration Services",
+            description: "Safe website migration to new hosting or platform",
+            price: "Starting from 400€",
+        },
+        {
+            title: "Custom Development",
+            description: "Additional features and functionality development",
+            price: "Starting from 500€",
+        },
+        {
+            title: "SEO Optimization",
+            description: "Comprehensive SEO audit and optimization",
+            price: "Starting from 350€",
+        },
+    ],
+};
+---
+
+<ServiceLayout {...maintenanceData} />
+
+<style>
+    /* Additional styles specific to maintenance page could go here */
+</style>

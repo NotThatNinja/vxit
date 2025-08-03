@@ -68,7 +68,7 @@ const {
                             <i class="fas fa-clock"></i>
                             {individualPlan.timeline}
                         </p>
-                        <a class="active" href="/vxit/contact">
+                        <a class="active" href="/contact">
                             Contact Us
                             <i class="fas fa-arrow-right"></i>
                         </a>
@@ -93,7 +93,7 @@ const {
                             <i class="fas fa-clock"></i>
                             {businessPlan.timeline}
                         </p>
-                        <a href="/vxit/contact">
+                        <a href="/contact">
                             Contact Us
                             <i class="fas fa-arrow-right"></i>
                         </a>
@@ -103,41 +103,40 @@ const {
         </section>
 
         <!-- Process Section -->
-        <section class="process">
-            <SectionTitle>Our Process</SectionTitle>
-            <div class="process-timeline">
-                {
-                    process.map((step, index) => (
-                        <div class="process-step" data-aos="fade-bottom">
-                            <div class="step-number">{step.step}</div>
-                            <div class="step-content">
-                                <h3>{step.title}</h3>
-                                <p>{step.description}</p>
+        {
+            process && (
+                <section class="process">
+                    <SectionTitle>Our Process</SectionTitle>
+                    <div class="process-timeline">
+                        {process.map((step, index) => (
+                            <div class="process-step" data-aos="fade-bottom">
+                                <div class="step-number">{step.step}</div>
+                                <div class="step-content">
+                                    <h3>{step.title}</h3>
+                                    <p>{step.description}</p>
+                                </div>
+                                {index < process.length - 1 && (
+                                    <div class="step-connector" />
+                                )}
                             </div>
-                            {index < process.length - 1 && (
-                                <div class="step-connector" />
-                            )}
-                        </div>
-                    ))
-                }
-            </div>
-        </section>
+                        ))}
+                    </div>
+                </section>
+            )
+        }
 
         <!-- Additional Services Section -->
         {
             additionalServices && (
                 <section class="additional-services">
                     <SectionTitle>Additional Services</SectionTitle>
-                    <div class="additional-services-grid">
+                    <div class="additional-services-grid" data-aos="fade-up">
                         {additionalServices.map((service) => (
-                            <div
-                                class="additional-service-card"
-                                data-aos="fade-up"
-                            >
+                            <div class="additional-service-card">
                                 <h3>{service.title}</h3>
                                 <p>{service.description}</p>
                                 <div class="service-price">{service.price}</div>
-                                <a href="/vxit/contact" class="service-link">
+                                <a href="/contact" class="service-link">
                                     Get Quote
                                     <i class="fas fa-arrow-right" />
                                 </a>
@@ -157,12 +156,9 @@ const {
                     your vision to life.
                 </p>
                 <div class="cta-buttons">
-                    <a href="/vxit/contact" class="btn-primary"
-                        >Start Your Project</a
+                    <a href="/contact" class="btn-primary">Start Your Project</a
                     >
-                    <a href="/vxit/portfolio" class="btn-secondary"
-                        >View Our Work</a
-                    >
+                    <a href="/portfolio" class="btn-secondary">View Our Work</a>
                 </div>
             </div>
         </section>

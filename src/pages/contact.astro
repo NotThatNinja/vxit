@@ -5,7 +5,7 @@ import Hero from "../components/Hero.astro";
 import Button from "../components/Button.astro";
 ---
 
-<Layout title="Contact Us - VXIT">
+<Layout title="Contact Us - VXIT.IO">
     <main>
         <Hero
             title="Contact Us"
@@ -19,19 +19,17 @@ import Button from "../components/Button.astro";
                         If you have any questions or would like to discuss your
                         project, please reach out to us:
                     </p>
-                    <a href="mailto:info@vxit.com">
+                    <a href="mailto:info@vxit.io">
                         <i class="fa-solid fa-envelope"></i>
-                        info@vxit.com
+                        info@vxit.io
                     </a>
                     <a href="tel:+1234567890">
                         <i class="fa-solid fa-phone"></i>
                         +1 (234) 567-890
                     </a>
-                    <a
-                        href="https://www.google.com/maps/place/VXIT+Headquarters"
-                    >
+                    <a href="#">
                         <i class="fa-solid fa-map-marker-alt"></i>
-                        San Francisco, CA
+                        Tallinn, EE
                     </a>
                 </div>
                 <form class="contact-form">
@@ -45,15 +43,26 @@ import Button from "../components/Button.astro";
                         />
                         <label for="name">Name</label>
                     </div>
-                    <div class="form-input">
-                        <input
-                            id="email"
-                            name="email"
-                            type="email"
-                            placeholder=" "
-                            required
-                        />
-                        <label for="email">Email</label>
+                    <div class="form-group">
+                        <div class="form-input">
+                            <input
+                                id="email"
+                                name="email"
+                                type="email"
+                                placeholder=" "
+                                required
+                            />
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="form-input">
+                            <input
+                                id="phone"
+                                name="phone"
+                                type="tel"
+                                placeholder=" "
+                            />
+                            <label for="phone">Phone (optional)</label>
+                        </div>
                     </div>
                     <div class="form-input">
                         <input
@@ -145,6 +154,11 @@ import Button from "../components/Button.astro";
         gap: var(--space-8);
         width: 50%;
     }
+    .form-group {
+        display: flex;
+        flex-direction: row;
+        gap: var(--space-24);
+    }
     .form-input,
     .form-message {
         position: relative;
@@ -231,6 +245,12 @@ import Button from "../components/Button.astro";
         }
         .contact-form {
             width: 100%;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-8);
         }
 
         .form-input input:focus + label,

@@ -5,8 +5,8 @@ const { title, subtitle, cta } = Astro.props;
 <section>
     <div class="overlay"></div>
 
-    <video loop muted autoplay playsinline poster="/vxit/poster.jpg">
-        <source src="/vxit/hero.mp4" type="video/mp4" />
+    <video loop muted autoplay playsinline poster="/poster.jpg">
+        <source src="/hero.mp4" type="video/mp4" />
     </video>
     <div class="hero-content">
         <h1>
@@ -40,7 +40,7 @@ const { title, subtitle, cta } = Astro.props;
         </p>
         {
             cta && (
-                <a href="/vxit/contact" class="cta-button">
+                <a href="/contact" class="cta-button">
                     Contact Us
                     <i class="fa-solid fa-arrow-right" />
                 </a>

@@ -311,6 +311,7 @@ const faq = [
                     faq.map((item, index) => (
                         <div
                             class={`faq-item ${index >= 6 ? "additional-faq" : ""}`}
+                            data-aos="fade-up"
                         >
                             <button class="faq-question" data-index={index}>
                                 <span>{item.question}</span>

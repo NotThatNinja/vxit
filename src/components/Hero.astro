@@ -5,8 +5,8 @@ const { title, subtitle, cta } = Astro.props;
 <section>
     <div class="overlay"></div>
 
-    <video loop muted autoplay playsinline poster="/poster.jpg">
-        <source src="/hero.mp4" type="video/mp4" />
+    <video id="hero-video" loop muted autoplay playsinline poster="/poster.jpg">
+        <source id="video-source" src="/hero-light.mp4" type="video/mp4" />
     </video>
     <div class="hero-content">
         <h1>
@@ -58,7 +58,7 @@ const { title, subtitle, cta } = Astro.props;
         padding: 0 var(--space-6);
         justify-content: center;
         align-items: center;
-        color: var(--color-white);
+        color: var(--color-primary);
     }
 
     video {
@@ -79,9 +79,9 @@ const { title, subtitle, cta } = Astro.props;
         height: 100%;
         background: linear-gradient(
             to bottom,
-            rgba(0, 0, 0, 0.3),
-            rgba(0, 0, 0, 0.5) 75%,
-            rgba(0, 0, 0, 1)
+            light-dark(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.3)),
+            light-dark(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.5)) 75%,
+            light-dark(rgba(var(--color-secondary-rgb), 1), rgba(0, 0, 0, 1))
         );
     }
 
@@ -123,6 +123,7 @@ const { title, subtitle, cta } = Astro.props;
         font-size: var(--font-size-2xl);
         animation: 1.5s linear 1 opacityAnimation;
         animation-fill-mode: forwards;
+        color: light-dark(var(--color-secondary), var(--color-primary));
     }
 
     .cta-button {
@@ -130,11 +131,11 @@ const { title, subtitle, cta } = Astro.props;
         align-items: center;
         gap: var(--space-2);
         padding: var(--space-3) var(--space-6);
-        border: 1px solid var(--color-accent);
+        border: 1px solid var(--accent-primary);
         border-radius: var(--radius-full);
         box-shadow: var(--shadow-base);
-        background: var(--color-black);
-        color: var(--color-white);
+        background: var(--color-secondary);
+        color: var(--color-primary);
         font-size: var(--font-size-xl);
         text-decoration: none;
         transition: box-shadow 0.3s ease;
@@ -157,8 +158,8 @@ const { title, subtitle, cta } = Astro.props;
             filter: blur(0);
             background: linear-gradient(
                 to bottom,
-                var(--color-accent),
-                var(--color-white)
+                var(--accent-primary),
+                light-dark(var(--color-secondary), var(--color-primary))
             );
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -180,3 +181,42 @@ const { title, subtitle, cta } = Astro.props;
         }
     }
 </style>
+
+<script>
+    // Function to update video source and poster based on theme
+    function updateVideoSource() {
+        const initialTheme = localStorage.getItem("theme") || "dark";
+        const videoSource = document.getElementById(
+            "video-source",
+        ) as HTMLSourceElement;
+        const video = document.getElementById("hero-video") as HTMLVideoElement;
+
+        if (videoSource && video) {
+            const videoSrc =
+                initialTheme === "dark" ? "/hero.mp4" : "/hero-light.mp4";
+            const posterSrc =
+                initialTheme === "dark" ? "/poster.jpg" : "/poster-light.jpg";
+            videoSource.src = videoSrc;
+            video.poster = posterSrc;
+            video.load(); // Reload the video with new source and poster
+        }
+    }
+
+    updateVideoSource();
+
+    const observer = new MutationObserver((mutations) => {
+        for (const mutation of mutations) {
+            if (
+                mutation.type === "attributes" &&
+                mutation.attributeName === "data-theme"
+            ) {
+                updateVideoSource();
+            }
+        }
+    });
+
+    observer.observe(document.documentElement, { attributes: true });
+
+    // Also listen for custom theme change events
+    document.addEventListener("themeChanged", updateVideoSource);
+</script>

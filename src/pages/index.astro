@@ -347,8 +347,16 @@ const faq = [
         padding-top: var(--space-4);
         background: radial-gradient(
             circle at center,
-            rgba(var(--color-accent-rgb), 0.15) 0%,
-            rgba(var(--color-accent-rgb), 0.05) 100%
+            light-dark(
+                    rgba(var(--accent-primary-rgb), 0.05),
+                    rgba(var(--accent-primary-rgb), 0.15)
+                )
+                0%,
+            light-dark(
+                    var(--color-secondary),
+                    rgba(var(--accent-primary-rgb), 0.05)
+                )
+                100%
         );
     }
     .service-card {
@@ -379,8 +387,8 @@ const faq = [
         font-size: var(--font-size-4xl);
         background: linear-gradient(
             to bottom,
-            var(--color-accent),
-            var(--color-white)
+            var(--accent-primary),
+            light-dark(var(--accent-secondary), var(--color-primary))
         );
         background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -404,8 +412,8 @@ const faq = [
         justify-content: center;
         align-items: center;
         text-decoration: none;
-        color: var(--color-white);
-        border: 1px solid var(--color-gray);
+        color: var(--color-primary);
+        border: 1px solid var(--color-tertiary);
         border-radius: var(--radius-full);
         padding: var(--space-4) var(--space-8);
         transition:
@@ -413,8 +421,8 @@ const faq = [
             background 0.3s ease;
     }
     .button:hover {
-        border-color: var(--color-accent);
-        background: rgba(var(--color-accent-rgb), 0.2);
+        border-color: var(--accent-primary);
+        background: rgba(var(--accent-primary-rgb), 0.2);
     }
 
     /* --- About Us Section --- */
@@ -457,14 +465,14 @@ const faq = [
         justify-content: center;
         align-items: center;
         padding: var(--space-8) var(--space-6);
-        border: 1px solid var(--color-gray);
+        border: 1px solid var(--color-tertiary);
         border-radius: var(--radius-2xl);
         transition: all 0.4s ease;
     }
     .stat-card:hover {
         transform: translateY(-8px);
-        border-color: rgba(var(--color-accent-rgb), 0.5);
-        box-shadow: 0 20px 40px rgba(var(--color-accent-rgb), 0.2);
+        border-color: rgba(var(--accent-primary-rgb), 0.5);
+        box-shadow: 0 20px 40px rgba(var(--accent-primary-rgb), 0.2);
     }
 
     .stat-number {
@@ -472,8 +480,8 @@ const faq = [
         font-weight: var(--font-weight-bold);
         background: linear-gradient(
             225deg,
-            var(--color-accent) 0%,
-            var(--color-secondary) 100%
+            var(--accent-primary) 0%,
+            var(--accent-secondary) 100%
         );
         background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -495,8 +503,8 @@ const faq = [
         flex-direction: column;
         gap: var(--space-6);
         position: relative;
-        background: var(--color-black);
-        border: 1px solid var(--color-gray);
+        background: var(--color-secondary);
+        border: 1px solid var(--color-tertiary);
         border-radius: var(--radius-2xl);
         padding: var(--space-8);
         transition: all 0.4s ease;
@@ -512,7 +520,7 @@ const faq = [
             135deg,
             rgba(255, 255, 255, 0.1) 0%,
             transparent 50%,
-            rgba(var(--color-accent-rgb), 0.1) 100%
+            rgba(var(--accent-primary-rgb), 0.1) 100%
         );
         border-radius: var(--radius-2xl);
         opacity: 0;
@@ -520,8 +528,8 @@ const faq = [
     }
     .review-card:hover {
         transform: translateY(-4px);
-        border-color: rgba(255, 255, 255, 0.2);
-        box-shadow: 0 15px 30px rgba(var(--color-accent-rgb), 0.2);
+        border-color: rgba(var(--accent-primary-rgb), 0.5);
+        box-shadow: 0 15px 30px rgba(var(--accent-primary-rgb), 0.2);
     }
     .review-card:hover::before {
         opacity: 1;
@@ -539,7 +547,7 @@ const faq = [
     .review-card p {
         font-size: var(--font-size-lg);
         line-height: var(--line-height-relaxed);
-        color: var(--color-white);
+        color: var(--color-primary);
         font-style: italic;
     }
     .review-author strong {
@@ -556,7 +564,7 @@ const faq = [
         padding: 0 var(--space-6);
     }
     .faq-item {
-        border-bottom: 1px solid var(--color-gray);
+        border-bottom: 1px solid var(--color-tertiary);
     }
 
     .additional-faq {
@@ -584,10 +592,10 @@ const faq = [
         justify-content: center;
         align-items: center;
         background: none;
-        border: 1px solid var(--color-gray);
+        border: 1px solid var(--color-tertiary);
         border-radius: var(--radius-full);
         padding: var(--space-4) var(--space-8);
-        color: var(--color-white);
+        color: var(--color-primary);
         cursor: pointer;
         font-size: var(--font-size-lg);
         font-weight: var(--font-weight-semibold);
@@ -595,15 +603,15 @@ const faq = [
     }
 
     .faq-more-button:hover {
-        border-color: var(--color-accent);
-        background: rgba(var(--color-accent-rgb), 0.2);
+        border-color: var(--accent-primary);
+        background: rgba(var(--accent-primary-rgb), 0.2);
         transform: translateY(-2px);
     }
 
     .faq-more-button i {
         font-size: var(--font-size-base);
         transition: transform 0.3s ease;
-        color: var(--color-accent);
+        color: var(--accent-primary);
     }
 
     .faq-more-button.expanded i {
@@ -626,12 +634,12 @@ const faq = [
         transition: color 0.3s ease;
     }
     .faq-question:hover {
-        color: var(--color-accent);
+        color: var(--accent-primary);
     }
     .faq-question i {
         font-size: var(--font-size-lg);
         transition: transform 0.3s ease;
-        color: var(--color-accent);
+        color: var(--accent-primary);
     }
 
     .faq-answer {
@@ -644,7 +652,7 @@ const faq = [
     .faq-answer p {
         font-size: var(--font-size-lg);
         line-height: 1.6;
-        color: rgba(255, 255, 255, 0.8);
+        color: light-dark(rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.8));
         margin: 0;
     }
 

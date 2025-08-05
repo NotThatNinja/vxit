@@ -1,11 +1,11 @@
 ---
 import { Image } from "astro:assets";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo-v2.png";
 ---
 
 <header>
     <a href="/" class="logo">
-        <div class="logo-placeholder">LOGO</div>
+        <Image src={logo} alt="VXIT" />
     </a>
 
     <nav>
@@ -35,6 +35,31 @@ import logo from "../assets/logo.png";
         </ul>
     </nav>
 
+    <div class="language-selector">
+        <a href="#" class="dropdown-toggle">
+            EN
+            <i class="fas fa-chevron-down"></i>
+        </a>
+        <div class="dropdown-menu">
+            <a href="/es">ET</a>
+            <a href="/fr">FR</a>
+            <a href="/de">IT</a>
+            <a href="/es">ES</a>
+            <a href="/de">DE</a>
+            <a href="/ru">RU</a>
+            <a href="/nl">NL</a>
+        </div>
+    </div>
+
+    <div class="theme-toggle">
+        <button type="button" id="lightThemeButton">
+            <i class="fas fa-sun"></i>
+        </button>
+        <button type="button" id="darkThemeButton">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+
     <button id="navToggle" class="hamburger" aria-label="Toggle navigation">
         <span></span>
         <span></span>
@@ -57,15 +82,16 @@ import logo from "../assets/logo.png";
     }
 
     .logo {
-        display: none;
+        width: 40px;
+        height: 40px;
         animation: 1.5s ease-in-out 1 slideFromLeft;
         transition: scale 0.3s ease;
     }
     .logo:hover {
-        scale: 1.05;
+        scale: 1.1;
     }
     .logo img {
-        width: 75px;
+        width: 100%;
         height: auto;
     }
 
@@ -73,10 +99,10 @@ import logo from "../assets/logo.png";
         display: flex;
         margin: auto;
         padding: var(--space-4) var(--space-10);
-        background: rgba(10, 10, 10, 0.6);
+        background: light-dark(rgba(255, 255, 255, 0.6), rgba(10, 10, 10, 0.6));
         -webkit-backdrop-filter: blur(24px);
         backdrop-filter: blur(24px);
-        border: 1px solid var(--color-gray);
+        border: 1px solid var(--color-tertiary);
         border-radius: var(--radius-full);
         animation: 1.5s ease-in-out 1 slideFromTop;
         transition: transform 0.7s ease;
@@ -93,7 +119,7 @@ import logo from "../assets/logo.png";
     }
     nav ul li a {
         text-decoration: none;
-        color: var(--color-white);
+        color: var(--color-primary);
         font-size: var(--font-size-base);
         transition: color 0.3s ease;
         display: flex;
@@ -101,7 +127,7 @@ import logo from "../assets/logo.png";
         gap: var(--space-2);
     }
     nav ul li a:hover {
-        color: var(--color-accent);
+        color: var(--accent-primary);
     }
 
     .hamburger {
@@ -120,7 +146,7 @@ import logo from "../assets/logo.png";
     .hamburger span {
         height: 2px;
         width: 25px;
-        background-color: var(--color-white);
+        background-color: var(--color-primary);
         transition:
             transform 0.3s ease,
             opacity 0.3s ease;
@@ -135,7 +161,74 @@ import logo from "../assets/logo.png";
         transform: rotate(-45deg) translateY(-11px);
     }
 
-    /* Dropdown Styles */
+    /* Language Selector */
+    .language-selector {
+        margin-right: var(--space-4);
+        display: flex;
+        align-items: center;
+        gap: var(--space-4);
+        padding: var(--space-3) var(--space-4);
+        background: light-dark(rgba(255, 255, 255, 0.6), rgba(10, 10, 10, 0.6));
+        -webkit-backdrop-filter: blur(24px);
+        backdrop-filter: blur(24px);
+        border: 1px solid var(--color-tertiary);
+        border-radius: var(--radius-full);
+        animation: 1.5s ease-in-out 1 slideFromRight;
+        position: relative;
+    }
+    .language-selector .dropdown-menu {
+        min-width: 0;
+    }
+    .language-selector a {
+        display: flex;
+        gap: var(--space-2);
+        align-items: center;
+        text-decoration: none;
+        color: var(--color-primary);
+        font-size: var(--font-size-base);
+        transition: color 0.3s ease;
+    }
+    .language-selector:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+    }
+    .language-selector .dropdown-toggle i {
+        font-size: var(--font-size-sm);
+        transition: transform 0.3s ease;
+    }
+    .language-selector:hover .dropdown-toggle i {
+        transform: rotate(180deg);
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+        display: flex;
+        gap: var(--space-4);
+        padding: var(--space-3) var(--space-4);
+        background: light-dark(rgba(255, 255, 255, 0.6), rgba(10, 10, 10, 0.6));
+        -webkit-backdrop-filter: blur(24px);
+        backdrop-filter: blur(24px);
+        border: 1px solid var(--color-tertiary);
+        border-radius: var(--radius-full);
+        animation: 1.5s ease-in-out 1 slideFromRight;
+    }
+    .theme-toggle button {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        color: var(--color-primary);
+        font-size: var(--font-size-lg);
+        transition: color 0.3s ease;
+    }
+    .theme-toggle button:hover {
+        color: light-dark(rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.5));
+    }
+    .theme-toggle button.active {
+        color: var(--accent-primary);
+    }
+
+    /* Dropdown */
     .dropdown {
         position: relative;
     }
@@ -157,10 +250,10 @@ import logo from "../assets/logo.png";
         position: absolute;
         top: calc(100% + var(--space-4));
         left: 50%;
-        background: rgba(10, 10, 10, 0.5);
+        background: light-dark(rgba(255, 255, 255, 0.1), rgba(10, 10, 10, 0.5));
         -webkit-backdrop-filter: blur(24px);
         backdrop-filter: blur(24px);
-        border: 1px solid var(--color-gray);
+        border: 1px solid var(--color-tertiary);
         border-radius: var(--radius-xl);
         padding: var(--space-4);
         min-width: 200px;
@@ -173,17 +266,19 @@ import logo from "../assets/logo.png";
     .dropdown-menu a {
         display: block;
         padding: var(--space-3) var(--space-4);
-        color: rgba(255, 255, 255, 0.8);
+        color: var(--color-primary) !important;
         text-decoration: none;
         border-radius: var(--radius-lg);
         transition: all 0.3s ease;
-        font-size: var(--font-size-sm);
         position: relative;
         overflow: hidden;
     }
     .dropdown-menu a:hover {
-        color: var(--color-white);
-        background: rgba(var(--color-accent-rgb), 0.1);
+        color: light-dark(
+            var(--color-primary),
+            var(--accent-primary)
+        ) !important;
+        background: rgba(var(--color-secondary-rgb), 0.1);
     }
 
     @keyframes slideFromTop {
@@ -198,6 +293,15 @@ import logo from "../assets/logo.png";
     @keyframes slideFromLeft {
         from {
             transform: translateX(-300%);
+        }
+        to {
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideFromRight {
+        from {
+            transform: translateX(300%);
         }
         to {
             transform: translateX(0);
@@ -230,6 +334,17 @@ import logo from "../assets/logo.png";
 
         .hamburger {
             display: flex;
+        }
+
+        .language-selector {
+            display: none;
+        }
+        .theme-toggle {
+            display: none;
+        }
+
+        .language-selector {
+            display: none;
         }
 
         /* Mobile dropdown adjustments */
@@ -267,7 +382,7 @@ import logo from "../assets/logo.png";
         }
         .dropdown-menu a:hover {
             background: transparent;
-            color: var(--color-white);
+            color: var(--color-primary);
         }
 
         .dropdown.mobile-active .dropdown-menu {
@@ -327,5 +442,30 @@ import logo from "../assets/logo.png";
                 dropdown?.classList.remove("mobile-active");
             }
         });
+    });
+
+    // Theme toggle functionality
+    const lightThemeButton = document.querySelector("#lightThemeButton");
+    const darkThemeButton = document.querySelector("#darkThemeButton");
+
+    // Set initial theme based on localStorage
+    const initialTheme = localStorage.getItem("theme") || "dark";
+    if (initialTheme === "light") {
+        lightThemeButton?.classList.add("active");
+    } else {
+        darkThemeButton?.classList.add("active");
+    }
+
+    lightThemeButton?.addEventListener("click", () => {
+        document.documentElement.setAttribute("data-theme", "light");
+        localStorage.setItem("theme", "light");
+        lightThemeButton?.classList.add("active");
+        darkThemeButton?.classList.remove("active");
+    });
+    darkThemeButton?.addEventListener("click", () => {
+        document.documentElement.setAttribute("data-theme", "dark");
+        localStorage.setItem("theme", "dark");
+        darkThemeButton?.classList.add("active");
+        lightThemeButton?.classList.remove("active");
     });
 </script>

@@ -127,8 +127,8 @@ import Button from "../components/Button.astro";
     h2 {
         background: linear-gradient(
             to right,
-            var(--color-accent),
-            var(--color-white)
+            var(--accent-primary),
+            light-dark(var(--accent-secondary), var(--color-primary))
         );
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -188,9 +188,9 @@ import Button from "../components/Button.astro";
         background: transparent;
         border: 0;
         border-radius: 0;
-        border-bottom: 1px solid var(--color-gray);
+        border-bottom: 1px solid var(--color-tertiary);
         padding: var(--space-4) var(--space-3);
-        color: var(--color-white);
+        color: var(--color-primary);
         outline: none;
         transition: border 0.3s ease;
         font-weight: var(--font-weight-medium);
@@ -205,7 +205,7 @@ import Button from "../components/Button.astro";
     .form-message textarea:not(:placeholder-shown) + label {
         transform: translateY(-35px);
         font-size: var(--font-size-sm);
-        color: var(--color-accent);
+        color: var(--accent-primary);
     }
     form button {
         align-self: center;
@@ -222,15 +222,15 @@ import Button from "../components/Button.astro";
     .form-checkbox input {
         width: 17.5px;
         height: 17.5px;
-        accent-color: var(--color-accent);
+        accent-color: var(--accent-primary);
     }
     .form-checkbox label {
         font-size: var(--font-size-lg);
-        color: var(--color-white);
+        color: var(--color-primary);
     }
     .form-checkbox label a {
         font-size: var(--font-size-lg);
-        color: var(--color-accent);
+        color: var(--accent-primary);
         text-decoration: underline;
     }
 
@@ -259,7 +259,7 @@ import Button from "../components/Button.astro";
         .form-message textarea:not(:placeholder-shown) + label {
             transform: translateY(-30px);
             font-size: var(--font-size-sm);
-            color: var(--color-accent);
+            color: var(--accent-primary);
         }
 
         .form-checkbox input {

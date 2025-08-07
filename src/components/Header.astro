@@ -12,60 +12,74 @@ import logo from "../assets/logo-v2.png";
         <ul>
             <li><a href="/">Home</a></li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle">
-                    Services
+                <a href="#">
+                    About Us
                     <i class="fas fa-chevron-down"></i>
                 </a>
-                <div class="dropdown-menu">
-                    <a href="/services/website-development">
-                        Website Development
-                    </a>
-                    <a href="/services/ai-integration">AI Integration</a>
-                    <a href="/services/ecommerce-solutions">
-                        Ecommerce Solutions
-                    </a>
-                    <a href="/services/seo-optimization"> SEO Optimization </a>
-                    <a href="/services/maintenance">
-                        Maintenance & Additional Services
-                    </a>
-                </div>
+                <ul class="dropdown-content">
+                    <li>
+                        <a href="/services/website-development">
+                            Website Development
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/services/ai-integration">AI Integration</a>
+                    </li>
+                    <li>
+                        <a href="/services/ecommerce-solutions">
+                            Ecommerce Solutions
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/services/seo-optimization">
+                            SEO Optimization
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/services/maintenance">
+                            Maintenance & Additional Services
+                        </a>
+                    </li>
+                </ul>
             </li>
             <li><a href="/portfolio">Portfolio</a></li>
             <li><a href="/contact">Contact Us</a></li>
         </ul>
     </nav>
 
-    <div class="language-selector">
-        <a href="#" class="dropdown-toggle">
-            EN
-            <i class="fas fa-chevron-down"></i>
-        </a>
-        <div class="dropdown-menu">
-            <a href="/es">ET</a>
-            <a href="/fr">FR</a>
-            <a href="/de">IT</a>
-            <a href="/es">ES</a>
-            <a href="/de">DE</a>
-            <a href="/ru">RU</a>
-            <a href="/nl">NL</a>
+    <div class="nav-actions">
+        <div class="language-selector dropdown">
+            <a href="#">
+                EN
+                <i class="fas fa-chevron-down"></i>
+            </a>
+            <ul class="dropdown-content">
+                <li><a href="/it">IT</a></li>
+                <li><a href="/et">ET</a></li>
+                <li><a href="/fr">FR</a></li>
+                <li><a href="/de">DE</a></li>
+                <li><a href="/es">ES</a></li>
+                <li><a href="/ru">RU</a></li>
+                <li><a href="/nl">NL</a></li>
+            </ul>
         </div>
-    </div>
 
-    <div class="theme-toggle">
-        <button
-            type="button"
-            id="lightThemeButton"
-            aria-label="Switch to light theme"
-        >
-            <i class="fas fa-sun"></i>
-        </button>
-        <button
-            type="button"
-            id="darkThemeButton"
-            aria-label="Switch to dark theme"
-        >
-            <i class="fas fa-moon"></i>
-        </button>
+        <div class="theme-toggle">
+            <button
+                type="button"
+                id="lightThemeButton"
+                aria-label="Switch to light theme"
+            >
+                <i class="fas fa-sun"></i>
+            </button>
+            <button
+                type="button"
+                id="darkThemeButton"
+                aria-label="Switch to dark theme"
+            >
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
     </div>
 
     <button id="navToggle" class="hamburger" aria-label="Toggle navigation">
@@ -104,8 +118,10 @@ import logo from "../assets/logo-v2.png";
     }
 
     nav {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
         display: flex;
-        margin: auto;
         padding: var(--space-4) var(--space-10);
         background: light-dark(rgba(255, 255, 255, 0.6), rgba(10, 10, 10, 0.6));
         -webkit-backdrop-filter: blur(24px);
@@ -118,14 +134,14 @@ import logo from "../assets/logo-v2.png";
     nav.active {
         transform: translateY(0);
     }
-    nav ul {
+    nav > ul {
         display: flex;
         gap: var(--space-12);
         margin: 0;
         padding: 0;
         list-style: none;
     }
-    nav ul li a {
+    nav > ul > li > a {
         text-decoration: none;
         color: var(--color-primary);
         font-size: var(--font-size-base);
@@ -134,8 +150,63 @@ import logo from "../assets/logo-v2.png";
         align-items: center;
         gap: var(--space-2);
     }
-    nav ul li a:hover {
+    nav > ul > li > a i {
+        font-size: var(--font-size-sm);
+        transition: transform 0.3s ease;
+    }
+    nav > ul > li > a:hover {
         color: var(--accent-primary);
+    }
+
+    .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: var(--space-4);
+    }
+
+    .dropdown {
+        position: relative;
+    }
+    .dropdown-content {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-6);
+        position: absolute;
+        top: calc(50% + var(--space-8));
+        left: calc(-1 * var(--space-8));
+        min-width: 200px;
+        margin: 0;
+        padding: var(--space-6);
+        background: light-dark(rgba(255, 255, 255, 0.6), rgba(10, 10, 10, 0.6));
+        -webkit-backdrop-filter: blur(24px);
+        backdrop-filter: blur(24px);
+        border: 1px solid var(--color-tertiary);
+        border-radius: var(--radius-xl);
+        list-style: none;
+        opacity: 0;
+        transition:
+            opacity 0.4s ease,
+            visibility 0.4s ease;
+        visibility: hidden;
+    }
+    .dropdown-content li a {
+        display: flex;
+        text-decoration: none;
+        color: var(--color-primary);
+        font-size: var(--font-size-base);
+        transition: color 0.3s ease;
+    }
+    .dropdown-content li a:hover {
+        color: var(--accent-primary);
+    }
+    .dropdown:hover .dropdown-content,
+    .dropdown-content:hover {
+        opacity: 1;
+        visibility: visible;
+    }
+    .dropdown:hover a i,
+    .dropdown.active a i {
+        transform: rotate(180deg);
     }
 
     .hamburger {
@@ -171,7 +242,6 @@ import logo from "../assets/logo-v2.png";
 
     /* Language Selector */
     .language-selector {
-        margin-right: var(--space-4);
         display: flex;
         align-items: center;
         gap: var(--space-4);
@@ -184,8 +254,9 @@ import logo from "../assets/logo-v2.png";
         animation: 1.5s ease-in-out 1 slideFromRight;
         position: relative;
     }
-    .language-selector .dropdown-menu {
+    .language-selector .dropdown-content {
         min-width: 0;
+        left: var(--space-1);
     }
     .language-selector a {
         display: flex;
@@ -236,65 +307,12 @@ import logo from "../assets/logo-v2.png";
         color: var(--accent-primary);
     }
 
-    /* Dropdown */
-    .dropdown {
-        position: relative;
-    }
-    .dropdown-toggle i {
-        font-size: var(--font-size-sm);
-        transition: transform 0.3s ease;
-    }
-    .dropdown:hover .dropdown-toggle i,
-    .dropdown.mobile-active .dropdown-toggle i {
-        transform: rotate(180deg);
-    }
-    .dropdown:hover .dropdown-menu {
-        opacity: 1;
-        visibility: visible;
-        transform: translateX(-50%) translateY(0);
-    }
-
-    .dropdown-menu {
-        position: absolute;
-        top: calc(100% + var(--space-4));
-        left: 50%;
-        background: light-dark(rgba(255, 255, 255, 0.1), rgba(10, 10, 10, 0.5));
-        -webkit-backdrop-filter: blur(24px);
-        backdrop-filter: blur(24px);
-        border: 1px solid var(--color-tertiary);
-        border-radius: var(--radius-xl);
-        padding: var(--space-4);
-        min-width: 200px;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        transform: translateX(-50%) translateY(-10px);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    }
-    .dropdown-menu a {
-        display: block;
-        padding: var(--space-3) var(--space-4);
-        color: var(--color-primary) !important;
-        text-decoration: none;
-        border-radius: var(--radius-lg);
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-    }
-    .dropdown-menu a:hover {
-        color: light-dark(
-            var(--color-primary),
-            var(--accent-primary)
-        ) !important;
-        background: rgba(var(--color-secondary-rgb), 0.1);
-    }
-
     @keyframes slideFromTop {
         from {
-            transform: translateY(-150%);
+            transform: translate(-50%, -150%);
         }
         to {
-            transform: translateY(0);
+            transform: translate(-50%, 0);
         }
     }
 
@@ -331,16 +349,36 @@ import logo from "../assets/logo-v2.png";
             padding: 0;
             animation: none;
         }
-        nav ul {
+        nav > ul {
             flex-direction: column;
             align-items: center;
             gap: var(--space-8);
         }
-        nav ul li a {
+        nav > ul > li > a {
+            justify-content: center;
             font-size: var(--font-size-4xl);
         }
 
         .hamburger {
+            display: flex;
+        }
+
+        .dropdown {
+            position: static;
+        }
+        .dropdown-content {
+            display: none;
+            position: static;
+            gap: var(--space-4);
+            background: transparent;
+            border: none;
+            opacity: 1;
+            visibility: visible;
+        }
+        .dropdown-content li a {
+            font-size: var(--font-size-2xl);
+        }
+        .dropdown.active .dropdown-content {
             display: flex;
         }
 
@@ -355,56 +393,12 @@ import logo from "../assets/logo-v2.png";
             display: none;
         }
 
-        /* Mobile dropdown adjustments */
-        .dropdown {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        .dropdown:hover .dropdown-menu {
-            transform: none;
-        }
-        .dropdown-menu {
-            display: flex;
-            flex-direction: column;
-            position: static;
-            transform: none;
-            background: transparent;
-            min-width: auto;
-            width: auto;
-            opacity: 1;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            box-shadow: none;
-            visibility: visible;
-            backdrop-filter: none;
-            border: none;
-            padding: 0;
-            margin-top: 0;
-        }
-        .dropdown-menu a {
-            padding-left: var(--space-8);
-            font-size: var(--font-size-3xl) !important;
-        }
-        .dropdown-menu a:hover {
-            background: transparent;
-            color: var(--color-primary);
-        }
-
-        .dropdown.mobile-active .dropdown-menu {
-            max-height: 300px;
-            margin-top: var(--space-4);
-            padding: var(--space-4);
-        }
-
         @keyframes slideFromTop {
             from {
-                transform: translateY(-100%);
+                transform: translate(-50%, -100%);
             }
             to {
-                transform: translateY(0);
+                transform: translate(-50%, 0);
             }
         }
     }
@@ -420,49 +414,19 @@ import logo from "../assets/logo-v2.png";
         nav?.classList.toggle("active");
     });
 
-    // Mobile dropdown functionality
-    const dropdownToggle = document.querySelector(".dropdown-toggle");
-    const dropdown = document.querySelector(".dropdown");
-
-    // Handle mobile dropdown clicks
-    dropdownToggle?.addEventListener("click", (e) => {
-        // Only prevent default and handle click on mobile
-        if (window.innerWidth <= 768) {
+    // Mobile dropdown
+    const dropdowns = document.querySelectorAll(".dropdown");
+    dropdowns.forEach((dropdown) => {
+        const toggle = dropdown.querySelector("a");
+        toggle?.addEventListener("click", (e) => {
             e.preventDefault();
-            dropdown?.classList.toggle("mobile-active");
-        }
-    });
-
-    // Reset mobile dropdown state on window resize
-    window.addEventListener("resize", () => {
-        if (window.innerWidth > 768) {
-            dropdown?.classList.remove("mobile-active");
-        }
-    });
-
-    // Close mobile nav when clicking dropdown links
-    const dropdownLinks = document.querySelectorAll(".dropdown-menu a");
-    dropdownLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-            if (window.innerWidth <= 768) {
-                navToggle?.classList.remove("active");
-                nav?.classList.remove("active");
-                dropdown?.classList.remove("mobile-active");
-            }
+            dropdown.classList.toggle("active");
         });
     });
 
     // Theme toggle functionality
     const lightThemeButton = document.querySelector("#lightThemeButton");
     const darkThemeButton = document.querySelector("#darkThemeButton");
-
-    // Set initial theme based on localStorage
-    const initialTheme = localStorage.getItem("theme") || "dark";
-    if (initialTheme === "light") {
-        lightThemeButton?.classList.add("active");
-    } else {
-        darkThemeButton?.classList.add("active");
-    }
 
     lightThemeButton?.addEventListener("click", () => {
         document.documentElement.setAttribute("data-theme", "light");
@@ -476,4 +440,12 @@ import logo from "../assets/logo-v2.png";
         darkThemeButton?.classList.add("active");
         lightThemeButton?.classList.remove("active");
     });
+
+    // Set initial theme based on localStorage
+    const initialTheme = localStorage.getItem("theme") || "dark";
+    if (initialTheme === "light") {
+        lightThemeButton?.classList.add("active");
+    } else {
+        darkThemeButton?.classList.add("active");
+    }
 </script>

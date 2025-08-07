@@ -134,6 +134,9 @@ import logo from "../assets/logo-v2.png";
     nav.active {
         transform: translateY(0);
     }
+    .nav-actions.active {
+        transform: translateX(0);
+    }
     nav > ul {
         display: flex;
         gap: var(--space-12);
@@ -162,6 +165,7 @@ import logo from "../assets/logo-v2.png";
         display: flex;
         align-items: center;
         gap: var(--space-4);
+        animation: 1.5s ease-in-out 1 slideFromRight;
     }
 
     .dropdown {
@@ -200,7 +204,8 @@ import logo from "../assets/logo-v2.png";
         color: var(--accent-primary);
     }
     .dropdown:hover .dropdown-content,
-    .dropdown-content:hover {
+    .dropdown-content:hover,
+    .dropdown.active .dropdown-content {
         opacity: 1;
         visibility: visible;
     }
@@ -251,7 +256,6 @@ import logo from "../assets/logo-v2.png";
         backdrop-filter: blur(24px);
         border: 1px solid var(--color-tertiary);
         border-radius: var(--radius-full);
-        animation: 1.5s ease-in-out 1 slideFromRight;
         position: relative;
     }
     .language-selector .dropdown-content {
@@ -290,7 +294,6 @@ import logo from "../assets/logo-v2.png";
         backdrop-filter: blur(24px);
         border: 1px solid var(--color-tertiary);
         border-radius: var(--radius-full);
-        animation: 1.5s ease-in-out 1 slideFromRight;
     }
     .theme-toggle button {
         background: transparent;
@@ -363,10 +366,21 @@ import logo from "../assets/logo-v2.png";
             display: flex;
         }
 
-        .dropdown {
+        .nav-actions {
+            display: flex;
+            position: fixed;
+            top: 17px;
+            left: 10px;
+            flex-direction: row-reverse;
+            transform: translateX(-150%);
+            animation: none;
+            transition: transform 0.7s ease;
+        }
+
+        nav .dropdown {
             position: static;
         }
-        .dropdown-content {
+        nav .dropdown-content {
             display: none;
             position: static;
             gap: var(--space-4);
@@ -375,22 +389,11 @@ import logo from "../assets/logo-v2.png";
             opacity: 1;
             visibility: visible;
         }
-        .dropdown-content li a {
+        nav .dropdown-content li a {
             font-size: var(--font-size-2xl);
         }
-        .dropdown.active .dropdown-content {
+        nav .dropdown.active .dropdown-content {
             display: flex;
-        }
-
-        .language-selector {
-            display: none;
-        }
-        .theme-toggle {
-            display: none;
-        }
-
-        .language-selector {
-            display: none;
         }
 
         @keyframes slideFromTop {
@@ -408,20 +411,27 @@ import logo from "../assets/logo-v2.png";
     // Toggle navigation for mobile
     const nav = document.querySelector("nav");
     const navToggle = document.querySelector("#navToggle");
+    const navActions = document.querySelector(".nav-actions");
 
     navToggle?.addEventListener("click", () => {
         navToggle.classList.toggle("active");
         nav?.classList.toggle("active");
+        navActions?.classList.toggle("active");
     });
 
     // Mobile dropdown
-    const dropdowns = document.querySelectorAll(".dropdown");
-    dropdowns.forEach((dropdown) => {
-        const toggle = dropdown.querySelector("a");
-        toggle?.addEventListener("click", (e) => {
-            e.preventDefault();
-            dropdown.classList.toggle("active");
-        });
+    const dropdown = document.querySelector("nav .dropdown");
+    const toggle = dropdown?.querySelector("a");
+    toggle?.addEventListener("click", (e) => {
+        e.preventDefault();
+        dropdown?.classList.toggle("active");
+    });
+
+    // Mobile language selector
+    const languageSelector = document.querySelector(".language-selector");
+    languageSelector?.addEventListener("click", (e) => {
+        e.preventDefault();
+        languageSelector.classList.toggle("active");
     });
 
     // Theme toggle functionality

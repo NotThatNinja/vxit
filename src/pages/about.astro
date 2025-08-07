@@ -198,7 +198,7 @@ import SectionTitle from "../components/SectionTitle.astro";
         </section>
 
         <!-- Team Section -->
-        <section class="team">
+        <!-- <section class="team">
             <div class="container">
                 <SectionTitle>Meet Our Team</SectionTitle>
                 <p class="team-intro">
@@ -311,7 +311,7 @@ import SectionTitle from "../components/SectionTitle.astro";
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <!-- Why Choose Us Section -->
         <section class="why-choose-us">
@@ -421,7 +421,7 @@ import SectionTitle from "../components/SectionTitle.astro";
     .story-text p {
         font-size: var(--font-size-lg);
         line-height: var(--line-height-relaxed);
-        color: rgba(255, 255, 255, 0.9);
+        color: var(--color-primary);
     }
 
     .story-stats {
@@ -433,15 +433,14 @@ import SectionTitle from "../components/SectionTitle.astro";
     .stat {
         text-align: center;
         padding: var(--space-6);
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        border: 1px solid var(--color-tertiary);
         border-radius: var(--radius-xl);
         transition: all 0.3s ease;
     }
 
     .stat:hover {
+        border: 1px solid var(--accent-primary);
         transform: translateY(-4px);
-        border-color: rgba(var(--accent-primary-rgb), 0.3);
         box-shadow: 0 8px 25px rgba(var(--accent-primary-rgb), 0.15);
     }
 
@@ -451,7 +450,7 @@ import SectionTitle from "../components/SectionTitle.astro";
         background: linear-gradient(
             135deg,
             var(--accent-primary),
-            var(--accent-tertiary)
+            light-dark(var(--accent-secondary), var(--accent-secondary))
         );
         background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -460,18 +459,13 @@ import SectionTitle from "../components/SectionTitle.astro";
 
     .stat-label {
         font-size: var(--font-size-sm);
-        color: rgba(255, 255, 255, 0.7);
+        color: var(--color-primary);
         font-weight: var(--font-weight-medium);
     }
 
     /* Mission & Vision Section */
     .mission-vision {
         padding: var(--space-16) 0;
-        background: linear-gradient(
-            135deg,
-            rgba(var(--accent-primary-rgb), 0.05) 0%,
-            rgba(0, 0, 0, 0.8) 100%
-        );
     }
 
     .mission-vision-grid {
@@ -482,18 +476,17 @@ import SectionTitle from "../components/SectionTitle.astro";
 
     .mission-card,
     .vision-card {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        border: 1px solid var(--color-tertiary);
         border-radius: var(--radius-2xl);
         padding: var(--space-8);
         text-align: center;
-        transition: all 0.3s ease;
+        transition: all 0.3s ease !important;
     }
 
     .mission-card:hover,
     .vision-card:hover {
         transform: translateY(-6px);
-        border-color: rgba(var(--accent-primary-rgb), 0.3);
+        border-color: var(--accent-primary);
         box-shadow: 0 12px 30px rgba(var(--accent-primary-rgb), 0.2);
     }
 
@@ -503,7 +496,7 @@ import SectionTitle from "../components/SectionTitle.astro";
         background: linear-gradient(
             135deg,
             var(--accent-primary),
-            var(--accent-tertiary)
+            var(--accent-secondary)
         );
         border-radius: var(--radius-full);
         display: flex;
@@ -514,7 +507,7 @@ import SectionTitle from "../components/SectionTitle.astro";
 
     .card-icon i {
         font-size: var(--font-size-3xl);
-        color: var(--color-primary);
+        color: light-dark(var(--color-secondary), var(--color-primary));
     }
 
     .mission-card h3,
@@ -529,7 +522,7 @@ import SectionTitle from "../components/SectionTitle.astro";
     .vision-card p {
         font-size: var(--font-size-lg);
         line-height: var(--line-height-relaxed);
-        color: rgba(255, 255, 255, 0.8);
+        color: var(--color-primary);
     }
 
     /* Values Section */
@@ -545,17 +538,16 @@ import SectionTitle from "../components/SectionTitle.astro";
     }
 
     .value-card {
-        background: rgba(255, 255, 255, 0.02);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        border: 1px solid var(--color-tertiary);
         border-radius: var(--radius-xl);
         padding: var(--space-6);
         text-align: center;
-        transition: all 0.3s ease;
+        transition: all 0.3s ease !important;
     }
 
     .value-card:hover {
         transform: translateY(-4px);
-        border-color: rgba(var(--accent-primary-rgb), 0.3);
+        border-color: var(--accent-primary);
         box-shadow: 0 8px 25px rgba(var(--accent-primary-rgb), 0.15);
     }
 
@@ -576,7 +568,7 @@ import SectionTitle from "../components/SectionTitle.astro";
 
     .value-icon i {
         font-size: var(--font-size-xl);
-        color: var(--color-primary);
+        color: light-dark(var(--color-secondary), var(--color-primary));
     }
 
     .value-card h4 {
@@ -589,7 +581,7 @@ import SectionTitle from "../components/SectionTitle.astro";
     .value-card p {
         font-size: var(--font-size-base);
         line-height: var(--line-height-relaxed);
-        color: rgba(255, 255, 255, 0.8);
+        color: var(--color-primary);
     }
 
     /* Team Section */
@@ -712,8 +704,7 @@ import SectionTitle from "../components/SectionTitle.astro";
     }
 
     .reason-card {
-        background: rgba(255, 255, 255, 0.02);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        border: 1px solid var(--color-tertiary);
         border-radius: var(--radius-xl);
         padding: var(--space-8);
         transition: all 0.3s ease;
@@ -731,10 +722,10 @@ import SectionTitle from "../components/SectionTitle.astro";
         background: linear-gradient(
             90deg,
             var(--accent-primary),
-            var(--accent-tertiary)
+            light-dark(var(--accent-secondary), var(--accent-tertiary))
         );
         transform: scaleX(0);
-        transition: transform 0.3s ease;
+        transition: transform 0.3s ease !important;
     }
 
     .reason-card:hover::before {
@@ -753,7 +744,7 @@ import SectionTitle from "../components/SectionTitle.astro";
         background: linear-gradient(
             135deg,
             var(--accent-primary),
-            var(--accent-tertiary)
+            light-dark(var(--accent-secondary), var(--accent-tertiary))
         );
         background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -770,17 +761,12 @@ import SectionTitle from "../components/SectionTitle.astro";
     .reason-card p {
         font-size: var(--font-size-base);
         line-height: var(--line-height-relaxed);
-        color: rgba(255, 255, 255, 0.8);
+        color: var(--color-primary);
     }
 
     /* CTA Section */
     .cta {
         padding: var(--space-16) 0;
-        background: linear-gradient(
-            135deg,
-            rgba(var(--accent-primary-rgb), 0.1) 0%,
-            rgba(0, 0, 0, 0.9) 100%
-        );
     }
 
     .cta-content {
@@ -796,7 +782,7 @@ import SectionTitle from "../components/SectionTitle.astro";
         background: linear-gradient(
             135deg,
             var(--accent-primary),
-            var(--color-primary)
+            light-dark(var(--accent-secondary), var(--color-primary))
         );
         background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -804,7 +790,7 @@ import SectionTitle from "../components/SectionTitle.astro";
 
     .cta-content p {
         font-size: var(--font-size-lg);
-        color: rgba(255, 255, 255, 0.8);
+        color: var(--color-primary);
         margin-bottom: var(--space-8);
         line-height: var(--line-height-relaxed);
     }
@@ -846,7 +832,7 @@ import SectionTitle from "../components/SectionTitle.astro";
     .btn-secondary {
         background: transparent;
         color: var(--color-primary);
-        border: 1px solid rgba(255, 255, 255, 0.3);
+        border: 1px solid var(--color-tertiary);
     }
 
     .btn-secondary:hover {

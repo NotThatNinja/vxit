@@ -399,7 +399,7 @@ import logo from "../assets/logo-v2.png";
         }
 
         .language-selector .dropdown-content {
-            background: rgb(0, 0, 0);
+            background: light-dark(rgb(255, 255, 255), rgb(10, 10, 10));
         }
 
         @keyframes slideFromTop {
@@ -418,11 +418,13 @@ import logo from "../assets/logo-v2.png";
     const nav = document.querySelector("nav");
     const navToggle = document.querySelector("#navToggle");
     const navActions = document.querySelector(".nav-actions");
+    const languageSelector = document.querySelector(".language-selector");
 
     navToggle?.addEventListener("click", () => {
         navToggle.classList.toggle("active");
         nav?.classList.toggle("active");
         navActions?.classList.toggle("active");
+        languageSelector?.classList.remove("active");
     });
 
     // Mobile dropdown
@@ -434,7 +436,6 @@ import logo from "../assets/logo-v2.png";
     });
 
     // Mobile language selector
-    const languageSelector = document.querySelector(".language-selector");
     languageSelector?.addEventListener("click", (e) => {
         e.preventDefault();
         languageSelector.classList.toggle("active");

@@ -19,6 +19,28 @@ import Footer from "../components/Footer.astro";
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/png" href="/favicon.png" />
 		<meta name="generator" content={Astro.generator} />
+
+		<!-- SEO & Social -->
+		<meta
+			name="description"
+			content="VXIT - Professional web, AI, ecommerce, and SEO solutions."
+		/>
+		<meta property="og:title" content={title} />
+		<meta
+			property="og:description"
+			content="VXIT - Professional web, AI, ecommerce, and SEO solutions."
+		/>
+		<meta property="og:image" content="/og-icon.png" />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:type" content="website" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="{title}" />
+		<meta
+			name="twitter:description"
+			content="VXIT - Professional web, AI, ecommerce, and SEO solutions."
+		/>
+		<meta name="twitter:image" content="/og-icon.png" />
+
 		<title>{title}</title>
 	</head>
 	<body>

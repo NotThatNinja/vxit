@@ -385,6 +385,8 @@ import logo from "../assets/logo-v2.png";
             position: static;
             gap: var(--space-4);
             background: transparent;
+            -webkit-backdrop-filter: none;
+            backdrop-filter: none;
             border: none;
             opacity: 1;
             visibility: visible;
@@ -394,6 +396,10 @@ import logo from "../assets/logo-v2.png";
         }
         nav .dropdown.active .dropdown-content {
             display: flex;
+        }
+
+        .language-selector .dropdown-content {
+            background: rgb(0, 0, 0);
         }
 
         @keyframes slideFromTop {

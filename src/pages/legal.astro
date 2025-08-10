@@ -1,0 +1,44 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import SectionTitle from "../components/SectionTitle.astro";
+---
+
+<Layout title="Legal Notes - VXIT.IO">
+    <main>
+        <section class="legal">
+            <SectionTitle>Legal Notes</SectionTitle>
+            <p class="subtitle">Last Updated: 2025-08-05</p>
+            <h3>Contact Information</h3>
+            <ul>
+                <li><strong>Company:</strong> VXIT.IO</li>
+                <li><strong>Email:</strong> legal@vxit.io</li>
+            </ul>
+            <h3>Contact Us</h3>
+            <p>Questions about our policies? Email us at legal@vxit.io.</p>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    main {
+        padding: var(--space-16) var(--space-8) 0;
+    }
+
+    .legal {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .subtitle {
+        margin-top: -1.5rem;
+        margin-bottom: var(--space-8);
+        text-align: center;
+    }
+
+    h3 {
+        font-size: var(--font-size-2xl);
+        margin-top: var(--space-8);
+        margin-bottom: var(--space-2);
+    }
+</style>

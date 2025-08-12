@@ -15,15 +15,51 @@ import SectionTitle from "../components/SectionTitle.astro";
                 <li><strong>Email:</strong> legal@vxit.io</li>
             </ul>
             <h3>Billing Information</h3>
+            <h4>EUR</h4>
             <ul>
-                <li><strong>Recipient:</strong> VXIT.IO OÜ</li>
-                <li><strong>IBAN:</strong> 1234567890</li>
-                <li><strong>BIC/SWIFT:</strong> ABCD1234EFG</li>
+                <li>
+                    <strong>RECIPIENT:</strong> vxit.io OÜ
+                </li>
+                <li>
+                    <strong>CURRENCY:</strong> EUR
+                </li>
+                <li>
+                    <strong>IBAN:</strong> LT56 3250 0775 8606 5302
+                </li>
+                <li>
+                    <strong>BIC:</strong> REVOLT21
+                </li>
+                <li>
+                    <strong>ADDRESS:</strong> Narva mnt 5, City Center District,
+                    Harju, 10117, Tallinn, Estonia
+                </li>
+            </ul>
+            <h4>USD, GBP, CHF</h4>
+            <ul>
+                <li>
+                    <strong>RECIPIENT:</strong> vxit.io OÜ
+                </li>
+                <li>
+                    <strong>CURRENCIES:</strong> USD, GBP, CHF
+                </li>
+                <li>
+                    <strong>IBAN:</strong> LT56 3250 0775 8606 5302
+                </li>
+                <li>
+                    <strong>BIC:</strong> REVOLT21
+                </li>
+                <li>
+                    <strong>Intermediary BIC: CHASGB2L</strong>
+                </li>
+                <li>
+                    <strong>ADDRESS:</strong> Narva mnt 5, City Center District,
+                    Harju, 10117, Tallinn, Estonia
+                </li>
             </ul>
             <h3>Company Information</h3>
             <ul>
                 <li><strong>Company Name:</strong> VXIT.IO OÜ</li>
-                <li><strong>Registration Number:</strong> 12085251</li>
+                <li><strong>Registration Number:</strong> 17301800</li>
                 <li>
                     <strong>Address:</strong> Baltic Business Services OÜ, Harju
                     maakond, Tallinn, Kesklinna linnaosa, Narva mnt 5, 10117 (contact@1office.co)
@@ -55,5 +91,8 @@ import SectionTitle from "../components/SectionTitle.astro";
         font-size: var(--font-size-2xl);
         margin-top: var(--space-8);
         margin-bottom: var(--space-2);
+    }
+    h4 {
+        font-size: var(--font-size-base);
     }
 </style>

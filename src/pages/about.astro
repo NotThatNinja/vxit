@@ -406,20 +406,9 @@ import SectionTitle from "../components/SectionTitle.astro";
         <section class="billing">
             <div class="container">
                 <SectionTitle>Billing Information</SectionTitle>
-                <ul>
-                    <li>
-                        <strong>RECIPIENT:</strong>
-                        VXIT.IO OÜ
-                    </li>
-                    <li>
-                        <strong>IBAN:</strong>
-                        1234567890
-                    </li>
-                    <li>
-                        <strong>BIC/SWIFT:</strong>
-                        ABCD1234EFG
-                    </li>
-                </ul>
+                <a href="/legal"
+                    >See Legal Notes <i class="fa fa-arrow-right"></i></a
+                >
             </div>
         </section>
 
@@ -817,17 +806,25 @@ import SectionTitle from "../components/SectionTitle.astro";
     }
 
     /* Billing information */
-    .billing ul {
+    .billing .container {
         display: flex;
         flex-direction: column;
-        gap: var(--space-4);
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        text-align: center;
+        justify-content: center;
+        align-items: center;
     }
-    .billing ul li {
+    .billing a {
+        display: flex;
+        width: fit-content;
+        align-items: center;
+        gap: var(--space-2);
+        margin: 0;
+        color: var(--accent-primary);
         font-size: var(--font-size-2xl);
+        text-decoration: none;
+        transition: gap 0.3s ease;
+    }
+    .billing a:hover {
+        gap: var(--space-4);
     }
 
     /* CTA Section */

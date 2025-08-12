@@ -2,6 +2,9 @@
 import { getRelativeLocaleUrl } from "astro:i18n";
 const locale = Astro.url.pathname.split("/")[1] || "en";
 
+import { translations } from "../i18n/footer.js";
+const t = translations[locale];
+
 import { Image } from "astro:assets";
 import logo from "../assets/logo-2.png";
 ---
@@ -11,25 +14,29 @@ import logo from "../assets/logo-2.png";
         <div class="section">
             <Image src={logo} alt="VXIT.IO Logo" />
             <p>
-                Engineering sleek, high-performing sites that drive growth. We
-                handle the tech, so you can focus on your success.
+                {t.slogan}
             </p>
         </div>
         <div class="section">
-            <h3>Links</h3>
+            <h3>{t.linksTitle}</h3>
             <ul>
-                <li><a href={getRelativeLocaleUrl(locale, "/")}>Home</a></li>
                 <li>
-                    <a href={getRelativeLocaleUrl(locale, "/about")}>About</a>
+                    <a href={getRelativeLocaleUrl(locale, "/")}>{t.home}</a>
+                </li>
+                <li>
+                    <a href={getRelativeLocaleUrl(locale, "/about")}
+                        >{t.about}</a
+                    >
                 </li>
                 <li>
                     <a href={getRelativeLocaleUrl(locale, "/contact")}
-                        >Contact Us</a>
+                        >{t.contactUs}</a
+                    >
                 </li>
             </ul>
         </div>
         <div class="section">
-            <h3>Services</h3>
+            <h3>{t.servicesTitle}</h3>
             <ul>
                 <li>
                     <a
@@ -38,7 +45,7 @@ import logo from "../assets/logo-2.png";
                             "/services/website-development",
                         )}
                     >
-                        Website Development</a
+                        {t.websiteDevelopment}</a
                     >
                 </li>
                 <li>
@@ -48,7 +55,7 @@ import logo from "../assets/logo-2.png";
                             "/services/ai-integration",
                         )}
                     >
-                        AI Integration</a
+                        {t.aiIntegration}</a
                     >
                 </li>
                 <li>
@@ -58,7 +65,7 @@ import logo from "../assets/logo-2.png";
                             "/services/ecommerce-solutions",
                         )}
                     >
-                        Ecommerce Solutions</a
+                        {t.ecommerceSolutions}</a
                     >
                 </li>
                 <li>
@@ -68,7 +75,7 @@ import logo from "../assets/logo-2.png";
                             "/services/seo-optimization",
                         )}
                     >
-                        SEO Optimization</a
+                        {t.seoOptimization}</a
                     >
                 </li>
                 <li>
@@ -78,13 +85,13 @@ import logo from "../assets/logo-2.png";
                             "/services/maintenance",
                         )}
                     >
-                        Maintenance & Additional Services
+                        {t.maintenanceAdditionalServices}
                     </a>
                 </li>
             </ul>
         </div>
         <div class="section">
-            <h3>Contact Info</h3>
+            <h3>{t.contactInfoTitle}</h3>
             <a href="mailto:contactus@vxit.io">
                 <i class="fas fa-envelope"></i> contactus@vxit.io
             </a>
@@ -99,14 +106,17 @@ import logo from "../assets/logo-2.png";
         </div>
     </div>
     <div class="footer-bottom">
-        <p>&copy; 2025 VXIT.IO OÜ - All rights reserved</p>
+        <p>{t.copyright}</p>
         <ul>
             <li>
                 <a href={getRelativeLocaleUrl(locale, "/privacy-policy")}
-                    >Privacy Policy</a>
+                    >{t.privacyPolicy}</a
+                >
             </li>
             <li>
-                <a href={getRelativeLocaleUrl(locale, "/legal")}>Legal Notes</a>
+                <a href={getRelativeLocaleUrl(locale, "/legal")}
+                    >{t.legalNotes}</a
+                >
             </li>
         </ul>
     </div>

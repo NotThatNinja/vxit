@@ -2,6 +2,9 @@
 import { getRelativeLocaleUrl } from "astro:i18n";
 const locale = Astro.url.pathname.split("/")[1] || "en";
 
+import { translations } from "../i18n/header.js";
+const t = translations[locale];
+
 import { Image } from "astro:assets";
 import logo from "../assets/logo.png";
 ---
@@ -16,7 +19,7 @@ import logo from "../assets/logo.png";
             <li><a href={getRelativeLocaleUrl(locale, "/")}>Home</a></li>
             <li class="dropdown">
                 <a href="#">
-                    Services
+                    {t.services}
                     <i class="fas fa-chevron-down"></i>
                 </a>
                 <ul class="dropdown-content">
@@ -27,7 +30,7 @@ import logo from "../assets/logo.png";
                                 "/services/website-development",
                             )}
                         >
-                            Website Development
+                            {t.websiteDevelopment}
                         </a>
                     </li>
                     <li>
@@ -35,7 +38,7 @@ import logo from "../assets/logo.png";
                             href={getRelativeLocaleUrl(
                                 locale,
                                 "/services/ai-integration",
-                            )}>AI Integration</a
+                            )}>{t.aiIntegration}</a
                         >
                     </li>
                     <li>
@@ -45,7 +48,7 @@ import logo from "../assets/logo.png";
                                 "/services/ecommerce-solutions",
                             )}
                         >
-                            Ecommerce Solutions
+                            {t.ecommerceSolutions}
                         </a>
                     </li>
                     <li>
@@ -55,7 +58,7 @@ import logo from "../assets/logo.png";
                                 "/services/seo-optimization",
                             )}
                         >
-                            SEO Optimization
+                            {t.seoOptimization}
                         </a>
                     </li>
                     <li>
@@ -65,14 +68,17 @@ import logo from "../assets/logo.png";
                                 "/services/maintenance",
                             )}
                         >
-                            Maintenance & Additional Services
+                            {t.maintenanceAdditionalServices}
                         </a>
                     </li>
                 </ul>
             </li>
-            <li><a href={getRelativeLocaleUrl(locale, "/about")}>About</a></li>
             <li>
-                <a href={getRelativeLocaleUrl(locale, "/contact")}>Contact Us</a
+                <a href={getRelativeLocaleUrl(locale, "/about")}>{t.about}</a>
+            </li>
+            <li>
+                <a href={getRelativeLocaleUrl(locale, "/contact")}
+                    >{t.contactUs}</a
                 >
             </li>
         </ul>

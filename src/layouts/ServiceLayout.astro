@@ -2,6 +2,9 @@
 import { getRelativeLocaleUrl } from "astro:i18n";
 const locale = Astro.url.pathname.split("/")[1] || "en";
 
+import { translations } from "../i18n/servicelayout.js";
+const t = translations[locale];
+
 import Layout from "./Layout.astro";
 import Hero from "../components/Hero.astro";
 import SectionTitle from "../components/SectionTitle.astro";
@@ -23,7 +26,7 @@ const {
 
         <!-- Benefits Section -->
         <section class="benefits">
-            <SectionTitle>Why Choose Us?</SectionTitle>
+            <SectionTitle>{t.whyChooseUs}</SectionTitle>
             <div class="benefits-grid" data-aos="fade-up">
                 {
                     benefits.map((benefit) => (
@@ -41,12 +44,12 @@ const {
 
         <!-- Pricing Toggle Section -->
         <section>
-            <SectionTitle>Our Plans</SectionTitle>
+            <SectionTitle>{t.ourPlans}</SectionTitle>
             <div class="plans">
                 <div class="toggle-plans">
-                    <button id="individualPlansToggle"> Individual </button>
+                    <button id="individualPlansToggle">{t.individual}</button>
                     <button class="active" id="businessPlansToggle"
-                        >Business</button
+                        >{t.business}</button
                     >
                 </div>
 
@@ -74,7 +77,7 @@ const {
                             class="active"
                             href={getRelativeLocaleUrl(locale, "/contact")}
                         >
-                            Contact Us
+                            {t.contactUs}
                             <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -99,7 +102,7 @@ const {
                             {businessPlan.timeline}
                         </p>
                         <a href={getRelativeLocaleUrl(locale, "/contact")}>
-                            Contact Us
+                            {t.contactUs}
                             <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -111,7 +114,7 @@ const {
         {
             process && (
                 <section class="process">
-                    <SectionTitle>Our Process</SectionTitle>
+                    <SectionTitle>{t.ourProcess}</SectionTitle>
                     <div class="process-timeline">
                         {process.map((step, index) => (
                             <div class="process-step" data-aos="fade-bottom">
@@ -134,7 +137,7 @@ const {
         {
             additionalServices && (
                 <section class="additional-services">
-                    <SectionTitle>Additional Services</SectionTitle>
+                    <SectionTitle>{t.additionalServices}</SectionTitle>
                     <div class="additional-services-grid" data-aos="fade-up">
                         {additionalServices.map((service) => (
                             <div class="additional-service-card">
@@ -148,7 +151,7 @@ const {
                                     )}
                                     class="service-link"
                                 >
-                                    Get Quote
+                                    {t.getQuote}
                                     <i class="fas fa-arrow-right" />
                                 </a>
                             </div>
@@ -161,19 +164,18 @@ const {
         <!-- CTA Section -->
         <section class="cta">
             <div class="cta-content" data-aos="fade-up">
-                <h2>Ready to Get Started?</h2>
+                <h2>{t.readyToGetStarted}</h2>
                 <p>
-                    Contact us today for a free consultation and let's bring
-                    your vision to life.
+                    {t.freeConsultation}
                 </p>
                 <div class="cta-buttons">
                     <a
                         href={getRelativeLocaleUrl(locale, "/contact")}
-                        class="btn-primary">Start Your Project</a
+                        class="btn-primary">{t.startYourProject}</a
                     >
                     <a
                         href={getRelativeLocaleUrl(locale, "/about")}
-                        class="btn-secondary">Who We Are</a
+                        class="btn-secondary">{t.whoWeAre}</a
                     >
                 </div>
             </div>

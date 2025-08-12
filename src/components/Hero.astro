@@ -2,6 +2,9 @@
 import { getRelativeLocaleUrl } from "astro:i18n";
 const locale = Astro.url.pathname.split("/")[1] || "en";
 
+import { translations } from "../i18n/hero.js";
+const t = translations[locale];
+
 const { title, subtitle, cta } = Astro.props;
 ---
 
@@ -47,7 +50,7 @@ const { title, subtitle, cta } = Astro.props;
                     href={getRelativeLocaleUrl(locale, "/contact")}
                     class="cta-button"
                 >
-                    Contact Us
+                    {t.cta}
                     <i class="fa-solid fa-arrow-right" />
                 </a>
             )

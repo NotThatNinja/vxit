@@ -1,1 +1,1 @@
-RedirectMatch 302 ^/$  https://www.vxit.io/en
+RedirectMatch 301 ^/$  https://www.vxit.io/en

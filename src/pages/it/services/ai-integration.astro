@@ -1,0 +1,117 @@
+---
+import ServiceLayout from "../../../layouts/ServiceLayout.astro";
+
+const aiData = {
+    title: "Integrazione AI - VXIT.IO",
+    description:
+        "Servizi intelligenti di integrazione AI per automatizzare e migliorare la tua presenza digitale. Dai chatbot all'analisi predittiva.",
+    hero: {
+        title: "Integrazione AI",
+        subtitle:
+            "Trasforma il tuo business con l'automazione intelligente. Integriamo soluzioni AI all'avanguardia che migliorano l'esperienza utente e ottimizzano le operazioni.",
+    },
+    individualPlan: {
+        name: "Automazione Base",
+        price: "A partire da 199€",
+        description: "Funzionalità AI per siti personali e piccoli progetti",
+        features: [
+            "Integrazione chatbot base",
+            "Strumenti di generazione contenuti",
+            "Moduli di contatto intelligenti",
+            "Risposte automatizzate",
+            "Analisi dati",
+            "Monitoraggio delle prestazioni",
+        ],
+        timeline: "1-2 settimane",
+    },
+    businessPlan: {
+        name: "Automazione Aziendale",
+        price: "A partire da 349€",
+        description: "Soluzione AI completa per l'automazione aziendale",
+        features: [
+            "Chatbot avanzato con NLP",
+            "Analisi predittiva",
+            "Analisi comportamento clienti",
+            "Strumenti di marketing automatizzati",
+            "Raccomandazioni AI",
+            "Elaborazione dati in tempo reale",
+            "Distribuzione multi-piattaforma",
+            "Reportistica avanzata",
+            "Integrazioni API",
+        ],
+        timeline: "2-3 settimane",
+    },
+    benefits: [
+        {
+            title: "Automazione 24/7",
+            description:
+                "L'AI lavora 24 ore su 24 per servire i tuoi clienti e ottimizzare i processi.",
+            icon: "fas fa-robot",
+        },
+        {
+            title: "Insight basati sui dati",
+            description:
+                "Ottieni insight azionabili dai tuoi dati con analisi e report avanzati.",
+            icon: "fas fa-chart-line",
+        },
+        {
+            title: "Esperienza utente migliorata",
+            description:
+                "Offri esperienze personalizzate che si adattano al comportamento e alle preferenze degli utenti.",
+            icon: "fas fa-user-friends",
+        },
+        {
+            title: "Efficienza dei costi",
+            description:
+                "Riduci i costi operativi grazie all'automazione intelligente e all'ottimizzazione.",
+            icon: "fas fa-dollar-sign",
+        },
+        {
+            title: "Soluzioni scalabili",
+            description:
+                "Soluzioni AI che crescono con il tuo business e si adattano alle esigenze in evoluzione.",
+            icon: "fas fa-expand-arrows-alt",
+        },
+        {
+            title: "Vantaggio competitivo",
+            description:
+                "Rimani avanti alla concorrenza con tecnologia AI all'avanguardia.",
+            icon: "fas fa-trophy",
+        },
+    ],
+    process: [
+        {
+            step: 1,
+            title: "Audit AI & Strategia",
+            description:
+                "Analizziamo i tuoi processi attuali e identifichiamo opportunità per l'integrazione AI per massimizzare l'impatto.",
+        },
+        {
+            step: 2,
+            title: "Progettazione della Soluzione",
+            description:
+                "Progettiamo soluzioni AI personalizzate su misura per le specifiche esigenze aziendali e requisiti tecnici.",
+        },
+        {
+            step: 3,
+            title: "Sviluppo & Addestramento",
+            description:
+                "Costruiamo e addestriamo modelli AI utilizzando i tuoi dati e le migliori pratiche del settore per prestazioni ottimali.",
+        },
+        {
+            step: 4,
+            title: "Integrazione & Test",
+            description:
+                "Integriamo perfettamente le soluzioni AI nei tuoi sistemi esistenti con test e validazione approfonditi.",
+        },
+        {
+            step: 5,
+            title: "Ottimizzazione & Supporto",
+            description:
+                "Monitoraggio continuo, ottimizzazione e supporto per assicurare che le soluzioni AI offrano il massimo valore.",
+        },
+    ],
+};
+---
+
+<ServiceLayout {...aiData} />

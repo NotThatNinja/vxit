@@ -1,0 +1,282 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+const locale = Astro.url.pathname.split("/")[1] || "en";
+
+import Layout from "../../layouts/Layout.astro";
+
+import Hero from "../../components/Hero.astro";
+import Button from "../../components/Button.astro";
+---
+
+<Layout title="Contact Us - VXIT.IO">
+    <main>
+        <Hero
+            title="Contattaci"
+            subtitle="Connettiti con noi per discutere le esigenze del tuo progetto e come possiamo aiutarti."
+        />
+        <section>
+            <div class="container">
+                <div class="contact-info">
+                    <h2>Mettiamoci in Contatto</h2>
+                    <p>
+                        Se hai domande o vuoi discutere il tuo progetto,
+                        contattaci pure:
+                    </p>
+                    <a href="mailto:contactus@vxit.io">
+                        <i class="fa-solid fa-envelope"></i>
+                        contactus@vxit.io
+                    </a>
+                    <a href="https://wa.me/+393498974039">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        +39 349 897 4039
+                    </a>
+                    <a href="#">
+                        <i class="fa-solid fa-map-marker-alt"></i>
+                        Tallinn, EE
+                    </a>
+                </div>
+                <form class="contact-form">
+                    <div class="form-input">
+                        <input
+                            id="name"
+                            name="name"
+                            type="text"
+                            placeholder=" "
+                            required
+                        />
+                        <label for="name">Nome</label>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-input">
+                            <input
+                                id="email"
+                                name="email"
+                                type="email"
+                                placeholder=" "
+                                required
+                            />
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="form-input">
+                            <input
+                                id="phone"
+                                name="phone"
+                                type="tel"
+                                placeholder=" "
+                            />
+                            <label for="phone">Telefono (opzionale)</label>
+                        </div>
+                    </div>
+                    <div class="form-input">
+                        <input
+                            id="subject"
+                            name="subject"
+                            type="text"
+                            placeholder=" "
+                            required
+                        />
+                        <label for="subject">Oggetto</label>
+                    </div>
+                    <div class="form-message">
+                        <textarea
+                            id="message"
+                            name="message"
+                            placeholder=" "
+                            required></textarea>
+                        <label for="message">Messaggio</label>
+                    </div>
+                    <div class="form-checkbox">
+                        <input
+                            id="privacy"
+                            name="privacy"
+                            type="checkbox"
+                            required
+                        />
+                        <label for="privacy">
+                            Ho letto e accetto la
+                            <a
+                                href={getRelativeLocaleUrl(
+                                    locale,
+                                    "/privacy-policy",
+                                )}>Privacy Policy</a
+                            >
+                        </label>
+                    </div>
+                    <Button type="submit" class="button">
+                        Invia Messaggio
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </Button>
+                </form>
+            </div>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    section {
+        padding: var(--space-16) var(--space-6);
+    }
+
+    .container {
+        display: flex;
+        align-items: start;
+        max-width: 1200px;
+        margin: 0 auto;
+        gap: var(--space-8);
+    }
+
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: var(--space-4);
+        width: 50%;
+    }
+    h2 {
+        background: linear-gradient(
+            to right,
+            var(--accent-primary),
+            light-dark(var(--accent-secondary), var(--color-primary))
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: var(--font-size-6xl);
+    }
+    p {
+        font-size: var(--font-size-xl);
+        font-weight: var(--font-weight-medium);
+    }
+    .contact-info a {
+        display: flex;
+        width: fit-content;
+        gap: var(--space-4);
+        align-items: center;
+        text-decoration: none;
+        color: inherit;
+        font-size: var(--font-size-xl);
+    }
+
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-8);
+        width: 50%;
+    }
+    .form-group {
+        display: flex;
+        flex-direction: row;
+        gap: var(--space-24);
+    }
+    .form-input,
+    .form-message {
+        position: relative;
+    }
+    .form-message {
+        margin-top: var(--space-2);
+    }
+    .form-input label,
+    .form-message label {
+        cursor: text;
+        position: absolute;
+        left: var(--space-2);
+        bottom: var(--space-4);
+        font-size: var(--font-size-xl);
+        transition:
+            transform 0.3s ease,
+            font-size 0.3s ease,
+            color 0.3s ease;
+    }
+    .form-message label {
+        top: var(--space-4);
+    }
+    input,
+    textarea {
+        width: 100%;
+        font-size: var(--font-size-xl);
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        border-bottom: 1px solid var(--color-tertiary);
+        padding: var(--space-4) var(--space-3);
+        color: var(--color-primary);
+        outline: none;
+        transition: border 0.3s ease;
+        font-weight: var(--font-weight-medium);
+    }
+    textarea {
+        height: 150px;
+        resize: none;
+    }
+    .form-input input:focus + label,
+    .form-message textarea:focus + label,
+    .form-input input:not(:placeholder-shown) + label,
+    .form-message textarea:not(:placeholder-shown) + label {
+        transform: translateY(-35px);
+        font-size: var(--font-size-sm);
+        color: var(--accent-primary);
+    }
+    form button {
+        align-self: center;
+        margin-top: var(--space-4);
+    }
+
+    .form-checkbox {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+        justify-content: center;
+    }
+    .form-checkbox input {
+        width: 17.5px;
+        height: 17.5px;
+        accent-color: var(--accent-primary);
+    }
+    .form-checkbox label {
+        font-size: var(--font-size-lg);
+        color: var(--color-primary);
+    }
+    .form-checkbox label a {
+        font-size: var(--font-size-lg);
+        color: var(--accent-primary);
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            flex-direction: column;
+            max-width: auto;
+            gap: var(--space-12);
+        }
+        .contact-info {
+            width: 100%;
+        }
+        .contact-form {
+            width: 100%;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-8);
+        }
+
+        .form-input input:focus + label,
+        .form-message textarea:focus + label,
+        .form-input input:not(:placeholder-shown) + label,
+        .form-message textarea:not(:placeholder-shown) + label {
+            transform: translateY(-30px);
+            font-size: var(--font-size-sm);
+            color: var(--accent-primary);
+        }
+
+        .form-checkbox input {
+            width: 15px;
+            height: 15px;
+        }
+        .form-checkbox label,
+        .form-checkbox label a {
+            font-size: var(--font-size-base);
+        }
+    }
+</style>

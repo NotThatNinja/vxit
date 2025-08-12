@@ -1,0 +1,118 @@
+---
+import ServiceLayout from "../../../layouts/ServiceLayout.astro";
+
+const websiteData = {
+    title: "Sviluppo Siti Web - VXIT.IO",
+    hero: {
+        title: "Sviluppo Siti Web",
+        subtitle:
+            "Crea siti web sorprendenti e responsive che generano risultati. Da portfolio personali a soluzioni aziendali, costruiamo siti che funzionano perfettamente su tutti i dispositivi.",
+    },
+    individualPlan: {
+        name: "Sito Personale",
+        price: "A partire da 399€",
+        description: "Perfetto per freelance, artisti e brand personali",
+        features: [
+            "Sito web responsive a pagina singola o multipla",
+            "Design e branding personalizzati",
+            "Ottimizzazione mobile",
+            "Integrazione modulo di contatto",
+            "Configurazione SEO base",
+            "1 mese di supporto incluso",
+            "Integrazione con social media",
+            "Punteggio di performance Google 90+/100",
+            "Integrazione CMS disponibile a pagamento",
+        ],
+        timeline: "2-3 settimane",
+    },
+    businessPlan: {
+        name: "Sito Aziendale",
+        price: "A partire da 799€",
+        description: "Soluzione completa per aziende in crescita",
+        features: [
+            "Quante pagine servono",
+            "Design e sviluppo personalizzati",
+            "Ottimizzazione mobile avanzata",
+            "Ottimizzazione SEO avanzata",
+            "Integrazione analytics",
+            "3 mesi di supporto inclusi",
+            "Ottimizzazione delle performance",
+            "Funzionalità di sicurezza",
+            "Supporto e manutenzione prioritari",
+        ],
+        timeline: "4-6 settimane",
+    },
+    benefits: [
+        {
+            title: "Design Responsive",
+            description:
+                "Il tuo sito sarà perfetto su tutti i dispositivi - desktop, tablet e mobile.",
+            icon: "fas fa-mobile-alt",
+        },
+        {
+            title: "Caricamento Veloce",
+            description:
+                "Ottimizzato per la velocità con le migliori pratiche per garantire tempi di caricamento rapidi.",
+            icon: "fas fa-bolt",
+        },
+        {
+            title: "SEO Ottimizzato",
+            description:
+                "Costruito con le migliori pratiche SEO per aiutare il tuo sito a posizionarsi più in alto nei risultati di ricerca.",
+            icon: "fas fa-search",
+        },
+        {
+            title: "Sicuro e Affidabile",
+            description:
+                "Misure di sicurezza standard del settore e soluzioni di hosting affidabili.",
+            icon: "fas fa-shield-alt",
+        },
+        {
+            title: "Integrazione CMS",
+            description:
+                "Aggiorna facilmente i contenuti del tuo sito con WordPress, Strapi o un CMS personalizzato—non servono competenze tecniche.",
+            icon: "fas fa-cog",
+        },
+        {
+            title: "Supporto Continuativo",
+            description:
+                "Team di supporto dedicato per aiutarti a mantenere e far crescere il tuo sito.",
+            icon: "fas fa-headset",
+        },
+    ],
+    process: [
+        {
+            step: 1,
+            title: "Scoperta e Pianificazione",
+            description:
+                "Iniziamo comprendendo i tuoi obiettivi, il pubblico target e le esigenze per creare una roadmap di progetto completa.",
+        },
+        {
+            step: 2,
+            title: "Design e Prototipazione",
+            description:
+                "Collaboriamo con te per definire la direzione del design, creando wireframe e concetti visivi che riflettano il tuo brand e gli obiettivi di esperienza utente.",
+        },
+        {
+            step: 3,
+            title: "Sviluppo e Test",
+            description:
+                "Costruiamo il tuo sito usando tecnologie moderne e conduciamo test approfonditi su tutti i dispositivi e browser.",
+        },
+        {
+            step: 4,
+            title: "Ottimizzazione",
+            description:
+                "Ottimizziamo il sito per performance, sicurezza e motori di ricerca.",
+        },
+        {
+            step: 5,
+            title: "Distribuzione e Manutenzione",
+            description:
+                "Supporto continuo, aggiornamenti e manutenzione per assicurare che il tuo sito continui a performare al meglio.",
+        },
+    ],
+};
+---
+
+<ServiceLayout {...websiteData} />

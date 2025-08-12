@@ -1,0 +1,71 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+import SectionTitle from "../../components/SectionTitle.astro";
+---
+
+<Layout title="Privacy Policy - VXIT.IO">
+    <main>
+        <section class="privacy-policy">
+            <SectionTitle>Privacy Policy</SectionTitle>
+            <p class="subtitle">Last Updated: 2025-08-05</p>
+            <h3>Contact Information</h3>
+            <ul>
+                <li><strong>Company:</strong> VXIT.IO OÜ</li>
+                <li><strong>Email:</strong> legal@vxit.io</li>
+            </ul>
+            <h3>What We Collect</h3>
+            <p>
+                When you use our contact form, we collect your name, email,
+                phone number (if provided), subject, and message to respond to
+                your inquiry.
+            </p>
+            <h3>How We Use Your Information</h3>
+            <p>
+                We use your information solely to respond to your contact
+                request and provide the information or services you asked about.
+                We don't use tracking, cookies, or analytics on our website.
+            </p>
+            <h3>Data Storage & Security</h3>
+            <p>
+                Your data is stored securely and we don't share it with third
+                parties except when required by law. We implement appropriate
+                security measures to protect your information.
+            </p>
+            <h3>Your Rights</h3>
+            <p>You have the right to:</p>
+            <ul>
+                <li>Access the data we have about you</li>
+                <li>Request correction of incorrect information</li>
+                <li>Request deletion of your data</li>
+                <li>Object to how we process your data</li>
+            </ul>
+            <p>To exercise these rights, email us at legal@vxit.io.</p>
+            <h3>Contact Us</h3>
+            <p>Questions about this policy? Email us at legal@vxit.io.</p>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    main {
+        padding: var(--space-16) var(--space-8) 0;
+    }
+
+    .privacy-policy {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .subtitle {
+        margin-top: -1.5rem;
+        margin-bottom: var(--space-8);
+        text-align: center;
+    }
+
+    h3 {
+        font-size: var(--font-size-2xl);
+        margin-top: var(--space-8);
+        margin-bottom: var(--space-2);
+    }
+</style>

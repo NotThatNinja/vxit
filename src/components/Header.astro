@@ -72,8 +72,8 @@ import logo from "../assets/logo.png";
             </li>
             <li><a href={getRelativeLocaleUrl(locale, "/about")}>About</a></li>
             <li>
-                <a href={getRelativeLocaleUrl(locale, "/contact")}
-                    >Contact Us</a>
+                <a href={getRelativeLocaleUrl(locale, "/contact")}>Contact Us</a
+                >
             </li>
         </ul>
     </nav>
@@ -81,10 +81,11 @@ import logo from "../assets/logo.png";
     <div class="nav-actions">
         <div class="language-selector dropdown">
             <a href="#">
-                EN
+                {locale.toUpperCase()}
                 <i class="fas fa-chevron-down"></i>
             </a>
             <ul class="dropdown-content">
+                <li><a href="/en">EN</a></li>
                 <li><a href="/it">IT</a></li>
                 <li><a href="/et">ET</a></li>
                 <li><a href="/es">ES</a></li>

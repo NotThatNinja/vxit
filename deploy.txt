@@ -2,5 +2,5 @@ option batch abort
 option confirm off
 open vxit.io
 lcd "C:/Users/samue/Documents/Coding/Web/vxit"
-synchronize remote -delete -criteria=size ./dist /home/dh_fkhsdu/vxit.io
+synchronize remote -delete -criteria=date -filemask="|hero-original.mp4;hero-light-original.mp4" ./dist /home/dh_fkhsdu/vxit.io
 exit

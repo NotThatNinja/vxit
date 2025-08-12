@@ -1,4 +1,7 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n";
+const locale = Astro.url.pathname.split("/")[1] || "en";
+
 import { Image } from "astro:assets";
 import logo from "../assets/logo-2.png";
 ---
@@ -15,30 +18,66 @@ import logo from "../assets/logo-2.png";
         <div class="section">
             <h3>Links</h3>
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/contact">Contact Us</a></li>
+                <li><a href={getRelativeLocaleUrl(locale, "/")}>Home</a></li>
+                <li>
+                    <a href={getRelativeLocaleUrl(locale, "/about")}>About</a>
+                </li>
+                <li>
+                    <a href={getRelativeLocaleUrl(locale, "/contact")}
+                        >Contact Us</a>
+                </li>
             </ul>
         </div>
         <div class="section">
             <h3>Services</h3>
             <ul>
                 <li>
-                    <a href="/services/website-development"
-                        >Website Development</a
+                    <a
+                        href={getRelativeLocaleUrl(
+                            locale,
+                            "/services/website-development",
+                        )}
+                    >
+                        Website Development</a
                     >
                 </li>
-                <li><a href="/services/ai-integration">AI Integration</a></li>
                 <li>
-                    <a href="/services/ecommerce-solutions"
-                        >Ecommerce Solutions</a
+                    <a
+                        href={getRelativeLocaleUrl(
+                            locale,
+                            "/services/ai-integration",
+                        )}
+                    >
+                        AI Integration</a
                     >
                 </li>
                 <li>
-                    <a href="/services/seo-optimization">SEO Optimization</a>
+                    <a
+                        href={getRelativeLocaleUrl(
+                            locale,
+                            "/services/ecommerce-solutions",
+                        )}
+                    >
+                        Ecommerce Solutions</a
+                    >
                 </li>
                 <li>
-                    <a href="/services/maintenance">
+                    <a
+                        href={getRelativeLocaleUrl(
+                            locale,
+                            "/services/seo-optimization",
+                        )}
+                    >
+                        SEO Optimization</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href={getRelativeLocaleUrl(
+                            locale,
+                            "/services/maintenance",
+                        )}
+                    >
                         Maintenance & Additional Services
                     </a>
                 </li>
@@ -62,8 +101,13 @@ import logo from "../assets/logo-2.png";
     <div class="footer-bottom">
         <p>&copy; 2025 VXIT.IO OÜ - All rights reserved</p>
         <ul>
-            <li><a href="/privacy-policy">Privacy Policy</a></li>
-            <li><a href="/legal">Legal Notes</a></li>
+            <li>
+                <a href={getRelativeLocaleUrl(locale, "/privacy-policy")}
+                    >Privacy Policy</a>
+            </li>
+            <li>
+                <a href={getRelativeLocaleUrl(locale, "/legal")}>Legal Notes</a>
+            </li>
         </ul>
     </div>
 </footer>

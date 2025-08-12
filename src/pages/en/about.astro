@@ -1,7 +1,10 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Hero from "../components/Hero.astro";
-import SectionTitle from "../components/SectionTitle.astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
+const locale = Astro.url.pathname.split("/")[1] || "en";
+
+import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/Hero.astro";
+import SectionTitle from "../../components/SectionTitle.astro";
 ---
 
 <Layout title="About - VXIT">
@@ -406,7 +409,7 @@ import SectionTitle from "../components/SectionTitle.astro";
         <section class="billing">
             <div class="container">
                 <SectionTitle>Billing Information</SectionTitle>
-                <a href="/legal"
+                <a href={getRelativeLocaleUrl(locale, "/legal")}
                     >See Legal Notes <i class="fa fa-arrow-right"></i></a
                 >
             </div>
@@ -422,7 +425,10 @@ import SectionTitle from "../components/SectionTitle.astro";
                         presence and drive your business forward.
                     </p>
                     <div class="cta-buttons">
-                        <a href="/contact" class="btn-primary">Get In Touch</a>
+                        <a
+                            href={getRelativeLocaleUrl(locale, "/contact")}
+                            class="btn-primary">Get In Touch</a
+                        >
                     </div>
                 </div>
             </div>

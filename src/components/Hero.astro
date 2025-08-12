@@ -1,4 +1,7 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n";
+const locale = Astro.url.pathname.split("/")[1] || "en";
+
 const { title, subtitle, cta } = Astro.props;
 ---
 
@@ -40,7 +43,10 @@ const { title, subtitle, cta } = Astro.props;
         </p>
         {
             cta && (
-                <a href="/contact" class="cta-button">
+                <a
+                    href={getRelativeLocaleUrl(locale, "/contact")}
+                    class="cta-button"
+                >
                     Contact Us
                     <i class="fa-solid fa-arrow-right" />
                 </a>

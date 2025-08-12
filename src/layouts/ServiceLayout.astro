@@ -1,4 +1,7 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n";
+const locale = Astro.url.pathname.split("/")[1] || "en";
+
 import Layout from "./Layout.astro";
 import Hero from "../components/Hero.astro";
 import SectionTitle from "../components/SectionTitle.astro";
@@ -67,7 +70,10 @@ const {
                             <i class="fas fa-clock"></i>
                             {individualPlan.timeline}
                         </p>
-                        <a class="active" href="/contact">
+                        <a
+                            class="active"
+                            href={getRelativeLocaleUrl(locale, "/contact")}
+                        >
                             Contact Us
                             <i class="fas fa-arrow-right"></i>
                         </a>
@@ -92,7 +98,7 @@ const {
                             <i class="fas fa-clock"></i>
                             {businessPlan.timeline}
                         </p>
-                        <a href="/contact">
+                        <a href={getRelativeLocaleUrl(locale, "/contact")}>
                             Contact Us
                             <i class="fas fa-arrow-right"></i>
                         </a>
@@ -135,7 +141,13 @@ const {
                                 <h3>{service.title}</h3>
                                 <p>{service.description}</p>
                                 <div class="service-price">{service.price}</div>
-                                <a href="/contact" class="service-link">
+                                <a
+                                    href={getRelativeLocaleUrl(
+                                        locale,
+                                        "/contact",
+                                    )}
+                                    class="service-link"
+                                >
                                     Get Quote
                                     <i class="fas fa-arrow-right" />
                                 </a>
@@ -155,9 +167,14 @@ const {
                     your vision to life.
                 </p>
                 <div class="cta-buttons">
-                    <a href="/contact" class="btn-primary">Start Your Project</a
+                    <a
+                        href={getRelativeLocaleUrl(locale, "/contact")}
+                        class="btn-primary">Start Your Project</a
                     >
-                    <a href="/about" class="btn-secondary">Who We Are</a>
+                    <a
+                        href={getRelativeLocaleUrl(locale, "/about")}
+                        class="btn-secondary">Who We Are</a
+                    >
                 </div>
             </div>
         </section>

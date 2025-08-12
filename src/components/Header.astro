@@ -1,16 +1,19 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n";
+const locale = Astro.url.pathname.split("/")[1] || "en";
+
 import { Image } from "astro:assets";
 import logo from "../assets/logo.png";
 ---
 
 <header>
-    <a href="/" class="logo">
+    <a href={getRelativeLocaleUrl(locale, "/")} class="logo">
         <Image src={logo} alt="VXIT" />
     </a>
 
     <nav>
         <ul>
-            <li><a href="/">Home</a></li>
+            <li><a href={getRelativeLocaleUrl(locale, "/")}>Home</a></li>
             <li class="dropdown">
                 <a href="#">
                     Services
@@ -18,32 +21,60 @@ import logo from "../assets/logo.png";
                 </a>
                 <ul class="dropdown-content">
                     <li>
-                        <a href="/services/website-development">
+                        <a
+                            href={getRelativeLocaleUrl(
+                                locale,
+                                "/services/website-development",
+                            )}
+                        >
                             Website Development
                         </a>
                     </li>
                     <li>
-                        <a href="/services/ai-integration">AI Integration</a>
+                        <a
+                            href={getRelativeLocaleUrl(
+                                locale,
+                                "/services/ai-integration",
+                            )}>AI Integration</a
+                        >
                     </li>
                     <li>
-                        <a href="/services/ecommerce-solutions">
+                        <a
+                            href={getRelativeLocaleUrl(
+                                locale,
+                                "/services/ecommerce-solutions",
+                            )}
+                        >
                             Ecommerce Solutions
                         </a>
                     </li>
                     <li>
-                        <a href="/services/seo-optimization">
+                        <a
+                            href={getRelativeLocaleUrl(
+                                locale,
+                                "/services/seo-optimization",
+                            )}
+                        >
                             SEO Optimization
                         </a>
                     </li>
                     <li>
-                        <a href="/services/maintenance">
+                        <a
+                            href={getRelativeLocaleUrl(
+                                locale,
+                                "/services/maintenance",
+                            )}
+                        >
                             Maintenance & Additional Services
                         </a>
                     </li>
                 </ul>
             </li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact Us</a></li>
+            <li><a href={getRelativeLocaleUrl(locale, "/about")}>About</a></li>
+            <li>
+                <a href={getRelativeLocaleUrl(locale, "/contact")}
+                    >Contact Us</a>
+            </li>
         </ul>
     </nav>
 

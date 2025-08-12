@@ -1,8 +1,11 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
+const locale = Astro.url.pathname.split("/")[1] || "en";
 
-import Hero from "../components/Hero.astro";
-import Button from "../components/Button.astro";
+import Layout from "../../layouts/Layout.astro";
+
+import Hero from "../../components/Hero.astro";
+import Button from "../../components/Button.astro";
 ---
 
 <Layout title="Contact Us - VXIT.IO">
@@ -91,7 +94,12 @@ import Button from "../components/Button.astro";
                         />
                         <label for="privacy">
                             I have read and agree to the
-                            <a href="/privacy-policy">Privacy Policy</a>
+                            <a
+                                href={getRelativeLocaleUrl(
+                                    locale,
+                                    "/privacy-policy",
+                                )}>Privacy Policy</a
+                            >
                         </label>
                     </div>
                     <Button type="submit" class="button">

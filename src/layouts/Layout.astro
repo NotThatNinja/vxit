@@ -1,4 +1,7 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n";
+const locale = Astro.url.pathname.split("/")[1] || "en";
+
 const { title } = Astro.props;
 
 import "aos/dist/aos.css";
@@ -11,7 +14,7 @@ import Footer from "../components/Footer.astro";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />

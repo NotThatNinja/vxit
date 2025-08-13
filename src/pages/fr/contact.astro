@@ -12,12 +12,12 @@ import Button from "../../components/Button.astro";
     <main>
         <Hero
             title="Contactez-nous"
-            subtitle="Connectez-vous avec nous pour discuter de vos besoins de projet et comment nous pouvons vous aider."
+            subtitle="Contactez-nous pour discuter de vos besoins de projet et comment nous pouvons vous aider."
         />
         <section>
             <div class="container">
                 <div class="contact-info">
-                    <h2>Contactez-nous</h2>
+                    <h2>Nous Contacter</h2>
                     <p>
                         Si vous avez des questions ou souhaitez discuter de votre
                         projet, n'hésitez pas à nous contacter :
@@ -35,7 +35,7 @@ import Button from "../../components/Button.astro";
                         Tallinn, EE
                     </a>
                 </div>
-                <form class="contact-form">
+                <form class="contact-form" id="contactForm">
                     <div class="form-input">
                         <input
                             id="name"
@@ -279,3 +279,33 @@ import Button from "../../components/Button.astro";
         }
     }
 </style>
+
+<script>
+    const form = document.getElementById("contactForm");
+    form?.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const formData = new FormData(form);
+        const data = JSON.stringify(Object.fromEntries(formData));
+
+        fetch("/api/contact.php?action=submit", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: data,
+        })
+            .then((response) => response.json())
+            .then((result) => {
+                if (result.success) {
+                    // Handle success (e.g., show a success message)
+                    alert(result.message);
+                } else {
+                    // Handle errors (e.g., show error messages)
+                    alert(result.errors.join(" "));
+                }
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+            });
+    });
+</script>

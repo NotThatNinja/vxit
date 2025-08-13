@@ -12,14 +12,14 @@ import Button from "../../components/Button.astro";
     <main>
         <Hero
             title="Contáctanos"
-            subtitle="Conéctate con nosotros para hablar sobre las necesidades de tu proyecto y cómo podemos ayudarte."
+            subtitle="Conéctate con nosotros para discutir las necesidades de tu proyecto y cómo podemos ayudarte."
         />
         <section>
             <div class="container">
                 <div class="contact-info">
-                    <h2>Ponte en Contacto</h2>
+                    <h2>Ponte en contacto</h2>
                     <p>
-                        Si tienes alguna pregunta o te gustaría hablar sobre tu
+                        Si tienes alguna pregunta o te gustaría discutir tu
                         proyecto, por favor contáctanos:
                     </p>
                     <a href="mailto:contactus@vxit.io">
@@ -35,7 +35,7 @@ import Button from "../../components/Button.astro";
                         Tallinn, EE
                     </a>
                 </div>
-                <form class="contact-form">
+                <form class="contact-form" id="contactForm">
                     <div class="form-input">
                         <input
                             id="name"
@@ -55,7 +55,7 @@ import Button from "../../components/Button.astro";
                                 placeholder=" "
                                 required
                             />
-                            <label for="email">Correo Electrónico</label>
+                            <label for="email">Correo electrónico</label>
                         </div>
                         <div class="form-input">
                             <input
@@ -103,7 +103,7 @@ import Button from "../../components/Button.astro";
                         </label>
                     </div>
                     <Button type="submit" class="button">
-                        Enviar Mensaje
+                        Enviar mensaje
                         <i class="fa-solid fa-paper-plane"></i>
                     </Button>
                 </form>
@@ -279,3 +279,33 @@ import Button from "../../components/Button.astro";
         }
     }
 </style>
+
+<script>
+    const form = document.getElementById("contactForm");
+    form?.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const formData = new FormData(form);
+        const data = JSON.stringify(Object.fromEntries(formData));
+
+        fetch("/api/contact.php?action=submit", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: data,
+        })
+            .then((response) => response.json())
+            .then((result) => {
+                if (result.success) {
+                    // Handle success (e.g., show a success message)
+                    alert(result.message);
+                } else {
+                    // Handle errors (e.g., show error messages)
+                    alert(result.errors.join(" "));
+                }
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+            });
+    });
+</script>

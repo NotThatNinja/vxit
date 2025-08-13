@@ -11,13 +11,13 @@ import Button from "../../components/Button.astro";
 <Layout title="Kontakt - VXIT.IO">
     <main>
         <Hero
-            title="Võta meiega ühendust"
+            title="Võta Meiega Ühendust"
             subtitle="Võta meiega ühendust, et arutada oma projekti vajadusi ja kuidas saame aidata."
         />
         <section>
             <div class="container">
                 <div class="contact-info">
-                    <h2>Võta ühendust</h2>
+                    <h2>Võta Ühendust</h2>
                     <p>
                         Kui teil on küsimusi või soovite oma projekti arutada, võtke meiega ühendust:
                     </p>
@@ -34,7 +34,7 @@ import Button from "../../components/Button.astro";
                         Tallinn, EE
                     </a>
                 </div>
-                <form class="contact-form">
+                <form class="contact-form" id="contactForm">
                     <div class="form-input">
                         <input
                             id="name"
@@ -92,12 +92,12 @@ import Button from "../../components/Button.astro";
                             required
                         />
                         <label for="privacy">
-                            Olen lugenud ja nõustun 
+                            Olen lugenud ja nõustun
                             <a
                                 href={getRelativeLocaleUrl(
                                     locale,
                                     "/privacy-policy",
-                                )}>privaatsuspoliitikaga</a
+                                )}>Privaatsuspoliitikaga</a
                             >
                         </label>
                     </div>
@@ -278,3 +278,33 @@ import Button from "../../components/Button.astro";
         }
     }
 </style>
+
+<script>
+    const form = document.getElementById("contactForm");
+    form?.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const formData = new FormData(form);
+        const data = JSON.stringify(Object.fromEntries(formData));
+
+        fetch("/api/contact.php?action=submit", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: data,
+        })
+            .then((response) => response.json())
+            .then((result) => {
+                if (result.success) {
+                    // Handle success (e.g., show a success message)
+                    alert(result.message);
+                } else {
+                    // Handle errors (e.g., show error messages)
+                    alert(result.errors.join(" "));
+                }
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+            });
+    });
+</script>

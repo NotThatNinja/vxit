@@ -17,22 +17,13 @@ import time
 # ]
 
 TO_TRANSLATE = [
-    "index.astro",
-    "about.astro",
     "contact.astro",
-    "legal.astro",
-    "privacy-policy.astro",
-    "services\\website-development.astro",
-    "services\\ai-integration.astro",
-    "services\\ecommerce-solutions.astro",
-    "services\\maintenance.astro",
-    "services\\seo-optimization.astro"
 ]
 
 BASE = "src\\pages"
 
 # LANGUAGES = ["it", "es", "fr", "de", "et"]
-LANGUAGES = ["de", "et"]
+LANGUAGES = ["it", "es", "fr", "de", "et"]
 
 def translate(content, language, client):
     content = content.split("<style>", 1)

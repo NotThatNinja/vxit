@@ -8,19 +8,18 @@ import Hero from "../../components/Hero.astro";
 import Button from "../../components/Button.astro";
 ---
 
-<Layout title="Contact - VXIT.IO">
+<Layout title="Contatti - VXIT.IO">
     <main>
         <Hero
             title="Contattaci"
-            subtitle="Connettiti con noi per discutere le esigenze del tuo progetto e come possiamo aiutarti."
+            subtitle="Connettiti con noi per discutere le tue esigenze di progetto e come possiamo aiutarti."
         />
         <section>
             <div class="container">
                 <div class="contact-info">
-                    <h2>Mettiamoci in Contatto</h2>
+                    <h2>Mettiti in Contatto</h2>
                     <p>
-                        Se hai domande o vuoi discutere il tuo progetto,
-                        contattaci pure:
+                        Se hai domande o desideri discutere il tuo progetto, non esitare a contattarci:
                     </p>
                     <a href="mailto:contactus@vxit.io">
                         <i class="fa-solid fa-envelope"></i>
@@ -35,7 +34,7 @@ import Button from "../../components/Button.astro";
                         Tallinn, EE
                     </a>
                 </div>
-                <form class="contact-form">
+                <form class="contact-form" id="contactForm">
                     <div class="form-input">
                         <input
                             id="name"
@@ -93,12 +92,11 @@ import Button from "../../components/Button.astro";
                             required
                         />
                         <label for="privacy">
-                            Ho letto e accetto la
-                            <a
+                            Ho letto e accetto l'<a
                                 href={getRelativeLocaleUrl(
                                     locale,
                                     "/privacy-policy",
-                                )}>Privacy Policy</a
+                                )}>Informativa sulla Privacy</a
                             >
                         </label>
                     </div>
@@ -111,7 +109,6 @@ import Button from "../../components/Button.astro";
         </section>
     </main>
 </Layout>
-
 <style>
     section {
         padding: var(--space-16) var(--space-6);
@@ -280,3 +277,33 @@ import Button from "../../components/Button.astro";
         }
     }
 </style>
+
+<script>
+    const form = document.getElementById("contactForm");
+    form?.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const formData = new FormData(form);
+        const data = JSON.stringify(Object.fromEntries(formData));
+
+        fetch("/api/contact.php?action=submit", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: data,
+        })
+            .then((response) => response.json())
+            .then((result) => {
+                if (result.success) {
+                    // Handle success (e.g., show a success message)
+                    alert(result.message);
+                } else {
+                    // Handle errors (e.g., show error messages)
+                    alert(result.errors.join(" "));
+                }
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+            });
+    });
+</script>

@@ -1,0 +1,118 @@
+---
+import ServiceLayout from "../../../layouts/ServiceLayout.astro";
+
+const seoData = {
+    title: "Optimización SEO - VXIT.IO",
+    description:
+        "Servicios SEO profesionales para aumentar la visibilidad de su sitio web e impulsar el tráfico orgánico. SEO técnico, optimización de contenido y analíticas.",
+    hero: {
+        title: "Optimización SEO",
+        subtitle:
+            "Aumente su visibilidad en línea e impulse el tráfico orgánico. Estrategias SEO integrales que mejoran el posicionamiento y ofrecen resultados medibles.",
+    },
+    individualPlan: {
+        name: "SEO Esencial",
+        price: "Desde 149€",
+        description:
+            "Paquete SEO fundamental para sitios web personales y pequeñas empresas",
+        features: [
+            "Auditoría SEO técnica",
+            "Investigación de palabras clave (25 palabras clave)",
+            "Optimización On-page",
+            "Optimización de metaetiquetas",
+            "Optimización de imágenes",
+            "Informe de progreso",
+            "Conceptos básicos de SEO local",
+        ],
+        timeline: "1-2 semanas",
+    },
+    businessPlan: {
+        name: "Paquete SEO de Crecimiento",
+        price: "Desde 349€",
+        description: "Estrategia SEO integral para mercados competitivos",
+        features: [
+            "Auditoría SEO completa",
+            "Optimización On-page avanzada",
+            "Correcciones SEO técnicas",
+            "Optimización del rendimiento",
+            "Mejoras de accesibilidad",
+            "Implementación de mejores prácticas",
+            "Optimización SEO local",
+            "Análisis de la competencia",
+            "Seguimiento de rendimiento y analíticas",
+        ],
+        timeline: "2-3 semanas",
+    },
+    benefits: [
+        {
+            title: "Mayor Visibilidad",
+            description:
+                "Mejore su posicionamiento en buscadores y sea encontrado por más clientes potenciales.",
+            icon: "fas fa-eye",
+        },
+        {
+            title: "Crecimiento del Tráfico Orgánico",
+            description:
+                "Dirija tráfico de calidad a su sitio web sin pagar por anuncios.",
+            icon: "fas fa-chart-line",
+        },
+        {
+            title: "Mejor Experiencia de Usuario",
+            description:
+                "Las mejoras SEO optimizan la velocidad del sitio, la navegación y la experiencia general del usuario.",
+            icon: "fas fa-user-check",
+        },
+        {
+            title: "Dominio en Búsquedas Locales",
+            description:
+                "Optimice para búsquedas locales y atraiga clientes en su área.",
+            icon: "fas fa-map-marker-alt",
+        },
+        {
+            title: "Ventaja Competitiva",
+            description:
+                "Supere a la competencia y capture una mayor cuota de mercado en los resultados de búsqueda.",
+            icon: "fas fa-trophy",
+        },
+        {
+            title: "Resultados a Largo Plazo",
+            description:
+                "Construya un crecimiento orgánico sostenible que siga aportando valor con el tiempo.",
+            icon: "fas fa-seedling",
+        },
+    ],
+    process: [
+        {
+            step: 1,
+            title: "Auditoría y Análisis SEO",
+            description:
+                "Análisis exhaustivo de su rendimiento SEO actual, problemas técnicos y oportunidades de mejora.",
+        },
+        {
+            step: 2,
+            title: "Investigación de Palabras Clave",
+            description:
+                "Investigación profunda de palabras clave para identificar oportunidades de alto valor y comprender la intención de búsqueda del usuario.",
+        },
+        {
+            step: 3,
+            title: "Optimización Técnica",
+            description:
+                "Solucione problemas técnicos de SEO, incluyendo velocidad del sitio, compatibilidad móvil y problemas de rastreabilidad.",
+        },
+        {
+            step: 4,
+            title: "Optimización de Contenido",
+            description:
+                "Optimice el contenido existente y cree nuevo contenido enfocado en SEO que posicione y convierta.",
+        },
+        {
+            step: 5,
+            title: "Monitorización e Informes",
+            description:
+                "Monitorización continua de rankings, tráfico y rendimiento con informes mensuales detallados.",
+        },
+    ],
+};
+
+<ServiceLayout {...seoData} />

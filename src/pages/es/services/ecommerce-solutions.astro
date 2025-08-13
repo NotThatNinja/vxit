@@ -1,0 +1,127 @@
+---
+import ServiceLayout from "../../../layouts/ServiceLayout.astro";
+
+const ecommerceData = {
+    title: "Soluciones de Comercio Electrónico - VXIT.IO",
+    description:
+        "Servicios completos de desarrollo de comercio electrónico. Desde tiendas online hasta plataformas de mercado, construimos soluciones que impulsan las ventas.",
+    hero: {
+        title: "Soluciones de Comercio Electrónico",
+        subtitle:
+            "Cree potentes tiendas online que conviertan visitantes en clientes. Soluciones completas de comercio electrónico con procesamiento de pagos, gestión de inventario y análisis.",
+    },
+    individualPlan: {
+        name: "Tienda Online",
+        price: "A partir de 149€",
+        description:
+            "Perfecto para pequeñas empresas y emprendedores que inician en línea",
+        features: [
+            "Diseño basado en plantilla",
+            "Diseño adaptativo para móviles",
+            "Integración de pasarela de pago",
+            "Fácil gestión",
+            "Sistema de seguimiento de pedidos",
+            "Análisis básico",
+            "Certificado SSL incluido",
+            "Portal de cuenta de cliente",
+            "Configuración de Shopify o plataforma similar",
+        ],
+        timeline: "1-2 semanas",
+    },
+    businessPlan: {
+        name: "Comercio Electrónico Profesional",
+        price: "A partir de 649€",
+        description: "Plataforma avanzada de comercio electrónico para empresas en crecimiento",
+        features: [
+            "Productos ilimitados",
+            "Diseño y desarrollo personalizados",
+            "Múltiples pasarelas de pago",
+            "Análisis e informes avanzados",
+            "Optimización SEO",
+            "Recuperación de carrito abandonado",
+            "Integración de email marketing",
+            "Integraciones de API",
+            "Funciones de seguridad avanzadas",
+        ],
+        timeline: "3-4 semanas",
+    },
+    benefits: [
+        {
+            title: "Pagos Seguros",
+            description:
+                "Procesamiento de pagos estándar de la industria con múltiples opciones de pasarela y protección contra el fraude.",
+            icon: "fas fa-credit-card",
+        },
+        {
+            title: "Fácil Gestión",
+            description:
+                "Panel de control fácil de usar para gestionar productos, pedidos y clientes.",
+            icon: "fas fa-boxes",
+        },
+        {
+            title: "Comercio Móvil",
+            description:
+                "Optimizado para compras móviles con diseño responsivo y tiempos de carga rápidos.",
+            icon: "fas fa-shopping-bag",
+        },
+        {
+            title: "Análisis y Perspectivas",
+            description:
+                "Análisis de ventas completos y perspectivas del comportamiento del cliente para hacer crecer su negocio.",
+            icon: "fas fa-chart-bar",
+        },
+        {
+            title: "Optimizado para SEO",
+            description:
+                "Construido con las mejores prácticas de SEO para comercio electrónico para mejorar la visibilidad en los motores de búsqueda.",
+            icon: "fas fa-search-plus",
+        },
+        {
+            title: "Plataforma Escalable",
+            description:
+                "Arquitectura diseñada para manejar el crecimiento desde el nivel de startup hasta el empresarial.",
+            icon: "fas fa-rocket",
+        },
+    ],
+    process: [
+        {
+            step: 1,
+            title: "Análisis de Negocio",
+            description:
+                "Analizamos su modelo de negocio, mercado objetivo y competencia para crear la estrategia de comercio electrónico óptima.",
+        },
+        {
+            step: 2,
+            title: "Configuración de Plataforma",
+            description:
+                "Configuración de la plataforma de comercio electrónico con pasarelas de pago, opciones de envío e integraciones esenciales.",
+        },
+        {
+            step: 3,
+            title: "Diseño y Desarrollo",
+            description:
+                "Crear un diseño personalizado que refleje su marca y desarrollar funcionalidades para una experiencia de usuario óptima.",
+        },
+        {
+            step: 4,
+            title: "Integración de Productos",
+            description:
+                "Cargar productos, configurar precios, establecer categorías y optimizar para la búsqueda y conversiones.",
+        },
+        {
+            step: 5,
+            title: "Pruebas y Lanzamiento",
+            description:
+                "Pruebas exhaustivas de todas las funcionalidades, procesamiento de pagos y flujos de usuario antes de salir en vivo.",
+        },
+        {
+            step: 6,
+            title: "Crecimiento y Optimización",
+            description:
+                "Optimización continua, integración de marketing y mejoras de características para maximizar las ventas.",
+        },
+    ],
+};
+---
+
+<ServiceLayout {...ecommerceData} />

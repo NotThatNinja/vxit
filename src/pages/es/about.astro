@@ -1,0 +1,953 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+const locale = Astro.url.pathname.split("/")[1] || "en";
+
+import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/Hero.astro";
+import SectionTitle from "../../components/SectionTitle.astro";
+---
+
+<Layout title="Acerca de - VXIT">
+    <main>
+        <Hero
+            title="Acerca de VXIT"
+            subtitle="Somos un equipo apasionado de desarrolladores, diseñadores y estrategas digitales dedicados a crear experiencias web excepcionales que impulsan el crecimiento empresarial."
+        />
+
+        <!-- Company Story Section -->
+        <section class="story">
+            <div class="container">
+                <SectionTitle>Nuestra Historia</SectionTitle>
+                <div class="story-content">
+                    <div class="story-text">
+                        <p>
+                            VXIT comenzó en 2020 con contratos privados,
+                            se fundó oficialmente en 2024 y se estableció como una
+                            OÜ estonia en 2025. Los primeros proyectos para restaurantes
+                            y negocios locales moldearon nuestro enfoque, centrándonos
+                            en la calidad técnica y entregando resultados reales para
+                            los clientes.
+                        </p>
+                        <p>
+                            Para 2022, fortalecimos nuestro equipo y expandimos
+                            nuestra experiencia, gestionando con éxito proyectos
+                            en sectores como finanzas, seguros y comercio. Nuestra
+                            amplia visión nos permite ofrecer soluciones de TI
+                            personalizadas, siempre adaptadas a las necesidades únicas
+                            de cada cliente.
+                        </p>
+                        <p>
+                            Hoy, VXIT es una empresa de TI dinámica, reconocida
+                            por sus precios competitivos y alta calidad de servicio.
+                            Combinamos experiencia técnica, pensamiento estratégico
+                            y un enfoque colaborativo para crear soluciones que
+                            generen un valor medible y duradero para nuestros clientes.
+                        </p>
+                    </div>
+                    <div class="story-stats">
+                        <div class="stat">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label">Satisfacción del Cliente</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">99%</div>
+                            <div class="stat-label">Disponibilidad</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Compromiso</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">5+</div>
+                            <div class="stat-label">Años de Experiencia</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission & Vision Section -->
+        <section class="mission-vision">
+            <div class="container">
+                <div class="mission-vision-grid">
+                    <div class="mission-card" data-aos="fade-right">
+                        <div class="card-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Nuestra Misión</h3>
+                        <p>
+                            Entregar soluciones digitales de alta calidad manteniendo
+                            precios consistentemente competitivos en comparación
+                            con el mercado. Creemos que la innovación y el rendimiento
+                            sólido no deben implicar costes excesivos: nuestro objetivo
+                            es asegurar que los clientes reciban el mayor valor posible
+                            combinando eficiencia, tecnología y asequibilidad.
+                        </p>
+                    </div>
+                    <div class="vision-card" data-aos="fade-left">
+                        <div class="card-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3>Nuestra Visión</h3>
+                        <p>
+                            Ser una empresa de TI capaz de ofrecer un servicio
+                            más preciso, personalizado y centrado en el cliente,
+                            aprovechando las ventajas de nuestro tamaño más reducido.
+                            Esto nos permite construir relaciones directas, obtener
+                            una comprensión profunda de las necesidades de cada proyecto
+                            y entregar soluciones específicas diseñadas para perdurar en el tiempo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Section -->
+        <section class="values">
+            <div class="container">
+                <SectionTitle>Nuestros Valores</SectionTitle>
+                <div class="values-grid">
+                    <div
+                        class="value-card"
+                        data-aos="fade-up"
+                        data-aos-delay="0"
+                    >
+                        <div class="value-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h4>Innovación</h4>
+                        <p>
+                            Nos mantenemos a la vanguardia de la tecnología,
+                            explorando constantemente nuevas herramientas y técnicas
+                            para ofrecer soluciones de vanguardia.
+                        </p>
+                    </div>
+                    <div
+                        class="value-card"
+                        data-aos="fade-up"
+                        data-aos-delay="100"
+                    >
+                        <div class="value-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h4>Colaboración</h4>
+                        <p>
+                            Creemos que los mejores resultados provienen de trabajar
+                            estrechamente con nuestros clientes como socios, no solo
+                            como proveedores de servicios.
+                        </p>
+                    </div>
+                    <div
+                        class="value-card"
+                        data-aos="fade-up"
+                        data-aos-delay="200"
+                    >
+                        <div class="value-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h4>Excelencia</h4>
+                        <p>
+                            Estamos comprometidos a entregar trabajos de la más
+                            alta calidad, prestando atención a cada detalle que importa.
+                        </p>
+                    </div>
+                    <div
+                        class="value-card"
+                        data-aos="fade-up"
+                        data-aos-delay="300"
+                    >
+                        <div class="value-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4>Orientación al Cliente</h4>
+                        <p>
+                            Su éxito es nuestro éxito. Priorizamos comprender
+                            sus necesidades únicas y superar sus expectativas.
+                        </p>
+                    </div>
+                    <div
+                        class="value-card"
+                        data-aos="fade-up"
+                        data-aos-delay="400"
+                    >
+                        <div class="value-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h4>Sostenibilidad</h4>
+                        <p>
+                            Construimos soluciones que son respetuosas con el
+                            medio ambiente y diseñadas para una sostenibilidad
+                            a largo plazo.
+                        </p>
+                    </div>
+                    <div
+                        class="value-card"
+                        data-aos="fade-up"
+                        data-aos-delay="500"
+                    >
+                        <div class="value-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4>Aprendizaje Continuo</h4>
+                        <p>
+                            Siempre estamos aprendiendo y creciendo, asegurándonos
+                            de aportar los conocimientos más recientes a cada proyecto.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <!-- <section class="team">
+            <div class="container">
+                <SectionTitle>Meet Our Team</SectionTitle>
+                <p class="team-intro">
+                    Our diverse team brings together expertise in development,
+                    design, AI, and digital strategy to deliver exceptional
+                    results for our clients.
+                </p>
+                <div class="team-grid">
+                    <div
+                        class="team-member"
+                        data-aos="fade-up"
+                        data-aos-delay="0"
+                    >
+                        <div class="member-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h4>Alex Chen</h4>
+                        <p class="member-role">Founder & Lead Developer</p>
+                        <p class="member-bio">
+                            Full-stack developer with 8+ years of experience in
+                            modern web technologies and AI integration.
+                        </p>
+                        <div class="member-social">
+                            <a href="#" aria-label="LinkedIn"
+                                ><i class="fab fa-linkedin"></i></a
+                            >
+                            <a href="#" aria-label="GitHub"
+                                ><i class="fab fa-github"></i></a
+                            >
+                            <a href="#" aria-label="Twitter"
+                                ><i class="fab fa-twitter"></i></a
+                            >
+                        </div>
+                    </div>
+                    <div
+                        class="team-member"
+                        data-aos="fade-up"
+                        data-aos-delay="100"
+                    >
+                        <div class="member-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h4>Sarah Martinez</h4>
+                        <p class="member-role">Head of Design</p>
+                        <p class="member-bio">
+                            UX/UI designer passionate about creating intuitive
+                            and beautiful digital experiences that users love.
+                        </p>
+                        <div class="member-social">
+                            <a href="#" aria-label="LinkedIn"
+                                ><i class="fab fa-linkedin"></i></a
+                            >
+                            <a href="#" aria-label="Dribbble"
+                                ><i class="fab fa-dribbble"></i></a
+                            >
+                            <a href="#" aria-label="Behance"
+                                ><i class="fab fa-behance"></i></a
+                            >
+                        </div>
+                    </div>
+                    <div
+                        class="team-member"
+                        data-aos="fade-up"
+                        data-aos-delay="200"
+                    >
+                        <div class="member-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h4>Marcus Johnson</h4>
+                        <p class="member-role">AI Solutions Architect</p>
+                        <p class="member-bio">
+                            Machine learning engineer specializing in
+                            integrating AI technologies into web applications.
+                        </p>
+                        <div class="member-social">
+                            <a href="#" aria-label="LinkedIn"
+                                ><i class="fab fa-linkedin"></i></a
+                            >
+                            <a href="#" aria-label="GitHub"
+                                ><i class="fab fa-github"></i></a
+                            >
+                            <a href="#" aria-label="Medium"
+                                ><i class="fab fa-medium"></i></a
+                            >
+                        </div>
+                    </div>
+                    <div
+                        class="team-member"
+                        data-aos="fade-up"
+                        data-aos-delay="300"
+                    >
+                        <div class="member-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h4>Emma Thompson</h4>
+                        <p class="member-role">Digital Strategy Lead</p>
+                        <p class="member-bio">
+                            Digital strategist with expertise in SEO,
+                            performance optimization, and conversion rate
+                            optimization.
+                        </p>
+                        <div class="member-social">
+                            <a href="#" aria-label="LinkedIn"
+                                ><i class="fab fa-linkedin"></i></a
+                            >
+                            <a href="#" aria-label="Twitter"
+                                ><i class="fab fa-twitter"></i></a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- Why Choose Us Section -->
+        <section class="why-choose-us">
+            <div class="container">
+                <SectionTitle>¿Por Qué Elegir VXIT?</SectionTitle>
+                <div class="reasons-grid">
+                    <div class="reason-card" data-aos="fade-up">
+                        <div class="reason-number">01</div>
+                        <h4>Precios competitivos</h4>
+                        <p>
+                            Ofrecemos soluciones digitales de alta calidad manteniendo
+                            los costes accesibles y entre los más competitivos del
+                            mercado, asegurando siempre el mejor valor posible para
+                            cada proyecto.
+                        </p>
+                    </div>
+                    <div
+                        class="reason-card"
+                        data-aos="fade-up"
+                        data-aos-delay="100"
+                    >
+                        <div class="reason-number">02</div>
+                        <h4>Alto rendimiento</h4>
+                        <p>
+                            Garantizamos una puntuación en Google Speed Test
+                            consistentemente superior a 90/100 tanto en móvil como
+                            en escritorio, asegurando sitios web rápidos, responsivos
+                            y completamente optimizados para cualquier dispositivo.
+                        </p>
+                    </div>
+                    <div
+                        class="reason-card"
+                        data-aos="fade-up"
+                        data-aos-delay="200"
+                    >
+                        <div class="reason-number">03</div>
+                        <h4>SEO avanzado</h4>
+                        <p>
+                            Implementamos una optimización SEO completa y estratégica,
+                            diseñada para mejorar el ranking en los motores de búsqueda
+                            y aumentar constantemente tanto la visibilidad como el
+                            tráfico orgánico de su sitio web.
+                        </p>
+                    </div>
+                    <div
+                        class="reason-card"
+                        data-aos="fade-up"
+                        data-aos-delay="300"
+                    >
+                        <div class="reason-number">04</div>
+                        <h4>Tecnologías modernas</h4>
+                        <p>
+                            Utilizamos herramientas y tecnologías de vanguardia,
+                            con la opción de integrar inteligencia artificial
+                            para hacer los proyectos más inteligentes, innovadores
+                            y listos para los desafíos del mercado digital.
+                        </p>
+                    </div>
+                    <div
+                        class="reason-card"
+                        data-aos="fade-up"
+                        data-aos-delay="400"
+                    >
+                        <div class="reason-number">05</div>
+                        <h4>Servicio personalizado</h4>
+                        <p>
+                            Ofrecemos un enfoque personalizado y preciso, analizando
+                            cuidadosamente las necesidades reales de cada cliente
+                            para entregar soluciones a medida que aseguren resultados
+                            concretos, duraderos y medibles.
+                        </p>
+                    </div>
+                    <div
+                        class="reason-card"
+                        data-aos="fade-up"
+                        data-aos-delay="500"
+                    >
+                        <div class="reason-number">06</div>
+                        <h4>IA con valor añadido</h4>
+                        <p>
+                            Aprovechamos estratégicamente la inteligencia artificial
+                            para mejorar el rendimiento, optimizar los procesos y
+                            crear ventajas competitivas reales para nuestros
+                            clientes y sus negocios.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="billing">
+            <div class="container">
+                <SectionTitle>Información de Facturación</SectionTitle>
+                <a href={getRelativeLocaleUrl(locale, "/legal")}
+                    >Ver Notas Legales <i class="fa fa-arrow-right"></i></a
+                >
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>¿Listo para Trabajar Juntos?</h2>
+                    <p>
+                        Hablemos de cómo podemos ayudar a transformar su presencia
+                        digital e impulsar su negocio.
+                    </p>
+                    <div class="cta-buttons">
+                        <a
+                            href={getRelativeLocaleUrl(locale, "/contact")}
+                            class="btn-primary">Póngase en Contacto</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
+<style>
+    main {
+        overflow-x: hidden;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 var(--space-6);
+    }
+
+    /* Story Section */
+    .story {
+        padding: var(--space-16) 0;
+    }
+
+    .story-content {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: var(--space-12);
+        align-items: start;
+    }
+
+    .story-text {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-6);
+    }
+
+    .story-text p {
+        font-size: var(--font-size-lg);
+        line-height: var(--line-height-relaxed);
+        color: var(--color-primary);
+    }
+
+    .story-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-6);
+    }
+
+    .stat {
+        text-align: center;
+        padding: var(--space-6);
+        border: 1px solid var(--color-tertiary);
+        border-radius: var(--radius-xl);
+        transition: all 0.3s ease;
+    }
+
+    .stat:hover {
+        border: 1px solid var(--accent-primary);
+        transform: translateY(-4px);
+        box-shadow: 0 8px 25px rgba(var(--accent-primary-rgb), 0.15);
+    }
+
+    .stat-number {
+        font-size: var(--font-size-4xl);
+        font-weight: var(--font-weight-bold);
+        background: linear-gradient(
+            135deg,
+            var(--accent-primary),
+            light-dark(var(--accent-secondary), var(--accent-secondary))
+        );
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: var(--space-2);
+    }
+
+    .stat-label {
+        font-size: var(--font-size-sm);
+        color: var(--color-primary);
+        font-weight: var(--font-weight-medium);
+    }
+
+    /* Mission & Vision Section */
+    .mission-vision {
+        padding: var(--space-16) 0;
+    }
+
+    .mission-vision-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-8);
+    }
+
+    .mission-card,
+    .vision-card {
+        border: 1px solid var(--color-tertiary);
+        border-radius: var(--radius-2xl);
+        padding: var(--space-8);
+        text-align: center;
+        transition: all 0.3s ease !important;
+    }
+
+    .mission-card:hover,
+    .vision-card:hover {
+        transform: translateY(-6px);
+        border-color: var(--accent-primary);
+        box-shadow: 0 12px 30px rgba(var(--accent-primary-rgb), 0.2);
+    }
+
+    .card-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(
+            135deg,
+            var(--accent-primary),
+            var(--accent-secondary)
+        );
+        border-radius: var(--radius-full);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto var(--space-6) auto;
+    }
+
+    .card-icon i {
+        font-size: var(--font-size-3xl);
+        color: light-dark(var(--color-secondary), var(--color-primary));
+    }
+
+    .mission-card h3,
+    .vision-card h3 {
+        font-size: var(--font-size-3xl);
+        font-weight: var(--font-weight-bold);
+        margin-bottom: var(--space-4);
+        color: var(--color-primary);
+    }
+
+    .mission-card p,
+    .vision-card p {
+        font-size: var(--font-size-lg);
+        line-height: var(--line-height-relaxed);
+        color: var(--color-primary);
+    }
+
+    /* Values Section */
+    .values {
+        padding: var(--space-16) 0;
+    }
+
+    .values-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--space-6);
+        margin-top: var(--space-8);
+    }
+
+    .value-card {
+        border: 1px solid var(--color-tertiary);
+        border-radius: var(--radius-xl);
+        padding: var(--space-6);
+        text-align: center;
+        transition: all 0.3s ease !important;
+    }
+
+    .value-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--accent-primary);
+        box-shadow: 0 8px 25px rgba(var(--accent-primary-rgb), 0.15);
+    }
+
+    .value-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(
+            135deg,
+            var(--accent-primary),
+            var(--accent-secondary)
+        );
+        border-radius: var(--radius-full);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto var(--space-4) auto;
+    }
+
+    .value-icon i {
+        font-size: var(--font-size-xl);
+        color: light-dark(var(--color-secondary), var(--color-primary));
+    }
+
+    .value-card h4 {
+        font-size: var(--font-size-xl);
+        font-weight: var(--font-weight-semibold);
+        margin-bottom: var(--space-3);
+        color: var(--color-primary);
+    }
+
+    .value-card p {
+        font-size: var(--font-size-base);
+        line-height: var(--line-height-relaxed);
+        color: var(--color-primary);
+    }
+
+    /* Team Section */
+    .team {
+        padding: var(--space-16) 0;
+        background: linear-gradient(
+            135deg,
+            rgba(var(--accent-secondary-rgb, 64, 0, 255), 0.05) 0%,
+            rgba(0, 0, 0, 0.8) 100%
+        );
+    }
+
+    .team-intro {
+        text-align: center;
+        font-size: var(--font-size-lg);
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: var(--space-12);
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--space-8);
+    }
+
+    .team-member {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius-2xl);
+        padding: var(--space-8);
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .team-member:hover {
+        transform: translateY(-6px);
+        border-color: rgba(var(--accent-primary-rgb), 0.3);
+        box-shadow: 0 12px 30px rgba(var(--accent-primary-rgb), 0.2);
+    }
+
+    .member-avatar {
+        width: 100px;
+        height: 100px;
+        background: linear-gradient(
+            135deg,
+            var(--accent-primary),
+            var(--accent-tertiary)
+        );
+        border-radius: var(--radius-full);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto var(--space-6) auto;
+    }
+
+    .member-avatar i {
+        font-size: var(--font-size-4xl);
+        color: var(--color-primary);
+    }
+
+    .team-member h4 {
+        font-size: var(--font-size-xl);
+        font-weight: var(--font-weight-semibold);
+        margin-bottom: var(--space-2);
+        color: var(--color-primary);
+    }
+
+    .member-role {
+        font-size: var(--font-size-base);
+        color: var(--accent-primary);
+        font-weight: var(--font-weight-medium);
+        margin-bottom: var(--space-4);
+    }
+
+    .member-bio {
+        font-size: var(--font-size-sm);
+        line-height: var(--line-height-relaxed);
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: var(--space-6);
+    }
+
+    .member-social {
+        display: flex;
+        justify-content: center;
+        gap: var(--space-4);
+    }
+
+    .member-social a {
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius-full);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255, 255, 255, 0.7);
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+
+    .member-social a:hover {
+        background: var(--accent-primary);
+        color: var(--color-primary);
+        transform: translateY(-2px);
+    }
+
+    /* Why Choose Us Section */
+    .why-choose-us {
+        padding: var(--space-16) 0;
+    }
+
+    .reasons-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--space-8);
+        margin-top: var(--space-8);
+    }
+
+    .reason-card {
+        border: 1px solid var(--color-tertiary);
+        border-radius: var(--radius-xl);
+        padding: var(--space-8);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .reason-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(
+            90deg,
+            var(--accent-primary),
+            light-dark(var(--accent-secondary), var(--accent-tertiary))
+        );
+        transform: scaleX(0);
+        transition: transform 0.3s ease !important;
+    }
+
+    .reason-card:hover::before {
+        transform: scaleX(1);
+    }
+
+    .reason-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(var(--accent-primary-rgb), 0.3);
+        box-shadow: 0 8px 25px rgba(var(--accent-primary-rgb), 0.15);
+    }
+
+    .reason-number {
+        font-size: var(--font-size-5xl);
+        font-weight: var(--font-weight-bold);
+        background: linear-gradient(
+            135deg,
+            var(--accent-primary),
+            light-dark(var(--accent-secondary), var(--accent-tertiary))
+        );
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: var(--space-4);
+    }
+
+    .reason-card h4 {
+        font-size: var(--font-size-xl);
+        font-weight: var(--font-weight-semibold);
+        margin-bottom: var(--space-4);
+        color: var(--color-primary);
+    }
+
+    .reason-card p {
+        font-size: var(--font-size-base);
+        line-height: var(--line-height-relaxed);
+        color: var(--color-primary);
+    }
+
+    /* Billing information */
+    .billing .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .billing a {
+        display: flex;
+        width: fit-content;
+        align-items: center;
+        gap: var(--space-2);
+        margin: 0;
+        color: var(--accent-primary);
+        font-size: var(--font-size-2xl);
+        text-decoration: none;
+        transition: gap 0.3s ease;
+    }
+    .billing a:hover {
+        gap: var(--space-4);
+    }
+
+    /* CTA Section */
+    .cta {
+        padding: var(--space-16) 0;
+    }
+
+    .cta-content {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .cta-content h2 {
+        font-size: var(--font-size-4xl);
+        font-weight: var(--font-weight-bold);
+        margin-bottom: var(--space-4);
+        background: linear-gradient(
+            135deg,
+            var(--accent-primary),
+            light-dark(var(--accent-secondary), var(--color-primary))
+        );
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .cta-content p {
+        font-size: var(--font-size-lg);
+        color: var(--color-primary);
+        margin-bottom: var(--space-8);
+        line-height: var(--line-height-relaxed);
+    }
+
+    .cta-buttons {
+        display: flex;
+        gap: var(--space-4);
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-2);
+        padding: var(--space-4) var(--space-8);
+        border-radius: var(--radius-full);
+        text-decoration: none;
+        font-weight: var(--font-weight-semibold);
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+        background: linear-gradient(
+            135deg,
+            var(--accent-primary),
+            var(--accent-secondary)
+        );
+        color: var(--color-primary);
+        border: none;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(var(--accent-primary-rgb), 0.3);
+    }
+
+    .btn-secondary {
+        background: transparent;
+        color: var(--color-primary);
+        border: 1px solid var(--color-tertiary);
+    }
+
+    .btn-secondary:hover {
+        border-color: var(--accent-primary);
+        background: rgba(var(--accent-primary-rgb), 0.1);
+        transform: translateY(-2px);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .story-content {
+            grid-template-columns: 1fr;
+            gap: var(--space-8);
+        }
+
+        .story-stats {
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-4);
+        }
+
+        .mission-vision-grid {
+            grid-template-columns: 1fr;
+            gap: var(--space-6);
+        }
+
+        .values-grid {
+            grid-template-columns: 1fr;
+            gap: var(--space-4);
+        }
+
+        .team-grid {
+            grid-template-columns: 1fr;
+            gap: var(--space-6);
+        }
+
+        .reasons-grid {
+            grid-template-columns: 1fr;
+            gap: var(--space-6);
+        }
+
+        .cta-buttons {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            width: 100%;
+            max-width: 300px;
+            justify-content: center;
+        }
+    }
+</style>

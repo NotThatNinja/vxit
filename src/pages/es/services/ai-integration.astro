@@ -1,0 +1,118 @@
+---
+import ServiceLayout from "../../../layouts/ServiceLayout.astro";
+
+const aiData = {
+    title: "Integración de IA - VXIT.IO",
+    description:
+        "Servicios inteligentes de integración de IA para automatizar y mejorar tu presencia digital. Desde chatbots hasta análisis predictivos.",
+    hero: {
+        title: "Integración de IA",
+        subtitle:
+            "Transforma tu negocio con automatización inteligente. Integramos soluciones de IA de vanguardia que mejoran la experiencia del usuario y optimizan las operaciones.",
+    },
+    individualPlan: {
+        name: "Automatización Básica",
+        price: "Desde 199€",
+        description:
+            "Funciones impulsadas por IA para sitios web personales y proyectos pequeños",
+        features: [
+            "Integración básica de chatbot",
+            "Herramientas de generación de contenido",
+            "Formularios de contacto inteligentes",
+            "Respuestas automatizadas",
+            "Análisis de información",
+            "Monitoreo de rendimiento",
+        ],
+        timeline: "1-2 semanas",
+    },
+    businessPlan: {
+        name: "Automatización Empresarial",
+        price: "Desde 349€",
+        description: "Solución integral de IA para la automatización empresarial",
+        features: [
+            "Chatbot avanzado con PNL",
+            "Análisis predictivo",
+            "Análisis del comportamiento del cliente",
+            "Herramientas de marketing automatizadas",
+            "Recomendaciones impulsadas por IA",
+            "Procesamiento de datos en tiempo real",
+            "Despliegue multiplataforma",
+            "Informes avanzados",
+            "Integraciones de API",
+        ],
+        timeline: "2-3 semanas",
+    },
+    benefits: [
+        {
+            title: "Automatización 24/7",
+            description:
+                "La IA trabaja las 24 horas para atender a tus clientes y optimizar procesos.",
+            icon: "fas fa-robot",
+        },
+        {
+            title: "Información Basada en Datos",
+            description:
+                "Obtén información procesable de tus datos con análisis e informes avanzados.",
+            icon: "fas fa-chart-line",
+        },
+        {
+            title: "Experiencia de Usuario Mejorada",
+            description:
+                "Ofrece experiencias personalizadas que se adaptan al comportamiento y las preferencias del usuario.",
+            icon: "fas fa-user-friends",
+        },
+        {
+            title: "Eficiencia de Costos",
+            description:
+                "Reduce los costos operativos mediante la automatización y optimización inteligente.",
+            icon: "fas fa-dollar-sign",
+        },
+        {
+            title: "Soluciones Escalables",
+            description:
+                "Soluciones de IA que crecen con tu negocio y se adaptan a las necesidades cambiantes.",
+            icon: "fas fa-expand-arrows-alt",
+        },
+        {
+            title: "Ventaja Competitiva",
+            description:
+                "Mantente a la vanguardia de la competencia con tecnología de IA de última generación.",
+            icon: "fas fa-trophy",
+        },
+    ],
+    process: [
+        {
+            step: 1,
+            title: "Auditoría y Estrategia de IA",
+            description:
+                "Analizamos tus procesos actuales e identificamos oportunidades para la integración de IA y maximizar el impacto.",
+        },
+        {
+            step: 2,
+            title: "Diseño de Soluciones",
+            description:
+                "Diseñamos soluciones de IA personalizadas para tus necesidades específicas de negocio y requisitos técnicos.",
+        },
+        {
+            step: 3,
+            title: "Desarrollo y Entrenamiento",
+            description:
+                "Construimos y entrenamos modelos de IA utilizando tus datos y las mejores prácticas de la industria para un rendimiento óptimo.",
+        },
+        {
+            step: 4,
+            title: "Integración y Pruebas",
+            description:
+                "Integramos sin problemas las soluciones de IA en tus sistemas existentes con pruebas y validación exhaustivas.",
+        },
+        {
+            step: 5,
+            title: "Optimización y Soporte",
+            description:
+                "Monitoreo continuo, optimización y soporte para asegurar que tus soluciones de IA brinden el máximo valor.",
+        },
+    ],
+};
+---
+
+<ServiceLayout {...aiData} />

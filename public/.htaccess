@@ -1,1 +1,3 @@
 RedirectMatch 301 ^/$  https://www.vxit.io/en
+
+ErrorDocument 404 https://www.vxit.io/en/404

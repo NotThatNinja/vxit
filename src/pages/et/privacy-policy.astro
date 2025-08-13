@@ -1,0 +1,70 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+import SectionTitle from "../../components/SectionTitle.astro";
+---
+
+<Layout title="Privaatsuspoliitika - VXIT.IO">
+    <main>
+        <section class="privacy-policy">
+            <SectionTitle>Privaatsuspoliitika</SectionTitle>
+            <p class="subtitle">Viimati uuendatud: 2025-08-13</p>
+            <h3>Kontaktandmed</h3>
+            <ul>
+                <li><strong>Ettevõte:</strong> VXIT.IO OÜ</li>
+                <li><strong>E-post:</strong> legal@vxit.io</li>
+            </ul>
+            <h3>Mida me kogume</h3>
+            <p>
+                Meie kontaktivormi kasutamisel kogume teie nime, e-posti aadressi,
+                telefoninumbri (kui esitatud), teema ja sõnumi, et teie päringule
+                vastata.
+            </p>
+            <h3>Kuidas me teie teavet kasutame</h3>
+            <p>
+                Kasutame teie teavet ainult teie kontaktipäringule vastamiseks ja
+                küsimuste või teenuste pakkumiseks, mille kohta te küsisite.
+                Me ei kasuta oma veebisaidil jälgimist, küpsiseid ega analüütikat.
+            </p>
+            <h3>Andmete salvestamine ja turvalisus</h3>
+            <p>
+                Teie andmeid säilitatakse turvaliselt ja me ei jaga neid kolmandate
+                osapooltega, välja arvatud juhul, kui seadus seda nõuab.
+                Rakendame teie teabe kaitsmiseks asjakohaseid turvameetmeid.
+            </p>
+            <h3>Teie õigused</h3>
+            <p>Teil on õigus:</p>
+            <ul>
+                <li>Juurdepääs teie kohta käivatele andmetele</li>
+                <li>Nõuda ebakorrektsete andmete parandamist</li>
+                <li>Nõuda oma andmete kustutamist</li>
+                <li>Esitada vastuväiteid sellele, kuidas me teie andmeid töötleme</li>
+            </ul>
+            <p>Nende õiguste kasutamiseks saatke meile e-kiri aadressil legal@vxit.io.</p>
+            <h3>Võta meiega ühendust</h3>
+            <p>Küsimused selle poliitika kohta? Saatke meile e-kiri aadressil legal@vxit.io.</p>
+        </section>
+    </main>
+</Layout>
+<style>
+    main {
+        padding: var(--space-16) var(--space-8) 0;
+    }
+
+    .privacy-policy {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .subtitle {
+        margin-top: -1.5rem;
+        margin-bottom: var(--space-8);
+        text-align: center;
+    }
+
+    h3 {
+        font-size: var(--font-size-2xl);
+        margin-top: var(--space-8);
+        margin-bottom: var(--space-2);
+    }
+</style>

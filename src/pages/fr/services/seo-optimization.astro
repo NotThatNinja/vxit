@@ -1,0 +1,119 @@
+---
+import ServiceLayout from "../../../layouts/ServiceLayout.astro";
+
+const seoData = {
+    title: "Optimisation SEO - VXIT.IO",
+    description:
+        "Services SEO professionnels pour augmenter la visibilité de votre site web et générer du trafic organique. SEO technique, optimisation de contenu et analyses.",
+    hero: {
+        title: "Optimisation SEO",
+        subtitle:
+            "Augmentez votre visibilité en ligne et générez du trafic organique. Des stratégies SEO complètes qui améliorent les classements et offrent des résultats mesurables.",
+    },
+    individualPlan: {
+        name: "SEO Essentiel",
+        price: "À partir de 149€",
+        description:
+            "Forfait SEO de base pour les sites web personnels et les petites entreprises",
+        features: [
+            "Audit SEO technique",
+            "Recherche de mots-clés (25 mots-clés)",
+            "Optimisation on-page",
+            "Optimisation des balises méta",
+            "Optimisation des images",
+            "Rapport d'avancement",
+            "Bases du SEO local",
+        ],
+        timeline: "1-2 semaines",
+    },
+    businessPlan: {
+        name: "Forfait SEO Croissance",
+        price: "À partir de 349€",
+        description: "Stratégie SEO complète pour les marchés concurrentiels",
+        features: [
+            "Audit SEO complet",
+            "Optimisation on-page avancée",
+            "Corrections SEO techniques",
+            "Optimisation des performances",
+            "Améliorations de l'accessibilité",
+            "Mise en œuvre des meilleures pratiques",
+            "Optimisation SEO locale",
+            "Analyse de la concurrence",
+            "Suivi des performances et analyses",
+        ],
+        timeline: "2-3 semaines",
+    },
+    benefits: [
+        {
+            title: "Visibilité accrue",
+            description:
+                "Améliorez votre classement dans les moteurs de recherche et soyez trouvé par davantage de clients potentiels.",
+            icon: "fas fa-eye",
+        },
+        {
+            title: "Croissance du trafic organique",
+            description:
+                "Attirez un trafic de qualité vers votre site web sans payer pour des publicités.",
+            icon: "fas fa-chart-line",
+        },
+        {
+            title: "Meilleure expérience utilisateur",
+            description:
+                "Les améliorations SEO améliorent la vitesse du site, la navigation et l'expérience utilisateur globale.",
+            icon: "fas fa-user-check",
+        },
+        {
+            title: "Domination de la recherche locale",
+            description:
+                "Optimisez pour les recherches locales afin d'attirer les clients de votre région.",
+            icon: "fas fa-map-marker-alt",
+        },
+        {
+            title: "Avantage concurrentiel",
+            description:
+                "Surpassez vos concurrents et gagnez des parts de marché plus importantes dans les résultats de recherche.",
+            icon: "fas fa-trophy",
+        },
+        {
+            title: "Résultats à long terme",
+            description:
+                "Construisez une croissance organique durable qui continue de générer de la valeur au fil du temps.",
+            icon: "fas fa-seedling",
+        },
+    ],
+    process: [
+        {
+            step: 1,
+            title: "Audit et analyse SEO",
+            description:
+                "Analyse complète de vos performances SEO actuelles, des problèmes techniques et des opportunités d'amélioration.",
+        },
+        {
+            step: 2,
+            title: "Recherche de mots-clés",
+            description:
+                "Recherche approfondie de mots-clés pour identifier les opportunités à forte valeur ajoutée et comprendre l'intention de recherche de l'utilisateur.",
+        },
+        {
+            step: 3,
+            title: "Optimisation technique",
+            description:
+                "Corrigez les problèmes techniques de SEO, y compris la vitesse du site, la compatibilité mobile et les problèmes d'explorabilité.",
+        },
+        {
+            step: 4,
+            title: "Optimisation du contenu",
+            description:
+                "Optimisez le contenu existant et créez de nouveaux contenus axés sur le SEO qui se classent et convertissent.",
+        },
+        {
+            step: 5,
+            title: "Suivi et rapports",
+            description:
+                "Suivi continu des classements, du trafic et des performances avec des rapports mensuels détaillés.",
+        },
+    ],
+};
+---
+
+<ServiceLayout {...seoData} />

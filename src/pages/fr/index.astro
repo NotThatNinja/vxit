@@ -1,0 +1,797 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+const locale = Astro.url.pathname.split("/")[1] || "en";
+
+import Layout from "../../layouts/Layout.astro";
+
+import Hero from "../../components/Hero.astro";
+import SectionTitle from "../../components/SectionTitle.astro";
+
+import { Image } from "astro:assets";
+import websiteDevelopment from "../../assets/services/website-development.jpg";
+import aiIntegration from "../../assets/services/ai-integration.jpg";
+import seoOptimization from "../../assets/services/seo-optimization.jpg";
+import ecommerceSolutions from "../../assets/services/ecommerce-solutions.jpg";
+import maintenanceServices from "../../assets/services/maintenance.jpg";
+
+const services = [
+    // Website Development
+    {
+        title: "Développement de sites web",
+        description:
+            "Nous concevons et développons des sites web rapides, réactifs et visuellement percutants, adaptés à votre marque, à votre public et à vos objectifs commerciaux.",
+        image: websiteDevelopment,
+        features: [
+            "Conception personnalisée & UX",
+            "Développement mobile-first",
+            "Optimisation des performances",
+            "Intégration de CMS",
+        ],
+        url: "/services/website-development",
+    },
+
+    // AI Integration
+    {
+        title: "Intégration d'IA",
+        description:
+            "Ajoutez des fonctionnalités intelligentes à votre plateforme grâce à une intégration fluide de l'IA — des chatbots et de l'automatisation à l'analyse de données et à la personnalisation.",
+        image: aiIntegration,
+        features: [
+            "Chatbots basés sur l'IA",
+            "Traitement des données & analyse",
+            "Expériences utilisateur personnalisées",
+            "Intégration d'API et d'outils d'IA tiers",
+        ],
+        url: "/services/ai-integration",
+    },
+
+    // Ecommerce Solutions
+    {
+        title: "Solutions E-commerce",
+        description:
+            "Nous développons des plateformes e-commerce évolutives optimisées pour les conversions, l'expérience utilisateur et des intégrations transparentes de gestion des stocks et de paiement.",
+        image: ecommerceSolutions,
+        features: [
+            "Boutiques en ligne personnalisées",
+            "Intégration sécurisée des paiements",
+            "Outils de gestion de produits",
+            "Tableaux de bord des ventes et d'analyse",
+        ],
+        url: "/services/ecommerce-solutions",
+    },
+
+    // SEO Optimization
+    {
+        title: "Optimisation SEO",
+        description:
+            "Améliorez votre visibilité sur les moteurs de recherche grâce à des stratégies SEO éprouvées, des audits techniques, l'optimisation de contenu et l'amélioration des performances.",
+        image: seoOptimization,
+        features: [
+            "Audits techniques SEO",
+            "Recherche de mots-clés",
+            "Optimisation on-page",
+            "Optimisation des performances et des Core Web Vitals",
+        ],
+        url: "/services/seo-optimization",
+    },
+
+    // Website Maintenance
+    {
+        title: "Maintenance de sites web",
+        description:
+            "Maintenez votre site web en parfait état de fonctionnement grâce à nos services de maintenance complets incluant les mises à jour de sécurité, l'optimisation des performances et un support continu.",
+        image: maintenanceServices,
+        features: [
+            "Mises à jour de sécurité & surveillance",
+            "Optimisation des performances",
+            "Sauvegardes régulières",
+            "Mises à jour de contenu & support",
+        ],
+        url: "/services/maintenance",
+    },
+];
+
+const faq = [
+    {
+        question:
+            "Qu'est-ce qui distingue VXIT.IO des autres agences de développement web ?",
+        answer: "VXIT.IO se spécialise dans la création de sites web personnalisés et performants, dotés d'une intégration d'IA de pointe. Nous nous concentrons sur la livraison de designs élégants qui stimulent une croissance commerciale réelle, et non pas seulement de jolis sites web.",
+    },
+    {
+        question: "Combien de temps dure un projet typique ?",
+        answer: "Les délais des projets varient en fonction de leur complexité. Un site web standard prend 2 à 4 semaines, tandis que des intégrations d'IA personnalisées ou des solutions e-commerce complexes peuvent prendre 6 à 8 semaines. Nous fournirons un calendrier détaillé lors de la consultation.",
+    },
+    {
+        question: "Offrez-vous un support et une maintenance continus ?",
+        answer: "Absolument ! Nous offrons un support complet après le lancement, incluant les mises à jour, la surveillance de la sécurité, l'optimisation des performances et l'assistance technique pour garantir que votre site continue de fonctionner au mieux.",
+    },
+    {
+        question: "Qu'est-ce qui est inclus dans vos services d'intégration d'IA ?",
+        answer: "Nos services d'intégration d'IA incluent les chatbots, la génération automatisée de contenu, les expériences utilisateur personnalisées, l'analyse prédictive et des outils d'IA personnalisés adaptés à vos besoins commerciaux.",
+    },
+    {
+        question: "Pouvez-vous aider à améliorer les performances de mon site web existant ?",
+        answer: "Oui ! Nous proposons des audits de sites web, l'optimisation des performances, des améliorations SEO et des services de modernisation pour transformer votre site existant en un atout numérique performant.",
+    },
+    {
+        question: "Quelle est votre structure tarifaire ?",
+        answer: "Nous proposons une tarification flexible basée sur la portée et les exigences du projet. Contactez-nous pour une consultation gratuite où nous vous fournirons un devis détaillé adapté à vos besoins spécifiques et à votre budget.",
+    },
+    // Additional FAQ items
+    {
+        question: "Offrez-vous des solutions de CMS (Système de Gestion de Contenu) ?",
+        answer: "Oui, nous pouvons intégrer des plateformes CMS populaires comme WordPress, Strapi, ou construire des solutions CMS headless personnalisées pour vous donner un contrôle total sur le contenu et les flux de travail de votre site web.",
+    },
+    {
+        question: "Avec quelles technologies et frameworks travaillez-vous ?",
+        answer: "Nous travaillons avec des technologies modernes telles qu'Astro, TypeScript, Node.js, React, PHP et diverses API d'IA. Nous choisissons la meilleure pile technologique en fonction des exigences de votre projet et de vos objectifs à long terme.",
+    },
+    {
+        question: "Pouvez-vous intégrer des services et des API tiers ?",
+        answer: "Absolument ! Nous pouvons intégrer tous les services et API tiers, tels que l'analyse, le traitement des paiements et les médias sociaux.",
+    },
+    {
+        question: "Comment assurez-vous la sécurité des sites web ?",
+        answer: "Nous mettons en œuvre des mesures de sécurité conformes aux normes de l'industrie, y compris les certificats SSL, les pratiques de codage sécurisé, les mises à jour de sécurité régulières, les systèmes de sauvegarde et la surveillance des menaces potentielles. La sécurité est intégrée à chaque projet dès sa conception.",
+    },
+    {
+        question: "Pouvez-vous aider avec le développement d'applications mobiles ?",
+        answer: "Bien que notre objectif principal soit le développement web, nous pouvons créer des applications web progressives (PWA) qui offrent des expériences similaires à celles des applications sur les appareils mobiles. Pour les applications mobiles natives, nous pouvons recommander des partenaires fiables de notre réseau.",
+    },
+    {
+        question:
+            "Que se passe-t-il si j'ai besoin de modifications après le lancement du site web ?",
+        answer: "Nous proposons des forfaits de support post-lancement flexibles qui incluent les mises à jour de contenu, les ajouts de fonctionnalités, les modifications de design et la maintenance technique. Les petites mises à jour sont souvent incluses dans nos plans de maintenance.",
+    },
+    {
+        question: "Travaillez-vous avec des entreprises de toutes tailles ?",
+        answer: "Oui, nous travaillons avec des startups, des petites et moyennes entreprises, ainsi que des clients d'entreprise. Nos solutions sont évolutives et peuvent être adaptées à tout budget et à toutes les exigences commerciales.",
+    },
+    {
+        question: "Que faire si j'ai déjà un site web mais que j'ai besoin d'une refonte ?",
+        answer: "Nous sommes spécialisés dans la refonte et la modernisation de sites web. Nous pouvons migrer votre contenu existant, améliorer le design et l'expérience utilisateur, ajouter de nouvelles fonctionnalités et nous assurer que tout fonctionne parfaitement avec les standards modernes.",
+    },
+];
+---
+
+<Layout title="Accueil - VXIT.IO">
+    <main>
+        <Hero
+            title="VXIT.IO"
+            subtitle="Des solutions web innovantes et des plateformes alimentées par l'IA pour accélérer la croissance de votre entreprise, améliorer l'engagement client et pérenniser votre présence numérique."
+            cta
+        />
+        <section class="about-us">
+            <SectionTitle>À Propos</SectionTitle>
+            <p id="animatedParagraph">
+                <span>VXIT.IO</span>
+                <span>est</span>
+                <span>dédié</span>
+                <span>à</span>
+                <span>fournir</span>
+                <span>des</span>
+                <span>solutions</span>
+                <span>numériques</span>
+                <span>de</span>
+                <span>haute</span>
+                <span>qualité</span>
+                <span>qui</span>
+                <span>permettent</span>
+                <span>aux</span>
+                <span>entreprises</span>
+                <span>de</span>
+                <span>prospérer</span>
+                <span>dans</span>
+                <span>le</span>
+                <span>paysage</span>
+                <span>numérique.</span>
+                <span>Notre</span>
+                <span>équipe</span>
+                <span>d'</span>
+                <span>experts</span>
+                <span>est</span>
+                <span>engagée</span>
+                <span>envers</span>
+                <span>l'excellence,</span>
+                <span>l'innovation,</span>
+                <span>et</span>
+                <span>la</span>
+                <span>satisfaction</span>
+                <span>client.</span>
+            </p>
+        </section>
+        <section>
+            <SectionTitle>Réalisations</SectionTitle>
+            <div class="stats">
+                <div class="stats-grid" data-aos="fade-up">
+                    <div class="stat-card">
+                        <p class="stat-number">98%</p>
+                        <p class="stat-label">Satisfaction Client</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-number">99%</p>
+                        <p class="stat-label">Disponibilité</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-number">100%</p>
+                        <p class="stat-label">Engagement</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-number">5+</p>
+                        <p class="stat-label">Années d'Expérience</p>
+                    </div>
+                </div>
+                <!-- <div class="reviews" data-aos="fade-down">
+                    <div class="review-card">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>
+                            "VXIT.IO transformed our online presence completely.
+                            The AI integration they implemented increased our
+                            customer engagement by 300%."
+                        </p>
+                        <div class="review-author">
+                            <p>
+                                <strong>Sarah Chen</strong><br />
+                                CEO, TechFlow Solutions
+                            </p>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>
+                            "Outstanding service and attention to detail. Our
+                            e-commerce sales doubled within 3 months of
+                            launching the new site."
+                        </p>
+                        <div class="review-author">
+                            <p>
+                                <strong>Marcus Rodriguez</strong><br />
+                                Founder, EcoMarket
+                            </p>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>
+                            "The team's expertise in modern web technologies is
+                            unmatched. They delivered beyond our expectations."
+                        </p>
+                        <div class="review-author">
+                            <p>
+                                <strong>Dr. Emily Watson</strong><br />
+                                Director, MedTech Innovations
+                            </p>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </section>
+        <section>
+            <SectionTitle>Nos Services</SectionTitle>
+            <div class="services">
+                {
+                    services.map((service, i) => (
+                        <div
+                            class="service-card"
+                            data-aos={i % 2 === 0 ? "fade-left" : "fade-right"}
+                        >
+                            <div class="service-info">
+                                <h3>{service.title}</h3>
+                                <p>{service.description}</p>
+                                <ul>
+                                    {service.features.map((feature) => (
+                                        <li>{feature}</li>
+                                    ))}
+                                </ul>
+                                <a
+                                    class="button"
+                                    href={getRelativeLocaleUrl(
+                                        locale,
+                                        service.url,
+                                    )}
+                                >
+                                    Voir le Service
+                                    <i class="fa-solid fa-arrow-right" />
+                                </a>
+                            </div>
+                            <Image src={service.image} alt={service.title} />
+                        </div>
+                    ))
+                }
+            </div>
+        </section>
+        <section>
+            <SectionTitle>Foire Aux Questions</SectionTitle>
+            <div class="faq">
+                {
+                    faq.map((item, index) => (
+                        <div
+                            class={`faq-item ${index >= 6 ? "additional-faq" : ""}`}
+                            data-aos="fade-up"
+                        >
+                            <button class="faq-question" data-index={index}>
+                                <span>{item.question}</span>
+                                <i class="fa-solid fa-chevron-down" />
+                            </button>
+                            <div class="faq-answer">
+                                <p>{item.answer}</p>
+                            </div>
+                        </div>
+                    ))
+                }
+                <div class="faq-more-container">
+                    <button class="faq-more-button" id="faqMoreButton">
+                        <span class="more-text">Afficher Plus de Questions</span>
+                        <span class="less-text" style="display: none;"
+                            >Afficher Moins de Questions</span
+                        >
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
+<style>
+    /* --- Services Section --- */
+    .services {
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.4s ease;
+        overflow-x: hidden;
+        padding-top: var(--space-4);
+    }
+    .service-card {
+        display: flex;
+        gap: var(--space-8);
+        justify-content: center;
+        align-items: center;
+        padding: var(--space-4) var(--space-8);
+    }
+    .service-card:nth-child(odd) {
+        flex-direction: row-reverse;
+    }
+    .service-card img {
+        width: 33%;
+        height: 100%;
+        object-fit: cover;
+        padding: var(--space-8);
+        border-radius: 3rem;
+    }
+    .service-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: var(--space-4);
+        width: 66%;
+    }
+    .service-info h3 {
+        font-size: var(--font-size-4xl);
+        background: linear-gradient(
+            to bottom,
+            var(--accent-primary),
+            light-dark(var(--accent-secondary), var(--color-primary))
+        );
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .service-info p {
+        font-size: var(--font-size-xl);
+    }
+    .service-info ul {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-4);
+    }
+    .service-info ul li {
+        padding-left: var(--space-6);
+        font-size: var(--font-size-lg);
+    }
+    .button {
+        display: flex;
+        width: fit-content;
+        gap: var(--space-2);
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: var(--color-primary);
+        border: 1px solid var(--color-tertiary);
+        border-radius: var(--radius-full);
+        padding: var(--space-4) var(--space-8);
+        transition:
+            border 0.3s ease,
+            background 0.3s ease;
+    }
+    .button:hover {
+        border-color: var(--accent-primary);
+        background: rgba(var(--accent-primary-rgb), 0.2);
+    }
+
+    /* --- About Section --- */
+    .about-us {
+        width: calc(100% - 2 * var(--space-6));
+        padding: var(--space-6);
+    }
+    .about-us p {
+        max-width: 1200px;
+        margin: auto;
+        font-size: var(--font-size-4xl);
+        word-break: break-word;
+    }
+    .about-us p span {
+        opacity: 0.25;
+        transition: opacity 0.5s;
+        display: inline-block;
+    }
+
+    /* --- Stats Section --- */
+    .stats {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-16);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: var(--space-6);
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--space-6);
+    }
+
+    .stat-card {
+        display: flex;
+        gap: var(--space-2);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: var(--space-8) var(--space-6);
+        border: 1px solid var(--color-tertiary);
+        border-radius: var(--radius-2xl);
+        transition: all 0.4s ease;
+    }
+    .stat-card:hover {
+        transform: translateY(-8px);
+        border-color: rgba(var(--accent-primary-rgb), 0.5);
+        box-shadow: 0 20px 40px rgba(var(--accent-primary-rgb), 0.2);
+    }
+
+    .stat-number {
+        font-size: var(--font-size-6xl);
+        font-weight: var(--font-weight-bold);
+        background: linear-gradient(
+            225deg,
+            var(--accent-primary) 0%,
+            var(--accent-secondary) 100%
+        );
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .stat-label {
+        font-size: var(--font-size-xl);
+    }
+
+    /* --- Reviews Section --- */
+    .reviews {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--space-6);
+    }
+
+    .review-card {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-6);
+        position: relative;
+        background: var(--color-secondary);
+        border: 1px solid var(--color-tertiary);
+        border-radius: var(--radius-2xl);
+        padding: var(--space-8);
+        transition: all 0.4s ease;
+    }
+    .review-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.1) 0%,
+            transparent 50%,
+            rgba(var(--accent-primary-rgb), 0.1) 100%
+        );
+        border-radius: var(--radius-2xl);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+    .review-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(var(--accent-primary-rgb), 0.5);
+        box-shadow: 0 15px 30px rgba(var(--accent-primary-rgb), 0.2);
+    }
+    .review-card:hover::before {
+        opacity: 1;
+    }
+
+    .stars {
+        display: flex;
+        gap: var(--space-1);
+    }
+    .stars i {
+        color: #ffd700;
+        filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.3));
+    }
+
+    .review-card p {
+        font-size: var(--font-size-lg);
+        line-height: var(--line-height-relaxed);
+        color: var(--color-primary);
+        font-style: italic;
+    }
+    .review-author strong {
+        font-size: var(--font-size-xl);
+    }
+
+    /* --- FAQ Section --- */
+    .faq {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 var(--space-6);
+    }
+    .faq-item {
+        border-bottom: 1px solid var(--color-tertiary);
+    }
+
+    .additional-faq {
+        display: none;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+    }
+
+    .additional-faq.show {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .faq-more-container {
+        display: flex;
+        justify-content: center;
+        padding: var(--space-8) 0 var(--space-4) 0;
+    }
+
+    .faq-more-button {
+        display: flex;
+        gap: var(--space-2);
+        justify-content: center;
+        align-items: center;
+        background: none;
+        border: 1px solid var(--color-tertiary);
+        border-radius: var(--radius-full);
+        padding: var(--space-4) var(--space-8);
+        color: var(--color-primary);
+        cursor: pointer;
+        font-size: var(--font-size-lg);
+        font-weight: var(--font-weight-semibold);
+        transition: all 0.3s ease;
+    }
+
+    .faq-more-button:hover {
+        border-color: var(--accent-primary);
+        background: rgba(var(--accent-primary-rgb), 0.2);
+        transform: translateY(-2px);
+    }
+
+    .faq-more-button i {
+        font-size: var(--font-size-base);
+        transition: transform 0.3s ease;
+        color: var(--accent-primary);
+    }
+
+    .faq-more-button.expanded i {
+        transform: rotate(180deg);
+    }
+
+    .faq-question {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--space-6) 0;
+        background: none;
+        border: none;
+        color: inherit;
+        cursor: pointer;
+        font-size: var(--font-size-2xl);
+        font-weight: var(--font-weight-semibold);
+        text-align: left;
+        transition: color 0.3s ease;
+    }
+    .faq-question:hover {
+        color: var(--accent-primary);
+    }
+    .faq-question i {
+        font-size: var(--font-size-lg);
+        transition: transform 0.3s ease;
+        color: var(--accent-primary);
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition:
+            max-height 0.3s ease,
+            padding 0.3s ease;
+    }
+    .faq-answer p {
+        font-size: var(--font-size-lg);
+        line-height: 1.6;
+        color: light-dark(rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.8));
+        margin: 0;
+    }
+
+    .faq-item.active .faq-question i {
+        transform: rotate(180deg);
+    }
+    .faq-item.active .faq-answer {
+        max-height: 200px;
+        padding-bottom: var(--space-6);
+    }
+
+    @media (max-width: 768px) {
+        .about-us p {
+            font-size: var(--font-size-3xl);
+        }
+
+        .service-card {
+            flex-direction: column;
+        }
+        .service-card:nth-child(odd) {
+            flex-direction: column;
+        }
+        .service-info {
+            width: auto;
+        }
+        .service-card img {
+            width: 100%;
+        }
+
+        .stats-grid {
+            gap: var(--space-4);
+        }
+        .stat-card {
+            padding: var(--space-6) var(--space-4);
+        }
+        .stat-number {
+            font-size: var(--font-size-5xl);
+        }
+        .stat-suffix {
+            font-size: var(--font-size-2xl);
+        }
+    }
+</style>
+<script>
+    // Word-by-word scroll reveal for About
+    window.addEventListener("scroll", () => {
+        const p = document.querySelector("#animatedParagraph");
+        if (!p) return;
+        const words = p.querySelectorAll("#animatedParagraph span");
+
+        const rect = p.getBoundingClientRect();
+        const windowHeight =
+            window.innerHeight || document.documentElement.clientHeight;
+
+        if (rect.top < windowHeight && rect.bottom > 0) {
+            // Calculate how much of the paragraph is visible
+            const visibleRatio = Math.min(
+                1,
+                (windowHeight - rect.top - 250) / rect.height,
+            );
+            const revealCount = Math.floor(words.length * visibleRatio);
+            words.forEach((word, i) => {
+                (word as HTMLElement).style.opacity =
+                    i < revealCount ? "1" : "0.25";
+            });
+        } else {
+            words.forEach(
+                (word) => ((word as HTMLElement).style.opacity = "0.25"),
+            );
+        }
+    });
+
+    // FAQ accordion functionality
+    document.addEventListener("DOMContentLoaded", () => {
+        const faqQuestions = document.querySelectorAll(".faq-question");
+        const faqMoreButton = document.getElementById("faqMoreButton");
+        const additionalFaqs = document.querySelectorAll(".additional-faq");
+        const moreText = faqMoreButton?.querySelector(
+            ".more-text",
+        ) as HTMLElement;
+        const lessText = faqMoreButton?.querySelector(
+            ".less-text",
+        ) as HTMLElement;
+
+        // FAQ accordion functionality
+        faqQuestions.forEach((question) => {
+            question.addEventListener("click", () => {
+                const faqItem = question.parentElement;
+                if (!faqItem) return;
+
+                const isActive = faqItem.classList.contains("active");
+
+                // Close all other FAQ items
+                document.querySelectorAll(".faq-item").forEach((item) => {
+                    item.classList.remove("active");
+                });
+
+                // Toggle current item
+                if (!isActive) {
+                    faqItem.classList.add("active");
+                }
+            });
+        });
+
+        // Show More/Less functionality
+        if (faqMoreButton) {
+            faqMoreButton.addEventListener("click", () => {
+                const isExpanded = faqMoreButton.classList.contains("expanded");
+
+                if (isExpanded) {
+                    // Hide additional FAQs
+                    additionalFaqs.forEach((faq, index) => {
+                        setTimeout(() => {
+                            faq.classList.remove("show");
+                            (faq as HTMLElement).style.display = "none";
+                        }, index * 50);
+                    });
+
+                    // Update button text and icon
+                    if (moreText) moreText.style.display = "inline";
+                    if (lessText) lessText.style.display = "none";
+                    faqMoreButton.classList.remove("expanded");
+                } else {
+                    // Show additional FAQs
+                    additionalFaqs.forEach((faq, index) => {
+                        setTimeout(() => {
+                            (faq as HTMLElement).style.display = "block";
+                            setTimeout(() => {
+                                faq.classList.add("show");
+                            }, 10);
+                        }, index * 50);
+                    });
+
+                    // Update button text and icon
+                    if (moreText) moreText.style.display = "none";
+                    if (lessText) lessText.style.display = "inline";
+                    faqMoreButton.classList.add("expanded");
+                }
+            });
+        }
+    });
+</script>

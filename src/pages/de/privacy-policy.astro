@@ -1,0 +1,70 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+import SectionTitle from "../../components/SectionTitle.astro";
+---
+
+<Layout title="Datenschutzrichtlinie - VXIT.IO">
+    <main>
+        <section class="privacy-policy">
+            <SectionTitle>Datenschutzrichtlinie</SectionTitle>
+            <p class="subtitle">Zuletzt aktualisiert: 2025-08-13</p>
+            <h3>Kontaktinformationen</h3>
+            <ul>
+                <li><strong>Unternehmen:</strong> VXIT.IO OÜ</li>
+                <li><strong>E-Mail:</strong> legal@vxit.io</li>
+            </ul>
+            <h3>Was wir sammeln</h3>
+            <p>
+                Wenn Sie unser Kontaktformular verwenden, erfassen wir Ihren Namen, Ihre E-Mail-Adresse,
+                Telefonnummer (falls angegeben), den Betreff und Ihre Nachricht, um auf
+                Ihre Anfrage zu antworten.
+            </p>
+            <h3>Wie wir Ihre Informationen verwenden</h3>
+            <p>
+                Wir verwenden Ihre Informationen ausschließlich, um auf Ihre Kontaktanfrage zu antworten
+                und die von Ihnen angefragten Informationen oder Dienstleistungen bereitzustellen.
+                Wir verwenden auf unserer Website weder Tracking, Cookies noch Analysen.
+            </p>
+            <h3>Datenspeicherung & Sicherheit</h3>
+            <p>
+                Ihre Daten werden sicher gespeichert und wir geben sie nicht an Dritte weiter,
+                es sei denn, dies ist gesetzlich vorgeschrieben. Wir implementieren geeignete
+                Sicherheitsmaßnahmen, um Ihre Informationen zu schützen.
+            </p>
+            <h3>Ihre Rechte</h3>
+            <p>Sie haben das Recht auf:</p>
+            <ul>
+                <li>Zugriff auf die Daten, die wir über Sie haben</li>
+                <li>Anfrage zur Korrektur falscher Informationen</li>
+                <li>Anfrage zur Löschung Ihrer Daten</li>
+                <li>Widerspruch gegen die Verarbeitung Ihrer Daten</li>
+            </ul>
+            <p>Um diese Rechte auszuüben, senden Sie uns eine E-Mail an legal@vxit.io.</p>
+            <h3>Kontaktieren Sie uns</h3>
+            <p>Fragen zu dieser Richtlinie? Senden Sie uns eine E-Mail an legal@vxit.io.</p>
+        </section>
+    </main>
+</Layout>
+<style>
+    main {
+        padding: var(--space-16) var(--space-8) 0;
+    }
+
+    .privacy-policy {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .subtitle {
+        margin-top: -1.5rem;
+        margin-bottom: var(--space-8);
+        text-align: center;
+    }
+
+    h3 {
+        font-size: var(--font-size-2xl);
+        margin-top: var(--space-8);
+        margin-bottom: var(--space-2);
+    }
+</style>

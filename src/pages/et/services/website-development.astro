@@ -1,0 +1,118 @@
+---
+import ServiceLayout from "../../../layouts/ServiceLayout.astro";
+
+const websiteData = {
+    title: "Veebilehtede Arendus - VXIT.IO",
+    hero: {
+        title: "Veebilehtede Arendus",
+        subtitle:
+            "Looge suurepäraseid, tundlikke veebisaite, mis toovad tulemusi. Isiklikest portfooliotest ettevõtete lahendusteni ehitame veebilehti, mis töötavad kaunilt kõigis seadmetes.",
+    },
+    individualPlan: {
+        name: "Isiklik Veebisait",
+        price: "Alates 399€",
+        description: "Ideaalne vabakutselistele, kunstnikele ja isiklikele brändidele",
+        features: [
+            "Ühe- või mitmeleheline tundlik veebisait",
+            "Kohandatud disain ja bränding",
+            "Mobiilne optimeerimine",
+            "Kontaktivormi integreerimine",
+            "Põhiline SEO seadistus",
+            "1 kuu tugi kaasas",
+            "Sotsiaalmeedia integreerimine",
+            "90+/100 Google'i jõudluse skoor",
+            "CMS-i integreerimine lisatasu eest saadaval",
+        ],
+        timeline: "2-3 nädalat",
+    },
+    businessPlan: {
+        name: "Äriveebisait",
+        price: "Alates 799€",
+        description: "Terviklik lahendus kasvavatele ettevõtetele",
+        features: [
+            "Nii palju lehti kui vaja",
+            "Kohandatud disain ja arendus",
+            "Täiustatud mobiilne optimeerimine",
+            "Täiustatud SEO optimeerimine",
+            "Analüüsi integreerimine",
+            "3 kuud tugi kaasas",
+            "Jõudluse optimeerimine",
+            "Turvalisuse funktsioonid",
+            "Prioriteetne tugi ja hooldus",
+        ],
+        timeline: "4-6 nädalat",
+    },
+    benefits: [
+        {
+            title: "Tundlik Disain",
+            description:
+                "Teie veebisait näeb välja täiuslik kõigis seadmetes – lauaarvutis, tahvelarvutis ja mobiilis.",
+            icon: "fas fa-mobile-alt",
+        },
+        {
+            title: "Kiire Laadimine",
+            description:
+                "Optimeeritud kiirusele parimate praktikatega, et tagada kiire laadimisaeg.",
+            icon: "fas fa-bolt",
+        },
+        {
+            title: "SEO Optimeeritud",
+            description:
+                "Ehitatud vastavalt parimatele SEO praktikatele, et aidata teie saidil otsingutulemustes kõrgemale jõuda.",
+            icon: "fas fa-search",
+        },
+        {
+            title: "Turvaline ja Usaldusväärne",
+            description:
+                "Valdkonna standarditele vastavad turvameetmed ja usaldusväärsed majutuslahendused.",
+            icon: "fas fa-shield-alt",
+        },
+        {
+            title: "CMS-i Integreerimine",
+            description:
+                "Uuendage oma veebisaidi sisu hõlpsalt ise WordPressi, Strapi või kohandatud CMS-iga – tehnilisi oskusi pole vaja.",
+            icon: "fas fa-cog",
+        },
+        {
+            title: "Pidev Tugi",
+            description:
+                "Pühendunud tugimeeskond, kes aitab teil veebisaiti hallata ja arendada.",
+            icon: "fas fa-headset",
+        },
+    ],
+    process: [
+        {
+            step: 1,
+            title: "Avastamine ja Planeerimine",
+            description:
+                "Alustame teie eesmärkide, sihtrühma ja nõuete mõistmisest, et luua põhjalik projektiplaan.",
+        },
+        {
+            step: 2,
+            title: "Disain ja Prototüüpimine",
+            description:
+                "Teeme teiega koostööd, et leppida kokku disainisuunas, luues traatrakked ja visuaalsed kontseptsioonid, mis peegeldavad teie brändi ja kasutajakogemuse eesmärke.",
+        },
+        {
+            step: 3,
+            title: "Arendus ja Testimine",
+            description:
+                "Ehime teie veebisaidi kaasaegseid tehnoloogiaid kasutades ja viime läbi põhjaliku testimise kõikides seadmetes ja brauserites.",
+        },
+        {
+            step: 4,
+            title: "Optimeerimine",
+            description:
+                "Optimeerime teie veebisaiti jõudluse, turvalisuse ja otsingumootorite jaoks.",
+        },
+        {
+            step: 5,
+            title: "Kasutuselevõtt ja Hooldus",
+            description:
+                "Pidev tugi, uuendused ja hooldus, et tagada teie veebisaidi jätkuv parim jõudlus.",
+        },
+    ],
+};
+---
+
+<ServiceLayout {...websiteData} />

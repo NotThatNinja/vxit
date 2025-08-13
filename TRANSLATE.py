@@ -3,6 +3,19 @@ import os
 from google import genai
 import time
 
+# TO_TRANSLATE = [
+#     "index.astro",
+#     "about.astro",
+#     "contact.astro",
+#     "legal.astro",
+#     "privacy-policy.astro",
+#     "services\\website-development.astro",
+#     "services\\ai-integration.astro",
+#     "services\\ecommerce-solutions.astro",
+#     "services\\maintenance.astro",
+#     "services\\seo-optimization.astro"
+# ]
+
 TO_TRANSLATE = [
     "index.astro",
     "about.astro",
@@ -18,7 +31,8 @@ TO_TRANSLATE = [
 
 BASE = "src\\pages"
 
-LANGUAGES = ["fr", "de", "et"]
+# LANGUAGES = ["it", "es", "fr", "de", "et"]
+LANGUAGES = ["de", "et"]
 
 def translate(content, language, client):
     content = content.split("<style>", 1)
@@ -46,6 +60,8 @@ def llm_translate(content, language, client):
     return response.text
 
 def main():
+    rpm = 0
+    request_start_time = time.time()
     client = genai.Client()
 
     for language in LANGUAGES:
@@ -61,6 +77,22 @@ def main():
         print(f"> Starting translation. Files to translate: {len(TO_TRANSLATE)}")
         time.sleep(1)
         for i, file in enumerate(TO_TRANSLATE):
+            # Reset RPM if more than 60 seconds have passed
+            if time.time() - request_start_time >= 60:
+                request_start_time = time.time()
+                rpm = 0
+
+            # Check if RPM has exceeded 10
+            rpm += 1
+            if rpm > 10:
+                time_to_sleep = 70 - (time.time() - request_start_time)
+                print(f"> Rate limit exceeded ({rpm} requests in the last minute). Waiting {time_to_sleep} seconds")
+                if time_to_sleep < 0:
+                    time_to_sleep = 0
+                time.sleep(time_to_sleep)
+                rpm = 0
+
+            # Start translating
             print(f"> Translating file {i + 1} of {len(TO_TRANSLATE)}: {file}")
 
             src_file = os.path.join(BASE, "en", file)

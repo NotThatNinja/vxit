@@ -1,0 +1,127 @@
+---
+import ServiceLayout from "../../../layouts/ServiceLayout.astro";
+
+const ecommerceData = {
+    title: "E-kaubanduse lahendused - VXIT.IO",
+    description:
+        "Terviklikud e-kaubanduse arendusteenused. Veebipoodidest turuplatvormideni – ehitame lahendusi, mis edendavad müüki.",
+    hero: {
+        title: "E-kaubanduse lahendused",
+        subtitle:
+            "Ehitage võimsad veebipoed, mis muudavad külastajad klientideks. Terviklikud e-kaubanduse lahendused maksete töötlemise, laohalduse ja analüütikaga.",
+    },
+    individualPlan: {
+        name: "Veebipood",
+        price: "Alates 149€",
+        description:
+            "Ideaalne väikestele ettevõtetele ja veebis alustavatele ettevõtjatele",
+        features: [
+            "Mallipõhine disain",
+            "Mobiilisõbralik disain",
+            "Maksevärava integreerimine",
+            "Lihtne haldamine",
+            "Tellimuste jälgimissüsteem",
+            "Põhianalüütika",
+            "SSL-sertifikaat kaasas",
+            "Kliendikonto portaal",
+            "Shopify või sarnase platvormi seadistamine",
+        ],
+        timeline: "1-2 nädalat",
+    },
+    businessPlan: {
+        name: "Professionaalne e-kaubandus",
+        price: "Alates 649€",
+        description: "Täiustatud e-kaubanduse platvorm kasvavatele ettevõtetele",
+        features: [
+            "Piiramatu arv tooteid",
+            "Kohandatud disain ja arendus",
+            "Mitu makseväravat",
+            "Täiustatud analüütika ja aruanded",
+            "SEO optimeerimine",
+            "Mahajäetud ostukorvi taastamine",
+            "E-posti turunduse integreerimine",
+            "API integreerimised",
+            "Täiustatud turvafunktsioonid",
+        ],
+        timeline: "3-4 nädalat",
+    },
+    benefits: [
+        {
+            title: "Turvalised maksed",
+            description:
+                "Tööstusstandardile vastav maksete töötlemine mitme värava ja pettusevastase kaitsega.",
+            icon: "fas fa-credit-card",
+        },
+        {
+            title: "Lihtne haldamine",
+            description:
+                "Kasutajasõbralik juhtpaneel toodete, tellimuste ja klientide haldamiseks.",
+            icon: "fas fa-boxes",
+        },
+        {
+            title: "Mobiilne kaubandus",
+            description:
+                "Optimeeritud mobiilseks ostlemiseks tänu reageerivale disainile ja kiiretele laadimisaegadele.",
+            icon: "fas fa-shopping-bag",
+        },
+        {
+            title: "Analüütika ja ülevaated",
+            description:
+                "Põhjalik müügianalüütika ja kliendikäitumise ülevaated teie äri kasvatamiseks.",
+            icon: "fas fa-chart-bar",
+        },
+        {
+            title: "SEO optimeeritud",
+            description:
+                "Ehitatud vastavalt e-kaubanduse SEO parimatele praktikatele otsingumootorite nähtavuse parandamiseks.",
+            icon: "fas fa-search-plus",
+        },
+        {
+            title: "Skaleeritav platvorm",
+            description:
+                "Arhitektuur, mis on loodud toime tulema kasvuga alates idufirmast kuni suurettevõtteni.",
+            icon: "fas fa-rocket",
+        },
+    ],
+    process: [
+        {
+            step: 1,
+            title: "Ärianalüüs",
+            description:
+                "Analüüsime teie ärimudelit, sihtturgu ja konkurentsi, et luua optimaalne e-kaubanduse strateegia.",
+        },
+        {
+            step: 2,
+            title: "Platvormi seadistamine",
+            description:
+                "Seadistame e-kaubanduse platvormi makseväravate, saatmisvõimaluste ja oluliste integratsioonidega.",
+        },
+        {
+            step: 3,
+            title: "Disain ja arendus",
+            description:
+                "Loome kohandatud disaini, mis peegeldab teie brändi ja arendame funktsionaalsuse optimaalse kasutajakogemuse tagamiseks.",
+        },
+        {
+            step: 4,
+            title: "Toodete integreerimine",
+            description:
+                "Laadime üles tooted, konfigureerime hinnakujunduse, seadistame kategooriad ning optimeerime otsinguks ja konversioonideks.",
+        },
+        {
+            step: 5,
+            title: "Testimine ja käivitamine",
+            description:
+                "Kogu funktsionaalsuse, maksete töötlemise ja kasutajavoogude põhjalik testimine enne avaldamist.",
+        },
+        {
+            step: 6,
+            title: "Kasv ja optimeerimine",
+            description:
+                "Pidev optimeerimine, turundusintegratsioon ja funktsioonide täiustused müügi maksimeerimiseks.",
+        },
+    ],
+};
+---
+
+<ServiceLayout {...ecommerceData} />

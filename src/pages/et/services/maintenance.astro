@@ -1,0 +1,128 @@
+---
+import ServiceLayout from "../../../layouts/ServiceLayout.astro";
+
+const maintenanceData = {
+    title: "Hooldus ja lisateenused - VXIT.IO",
+    hero: {
+        title: "Hooldus ja teenused",
+        subtitle:
+            "Hoidke oma veebisait sujuvalt töös meie põhjalike hooldusteenustega. Alates turvauuendustest kuni jõudluse optimeerimiseni tagame, et teie sait püsib turvaline, kiire ja ajakohane.",
+    },
+    individualPlan: {
+        name: "Põhihooldus",
+        price: "Alates 8.99€/kuus",
+        description:
+            "Oluline hooldus väikestele veebisaitidele ja isiklikele projektidele",
+        features: [
+            "Iganädalased turvauuendused",
+            "Igakuine jõudluse jälgimine",
+            "Põhiline varundusteenus (iganädalane)",
+            "SSL-sertifikaatide haldamine",
+            "Väiksemad sisuvärskendused",
+            "E-posti tugi",
+            "Kättesaadavuse jälgimine",
+            "Põhilised turvaskaneeringud",
+        ],
+        timeline: "Pidev kuuteenus",
+    },
+    businessPlan: {
+        name: "Professionaalne hooldus",
+        price: "Alates 11.99€/kuus",
+        description: "Põhjalik hooldus äriveebisaitidele",
+        features: [
+            "Täiustatud varundusteenus (igapäevane)",
+            "Jõudluse optimeerimine",
+            "Prioriteetne e-posti tugi",
+            "SEO jälgimine ja aruandlus",
+            "Täiustatud turvaskaneeringud",
+            "Igakuised üksikasjalikud aruanded",
+            "Pahavara eemaldamine ja taastamine",
+            "Kohandatud analüütika seadistamine",
+            "Integratsioonitugi (kolmandate osapoolte tööriistad)",
+            "Ligipääsetavuse parandused",
+            "Kiirem hädaabi tugi (kriitilised probleemid)",
+        ],
+        timeline: "Pidev kuuteenus",
+    },
+    benefits: [
+        {
+            title: "Turvalisuse kaitse",
+            description:
+                "Pidev jälgimine ja uuendused, et kaitsta turvaohtude ja -nõrkuste eest.",
+            icon: "fas fa-shield-alt",
+        },
+        {
+            title: "Jõudluse optimeerimine",
+            description:
+                "Regulaarne optimeerimine tagab, et teie veebisait laeb kiiresti ja töötab tõhusalt.",
+            icon: "fas fa-tachometer-alt",
+        },
+        {
+            title: "Regulaarsed varukoopiad",
+            description:
+                "Automaatsed varukoopiad andmete kaitsmiseks ja kiireks taastamiseks vajadusel.",
+            icon: "fas fa-cloud-upload-alt",
+        },
+        {
+            title: "Sisu uuendused",
+            description:
+                "Professionaalne abi teie veebisaidi sisu uuendamisel, muutmisel ja lisamisel.",
+            icon: "fas fa-edit",
+        },
+        {
+            title: "Kättesaadavuse jälgimine",
+            description:
+                "24/7 jälgimine tagab, et teie veebisait on külastajatele alati kättesaadav.",
+            icon: "fas fa-eye",
+        },
+        {
+            title: "Tehniline tugi",
+            description:
+                "Asjatundlik tehniline tugi, kui vajate abi või puutute kokku oma veebisaidiga seotud probleemidega.",
+            icon: "fas fa-headset",
+        },
+    ],
+    additionalServices: [
+        {
+            title: "Väikesed muudatused",
+            description:
+                "Väikesed uuendused teie veebisaidi sisus (tekst, pildid jne)",
+            price: "Alates 15€",
+        },
+        {
+            title: "Keskmised muudatused",
+            description:
+                "Mõõdukad uuendused, sealhulgas stiilimuudatused, sisu ümberkorraldamine või funktsioonide lisamine",
+            price: "Alates 55€",
+        },
+        {
+            title: "Suuremad muudatused",
+            description:
+                "Põhjalikud muudatused, nagu uute lehtede loomine, keeruliste funktsioonide lisamine või olulised disainiuuendused",
+            price: "Alates 95€",
+        },
+        {
+            title: "Migratsiooniteenused",
+            description: "Veebisaidi turvaline migreerimine uuele hostimisele või platvormile",
+            price: "Alates 150€",
+        },
+        {
+            title: "Veebisaidi optimeerimine",
+            description:
+                "Jõudluse, ligipääsetavuse ja SEO hindamine ja parandused (mitte-vxit veebisaitidele)",
+            price: "Alates 250€",
+        },
+        {
+            title: "CMS-i integreerimine",
+            description:
+                "Sisuhaldussüsteemide integreerimine veebisaidi lihtsamaks uuendamiseks (uuendage oma veebisaiti ilma kodeerimisoskusteta)",
+            price: "Alates 200€",
+        },
+    ],
+};
+---
+
+<ServiceLayout {...maintenanceData} />
+<style>
+    /* Additional styles specific to maintenance page could go here */
+</style>

@@ -1,0 +1,128 @@
+---
+import ServiceLayout from "../../../layouts/ServiceLayout.astro";
+
+const maintenanceData = {
+    title: "Maintenance & Services Additionnels - VXIT.IO",
+    hero: {
+        title: "Maintenance & Services",
+        subtitle:
+            "Assurez le bon fonctionnement de votre site web grâce à nos services de maintenance complets. Des mises à jour de sécurité à l'optimisation des performances, nous veillons à ce que votre site reste sécurisé, rapide et à jour.",
+    },
+    individualPlan: {
+        name: "Maintenance Basique",
+        price: "À partir de 8.99€/mois",
+        description:
+            "Maintenance essentielle pour les petits sites web et les projets personnels",
+        features: [
+            "Mises à jour de sécurité hebdomadaires",
+            "Surveillance mensuelle des performances",
+            "Service de sauvegarde basique (hebdomadaire)",
+            "Gestion des certificats SSL",
+            "Mises à jour mineures de contenu",
+            "Support par e-mail",
+            "Surveillance de la disponibilité",
+            "Analyses de sécurité basiques",
+        ],
+        timeline: "Service mensuel continu",
+    },
+    businessPlan: {
+        name: "Maintenance Professionnelle",
+        price: "À partir de 11.99€/mois",
+        description: "Maintenance complète pour les sites web d'entreprise",
+        features: [
+            "Service de sauvegarde avancé (quotidien)",
+            "Optimisation des performances",
+            "Support e-mail prioritaire",
+            "Surveillance et rapports SEO",
+            "Analyses de sécurité avancées",
+            "Rapports mensuels détaillés",
+            "Suppression de logiciels malveillants et récupération",
+            "Configuration d'analyses personnalisées",
+            "Support d'intégration (outils tiers)",
+            "Améliorations de l'accessibilité",
+            "Support d'urgence plus rapide (problèmes critiques)",
+        ],
+        timeline: "Service mensuel continu",
+    },
+    benefits: [
+        {
+            title: "Protection de Sécurité",
+            description:
+                "Surveillance et mises à jour continues pour protéger contre les menaces et vulnérabilités de sécurité.",
+            icon: "fas fa-shield-alt",
+        },
+        {
+            title: "Optimisation des Performances",
+            description:
+                "Optimisation régulière pour garantir que votre site web se charge rapidement et fonctionne efficacement.",
+            icon: "fas fa-tachometer-alt",
+        },
+        {
+            title: "Sauvegardes Régulières",
+            description:
+                "Sauvegardes automatisées pour protéger vos données et assurer une récupération rapide si nécessaire.",
+            icon: "fas fa-cloud-upload-alt",
+        },
+        {
+            title: "Mises à Jour de Contenu",
+            description:
+                "Assistance professionnelle pour les mises à jour, modifications et ajouts de contenu à votre site web.",
+            icon: "fas fa-edit",
+        },
+        {
+            title: "Surveillance de la Disponibilité",
+            description:
+                "Surveillance 24h/24 et 7j/7 pour garantir que votre site web est toujours accessible à vos visiteurs.",
+            icon: "fas fa-eye",
+        },
+        {
+            title: "Support Technique",
+            description:
+                "Support technique expert lorsque vous avez besoin d'aide ou rencontrez des problèmes avec votre site web.",
+            icon: "fas fa-headset",
+        },
+    ],
+    additionalServices: [
+        {
+            title: "Petites Modifications",
+            description:
+                "Petites mises à jour du contenu de votre site web (texte, images, etc.)",
+            price: "À partir de 15€",
+        },
+        {
+            title: "Modifications Moyennes",
+            description:
+                "Mises à jour modérées incluant des changements de style, la restructuration de contenu ou l'ajout de fonctionnalités",
+            price: "À partir de 55€",
+        },
+        {
+            title: "Modifications Plus Importantes",
+            description:
+                "Modifications approfondies telles que la création de nouvelles pages, l'ajout de fonctionnalités complexes ou des mises à jour de conception significatives",
+            price: "À partir de 95€",
+        },
+        {
+            title: "Services de Migration",
+            description: "Migration sécurisée de site web vers un nouvel hébergement ou une nouvelle plateforme",
+            price: "À partir de 150€",
+        },
+        {
+            title: "Optimisation de Site Web",
+            description:
+                "Évaluation et améliorations des performances, de l'accessibilité et du SEO (pour les sites web non-vxit)",
+            price: "À partir de 250€",
+        },
+        {
+            title: "Intégration CMS",
+            description:
+                "Intégration de systèmes de gestion de contenu pour des mises à jour de site web plus faciles (mettez à jour votre site web sans compétences en codage)",
+            price: "À partir de 200€",
+        },
+    ],
+};
+---
+
+<ServiceLayout {...maintenanceData} />
+<style>
+    /* Additional styles specific to maintenance page could go here */
+</style>

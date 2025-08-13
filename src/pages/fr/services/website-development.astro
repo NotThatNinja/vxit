@@ -1,0 +1,118 @@
+---
+import ServiceLayout from "../../../layouts/ServiceLayout.astro";
+
+const websiteData = {
+    title: "Développement de site web - VXIT.IO",
+    hero: {
+        title: "Développement de site web",
+        subtitle:
+            "Créez des sites web époustouflants et responsives qui génèrent des résultats. Des portfolios personnels aux solutions d'entreprise, nous construisons des sites web qui fonctionnent parfaitement sur tous les appareils.",
+    },
+    individualPlan: {
+        name: "Site web personnel",
+        price: "À partir de 399€",
+        description: "Parfait pour les freelances, les artistes et les marques personnelles",
+        features: [
+            "Site web responsive simple ou multipage",
+            "Conception & branding personnalisés",
+            "Optimisation mobile",
+            "Intégration de formulaire de contact",
+            "Configuration SEO de base",
+            "1 mois de support inclus",
+            "Intégration des réseaux sociaux",
+            "Score de performance Google 90+/100",
+            "Intégration CMS disponible moyennant un supplément",
+        ],
+        timeline: "2-3 semaines",
+    },
+    businessPlan: {
+        name: "Site web d'entreprise",
+        price: "À partir de 799€",
+        description: "Solution complète pour les entreprises en croissance",
+        features: [
+            "Autant de pages que nécessaire",
+            "Conception & développement sur mesure",
+            "Optimisation mobile avancée",
+            "Optimisation SEO avancée",
+            "Intégration d'outils d'analyse",
+            "3 mois de support inclus",
+            "Optimisation des performances",
+            "Fonctionnalités de sécurité",
+            "Support et maintenance prioritaires",
+        ],
+        timeline: "4-6 semaines",
+    },
+    benefits: [
+        {
+            title: "Design Responsive",
+            description:
+                "Votre site web sera parfait sur tous les appareils - ordinateur de bureau, tablette et mobile.",
+            icon: "fas fa-mobile-alt",
+        },
+        {
+            title: "Chargement rapide",
+            description:
+                "Optimisé pour la vitesse avec les meilleures pratiques pour garantir des temps de chargement rapides.",
+            icon: "fas fa-bolt",
+        },
+        {
+            title: "Optimisé pour le SEO",
+            description:
+                "Construit avec les meilleures pratiques SEO pour aider votre site à se classer plus haut dans les résultats de recherche.",
+            icon: "fas fa-search",
+        },
+        {
+            title: "Sécurisé & Fiable",
+            description:
+                "Mesures de sécurité conformes aux normes de l'industrie et solutions d'hébergement fiables.",
+            icon: "fas fa-shield-alt",
+        },
+        {
+            title: "Intégration CMS",
+            description:
+                "Mettez à jour facilement le contenu de votre site web vous-même avec WordPress, Strapi ou un CMS personnalisé – aucune compétence technique requise.",
+            icon: "fas fa-cog",
+        },
+        {
+            title: "Support Continu",
+            description:
+                "Équipe de support dédiée pour vous aider à maintenir et à développer votre site web.",
+            icon: "fas fa-headset",
+        },
+    ],
+    process: [
+        {
+            step: 1,
+            title: "Découverte & Planification",
+            description:
+                "Nous commençons par comprendre vos objectifs, votre public cible et vos besoins pour créer une feuille de route de projet complète.",
+        },
+        {
+            step: 2,
+            title: "Conception & Prototypage",
+            description:
+                "Nous collaborons avec vous pour nous accorder sur une direction de conception, en créant des maquettes et des concepts visuels qui reflètent votre marque et vos objectifs d'expérience utilisateur.",
+        },
+        {
+            step: 3,
+            title: "Développement & Tests",
+            description:
+                "Nous construisons votre site web en utilisant des technologies modernes et effectuons des tests approfondis sur tous les appareils et navigateurs.",
+        },
+        {
+            step: 4,
+            title: "Optimisation",
+            description:
+                "Nous optimisons votre site web pour la performance, la sécurité et les moteurs de recherche.",
+        },
+        {
+            step: 5,
+            title: "Déploiement & Maintenance",
+            description:
+                "Support continu, mises à jour et maintenance pour garantir que votre site web continue de fonctionner au mieux.",
+        },
+    ],
+};
+---
+
+<ServiceLayout {...websiteData} />

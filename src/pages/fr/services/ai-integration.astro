@@ -1,0 +1,118 @@
+---
+import ServiceLayout from "../../../layouts/ServiceLayout.astro";
+
+const aiData = {
+    title: "Intégration d'IA - VXIT.IO",
+    description:
+        "Services d'intégration d'IA intelligents pour automatiser et améliorer votre présence numérique. Des chatbots à l'analyse prédictive.",
+    hero: {
+        title: "Intégration d'IA",
+        subtitle:
+            "Transformez votre entreprise avec l'automatisation intelligente. Nous intégrons des solutions d'IA de pointe qui améliorent l'expérience utilisateur et rationalisent les opérations.",
+    },
+    individualPlan: {
+        name: "Automatisation Basique",
+        price: "À partir de 199€",
+        description:
+            "Fonctionnalités basées sur l'IA pour les sites web personnels et les petits projets",
+        features: [
+            "Intégration de chatbot basique",
+            "Outils de génération de contenu",
+            "Formulaires de contact intelligents",
+            "Réponses automatisées",
+            "Analyses approfondies",
+            "Suivi des performances",
+        ],
+        timeline: "1-2 semaines",
+    },
+    businessPlan: {
+        name: "Automatisation pour Entreprises",
+        price: "À partir de 349€",
+        description: "Solution complète d'IA pour l'automatisation des entreprises",
+        features: [
+            "Chatbot avancé avec PNL",
+            "Analyse prédictive",
+            "Analyse du comportement client",
+            "Outils de marketing automatisés",
+            "Recommandations basées sur l'IA",
+            "Traitement des données en temps réel",
+            "Déploiement multiplateforme",
+            "Rapports avancés",
+            "Intégrations API",
+        ],
+        timeline: "2-3 semaines",
+    },
+    benefits: [
+        {
+            title: "Automatisation 24/7",
+            description:
+                "L'IA travaille 24 heures sur 24 pour servir vos clients et optimiser les processus.",
+            icon: "fas fa-robot",
+        },
+        {
+            title: "Insights Basés sur les Données",
+            description:
+                "Obtenez des informations exploitables à partir de vos données grâce à des analyses et des rapports avancés.",
+            icon: "fas fa-chart-line",
+        },
+        {
+            title: "Expérience Utilisateur Améliorée",
+            description:
+                "Offrez des expériences personnalisées qui s'adaptent au comportement et aux préférences des utilisateurs.",
+            icon: "fas fa-user-friends",
+        },
+        {
+            title: "Rentabilité",
+            description:
+                "Réduisez les coûts opérationnels grâce à l'automatisation et à l'optimisation intelligentes.",
+            icon: "fas fa-dollar-sign",
+        },
+        {
+            title: "Solutions Évolutives",
+            description:
+                "Des solutions d'IA qui évoluent avec votre entreprise et s'adaptent aux besoins changeants.",
+            icon: "fas fa-expand-arrows-alt",
+        },
+        {
+            title: "Avantage Concurrentiel",
+            description:
+                "Gardez une longueur d'avance sur la concurrence grâce à la technologie d'IA de pointe.",
+            icon: "fas fa-trophy",
+        },
+    ],
+    process: [
+        {
+            step: 1,
+            title: "Audit et Stratégie IA",
+            description:
+                "Nous analysons vos processus actuels et identifions les opportunités d'intégration de l'IA pour maximiser l'impact.",
+        },
+        {
+            step: 2,
+            title: "Conception de la Solution",
+            description:
+                "Concevoir des solutions d'IA personnalisées adaptées à vos besoins métier spécifiques et à vos exigences techniques.",
+        },
+        {
+            step: 3,
+            title: "Développement et Formation",
+            description:
+                "Construire et entraîner des modèles d'IA en utilisant vos données et les meilleures pratiques de l'industrie pour des performances optimales.",
+        },
+        {
+            step: 4,
+            title: "Intégration et Tests",
+            description:
+                "Intégrer en toute transparence les solutions d'IA dans vos systèmes existants avec des tests et une validation rigoureux.",
+        },
+        {
+            step: 5,
+            title: "Optimisation et Support",
+            description:
+                "Surveillance continue, optimisation et support pour garantir que vos solutions d'IA offrent une valeur maximale.",
+        },
+    ],
+};
+---
+
+<ServiceLayout {...aiData} />

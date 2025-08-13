@@ -1,0 +1,119 @@
+---
+import ServiceLayout from "../../../layouts/ServiceLayout.astro";
+
+const seoData = {
+    title: "SEO-Optimierung - VXIT.IO",
+    description:
+        "Professionelle SEO-Dienstleistungen zur Steigerung der Sichtbarkeit Ihrer Website und zur Generierung von organischem Traffic. Technisches SEO, Inhaltsoptimierung und Analysen.",
+    hero: {
+        title: "SEO-Optimierung",
+        subtitle:
+            "Steigern Sie Ihre Online-Sichtbarkeit und generieren Sie organischen Traffic. Umfassende SEO-Strategien, die das Ranking verbessern und messbare Ergebnisse liefern.",
+    },
+    individualPlan: {
+        name: "SEO Essentials",
+        price: "Ab 149€",
+        description:
+            "Grundlegendes SEO-Paket für persönliche Websites und kleine Unternehmen",
+        features: [
+            "Technisches SEO-Audit",
+            "Keyword-Recherche (25 Keywords)",
+            "On-Page-Optimierung",
+            "Meta-Tag-Optimierung",
+            "Bildoptimierung",
+            "Fortschrittsbericht",
+            "Grundlagen der lokalen SEO",
+        ],
+        timeline: "1-2 Wochen",
+    },
+    businessPlan: {
+        name: "SEO Wachstumspaket",
+        price: "Ab 349€",
+        description: "Umfassende SEO-Strategie für wettbewerbsintensive Märkte",
+        features: [
+            "Umfassendes SEO-Audit",
+            "Erweiterte On-Page-Optimierung",
+            "Behebung technischer SEO-Probleme",
+            "Leistungsoptimierung",
+            "Verbesserungen der Barrierefreiheit",
+            "Implementierung von Best Practices",
+            "Lokale SEO-Optimierung",
+            "Konkurrenzanalyse",
+            "Leistungsverfolgung & Analysen",
+        ],
+        timeline: "2-3 Wochen",
+    },
+    benefits: [
+        {
+            title: "Erhöhte Sichtbarkeit",
+            description:
+                "Verbessern Sie Ihre Suchmaschinenrankings und werden Sie von mehr potenziellen Kunden gefunden.",
+            icon: "fas fa-eye",
+        },
+        {
+            title: "Organisches Traffic-Wachstum",
+            description:
+                "Generieren Sie hochwertigen Traffic auf Ihrer Website, ohne für Anzeigen zu bezahlen.",
+            icon: "fas fa-chart-line",
+        },
+        {
+            title: "Bessere Benutzererfahrung",
+            description:
+                "SEO-Verbesserungen optimieren die Website-Geschwindigkeit, Navigation und das gesamte Benutzererlebnis.",
+            icon: "fas fa-user-check",
+        },
+        {
+            title: "Dominanz in der lokalen Suche",
+            description:
+                "Optimieren Sie für lokale Suchanfragen, um Kunden in Ihrer Nähe anzuziehen.",
+            icon: "fas fa-map-marker-alt",
+        },
+        {
+            title: "Wettbewerbsvorteil",
+            description:
+                "Übertreffen Sie Konkurrenten und sichern Sie sich mehr Marktanteile in den Suchergebnissen.",
+            icon: "fas fa-trophy",
+        },
+        {
+            title: "Langfristige Ergebnisse",
+            description:
+                "Bauen Sie nachhaltiges organisches Wachstum auf, das langfristig Mehrwert liefert.",
+            icon: "fas fa-seedling",
+        },
+    ],
+    process: [
+        {
+            step: 1,
+            title: "SEO-Audit & Analyse",
+            description:
+                "Umfassende Analyse Ihrer aktuellen SEO-Leistung, technischer Probleme und Verbesserungsmöglichkeiten.",
+        },
+        {
+            step: 2,
+            title: "Keyword-Recherche",
+            description:
+                "Tiefgehende Keyword-Recherche zur Identifizierung hochwertiger Möglichkeiten und zum Verständnis der Benutzer-Suchintention.",
+        },
+        {
+            step: 3,
+            title: "Technische Optimierung",
+            description:
+                "Behebung technischer SEO-Probleme, einschließlich Website-Geschwindigkeit, Mobilfreundlichkeit und Crawlbarkeitsproblemen.",
+        },
+        {
+            step: 4,
+            title: "Inhaltsoptimierung",
+            description:
+                "Bestehende Inhalte optimieren und neue SEO-fokussierte Inhalte erstellen, die ranken und konvertieren.",
+        },
+        {
+            step: 5,
+            title: "Monitoring & Reporting",
+            description:
+                "Kontinuierliche Überwachung von Rankings, Traffic und Leistung mit detaillierten monatlichen Berichten.",
+        },
+    ],
+};
+---
+
+<ServiceLayout {...seoData} />

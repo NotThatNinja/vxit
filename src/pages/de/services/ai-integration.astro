@@ -1,0 +1,118 @@
+---
+import ServiceLayout from "../../../layouts/ServiceLayout.astro";
+
+const aiData = {
+    title: "KI-Integration - VXIT.IO",
+    description:
+        "Intelligente KI-Integrationsdienste zur Automatisierung und Verbesserung Ihrer digitalen Präsenz. Von Chatbots bis hin zu prädiktiver Analytik.",
+    hero: {
+        title: "KI-Integration",
+        subtitle:
+            "Verwandeln Sie Ihr Geschäft mit intelligenter Automatisierung. Wir integrieren modernste KI-Lösungen, die die Benutzererfahrung verbessern und Abläufe optimieren.",
+    },
+    individualPlan: {
+        name: "Basis-Automatisierung",
+        price: "Ab 199€",
+        description:
+            "KI-gestützte Funktionen für persönliche Websites und kleine Projekte",
+        features: [
+            "Basis-Chatbot-Integration",
+            "Tools zur Inhaltserstellung",
+            "Intelligente Kontaktformulare",
+            "Automatisierte Antworten",
+            "Analytische Einblicke",
+            "Leistungsüberwachung",
+        ],
+        timeline: "1-2 Wochen",
+    },
+    businessPlan: {
+        name: "Geschäftsautomatisierung",
+        price: "Ab 349€",
+        description: "Umfassende KI-Lösung für die Geschäftsautomatisierung",
+        features: [
+            "Fortgeschrittener Chatbot mit NLP",
+            "Prädiktive Analytik",
+            "Analyse des Kundenverhaltens",
+            "Automatisierte Marketing-Tools",
+            "KI-gestützte Empfehlungen",
+            "Echtzeit-Datenverarbeitung",
+            "Multiplattform-Bereitstellung",
+            "Erweitertes Reporting",
+            "API-Integrationen",
+        ],
+        timeline: "2-3 Wochen",
+    },
+    benefits: [
+        {
+            title: "24/7 Automatisierung",
+            description:
+                "KI arbeitet rund um die Uhr, um Ihre Kunden zu bedienen und Prozesse zu optimieren.",
+            icon: "fas fa-robot",
+        },
+        {
+            title: "Datengestützte Einblicke",
+            description:
+                "Erhalten Sie umsetzbare Einblicke aus Ihren Daten mit fortschrittlicher Analytik und Berichterstattung.",
+            icon: "fas fa-chart-line",
+        },
+        {
+            title: "Verbesserte Benutzererfahrung",
+            description:
+                "Bieten Sie personalisierte Erlebnisse, die sich an das Nutzerverhalten und Präferenzen anpassen.",
+            icon: "fas fa-user-friends",
+        },
+        {
+            title: "Kosteneffizienz",
+            description:
+                "Reduzieren Sie Betriebskosten durch intelligente Automatisierung und Optimierung.",
+            icon: "fas fa-dollar-sign",
+        },
+        {
+            title: "Skalierbare Lösungen",
+            description:
+                "KI-Lösungen, die mit Ihrem Unternehmen wachsen und sich an wechselnde Bedürfnisse anpassen.",
+            icon: "fas fa-expand-arrows-alt",
+        },
+        {
+            title: "Wettbewerbsvorteil",
+            description:
+                "Bleiben Sie der Konkurrenz mit modernster KI-Technologie einen Schritt voraus.",
+            icon: "fas fa-trophy",
+        },
+    ],
+    process: [
+        {
+            step: 1,
+            title: "KI-Audit & Strategie",
+            description:
+                "Wir analysieren Ihre aktuellen Prozesse und identifizieren Möglichkeiten zur KI-Integration, um die Wirkung zu maximieren.",
+        },
+        {
+            step: 2,
+            title: "Lösungsdesign",
+            description:
+                "Entwicklung maßgeschneiderter KI-Lösungen, die auf Ihre spezifischen Geschäftsanforderungen und technischen Spezifikationen zugeschnitten sind.",
+        },
+        {
+            step: 3,
+            title: "Entwicklung & Training",
+            description:
+                "Erstellung und Training von KI-Modellen unter Verwendung Ihrer Daten und bewährter Industriepraktiken für optimale Leistung.",
+        },
+        {
+            step: 4,
+            title: "Integration & Tests",
+            description:
+                "Nahtlose Integration von KI-Lösungen in Ihre bestehenden Systeme mit gründlichen Tests und Validierung.",
+        },
+        {
+            step: 5,
+            title: "Optimierung & Support",
+            description:
+                "Kontinuierliche Überwachung, Optimierung und Support, um sicherzustellen, dass Ihre KI-Lösungen maximalen Wert liefern.",
+        },
+    ],
+};
+---
+
+<ServiceLayout {...aiData} />

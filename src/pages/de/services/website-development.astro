@@ -1,0 +1,118 @@
+---
+import ServiceLayout from "../../../layouts/ServiceLayout.astro";
+
+const websiteData = {
+    title: "Webseitenentwicklung - VXIT.IO",
+    hero: {
+        title: "Webseitenentwicklung",
+        subtitle:
+            "Erstellen Sie beeindruckende, responsive Webseiten, die Ergebnisse liefern. Von persönlichen Portfolios bis hin zu Unternehmenslösungen bauen wir Webseiten, die auf allen Geräten einwandfrei funktionieren.",
+    },
+    individualPlan: {
+        name: "Persönliche Webseite",
+        price: "Ab 399€",
+        description: "Perfekt für Freiberufler, Künstler und persönliche Marken",
+        features: [
+            "Responsive Einzel- oder Mehrseiten-Webseite",
+            "Individuelles Design & Branding",
+            "Mobile Optimierung",
+            "Kontaktformular-Integration",
+            "Grundlegendes SEO-Setup",
+            "1 Monat Support inklusive",
+            "Integration sozialer Medien",
+            "90+/100 Google Performance Score",
+            "CMS-Integration gegen Gebühr verfügbar",
+        ],
+        timeline: "2-3 Wochen",
+    },
+    businessPlan: {
+        name: "Business Webseite",
+        price: "Ab 799€",
+        description: "Umfassende Lösung für wachsende Unternehmen",
+        features: [
+            "Beliebig viele Seiten",
+            "Individuelles Design & Entwicklung",
+            "Fortgeschrittene mobile Optimierung",
+            "Fortgeschrittene SEO-Optimierung",
+            "Analyse-Integration",
+            "3 Monate Support inklusive",
+            "Performance-Optimierung",
+            "Sicherheitsfunktionen",
+            "Priorisierter Support und Wartung",
+        ],
+        timeline: "4-6 Wochen",
+    },
+    benefits: [
+        {
+            title: "Responsive Design",
+            description:
+                "Ihre Webseite wird auf allen Geräten perfekt aussehen – Desktop, Tablet und Mobil.",
+            icon: "fas fa-mobile-alt",
+        },
+        {
+            title: "Schnelle Ladezeiten",
+            description:
+                "Für Geschwindigkeit optimiert mit Best Practices, um schnelle Ladezeiten zu gewährleisten.",
+            icon: "fas fa-bolt",
+        },
+        {
+            title: "SEO-optimiert",
+            description:
+                "Mit SEO-Best Practices erstellt, um Ihrer Webseite zu helfen, in den Suchergebnissen höher zu ranken.",
+            icon: "fas fa-search",
+        },
+        {
+            title: "Sicher & Zuverlässig",
+            description:
+                "Sicherheitsmaßnahmen nach Industriestandard und zuverlässige Hosting-Lösungen.",
+            icon: "fas fa-shield-alt",
+        },
+        {
+            title: "CMS-Integration",
+            description:
+                "Aktualisieren Sie Ihre Webseiteninhalte ganz einfach selbst mit WordPress, Strapi oder einem benutzerdefinierten CMS – keine technischen Kenntnisse erforderlich.",
+            icon: "fas fa-cog",
+        },
+        {
+            title: "Laufender Support",
+            description:
+                "Engagiertes Support-Team, das Ihnen hilft, Ihre Webseite zu pflegen und zu erweitern.",
+            icon: "fas fa-headset",
+        },
+    ],
+    process: [
+        {
+            step: 1,
+            title: "Analyse & Planung",
+            description:
+                "Wir beginnen damit, Ihre Ziele, Zielgruppe und Anforderungen zu verstehen, um einen umfassenden Projekt-Fahrplan zu erstellen.",
+        },
+        {
+            step: 2,
+            title: "Design & Prototyping",
+            description:
+                "Wir arbeiten mit Ihnen zusammen, um eine Designrichtung festzulegen, und erstellen Wireframes sowie visuelle Konzepte, die Ihre Marke und Benutzererfahrungsziele widerspiegeln.",
+        },
+        {
+            step: 3,
+            title: "Entwicklung & Tests",
+            description:
+                "Wir erstellen Ihre Webseite mit modernen Technologien und führen gründliche Tests auf allen Geräten und Browsern durch.",
+        },
+        {
+            step: 4,
+            title: "Optimierung",
+            description:
+                "Wir optimieren Ihre Webseite für Performance, Sicherheit und Suchmaschinen.",
+        },
+        {
+            step: 5,
+            title: "Bereitstellung & Wartung",
+            description:
+                "Laufender Support, Updates und Wartung, um sicherzustellen, dass Ihre Webseite weiterhin optimal funktioniert.",
+        },
+    ],
+};
+---
+
+<ServiceLayout {...websiteData} />

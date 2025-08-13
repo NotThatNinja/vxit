@@ -1,0 +1,787 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+const locale = Astro.url.pathname.split("/")[1] || "en";
+
+import Layout from "../../layouts/Layout.astro";
+
+import Hero from "../../components/Hero.astro";
+import SectionTitle from "../../components/SectionTitle.astro";
+
+import { Image } from "astro:assets";
+import websiteDevelopment from "../../assets/services/website-development.jpg";
+import aiIntegration from "../../assets/services/ai-integration.jpg";
+import seoOptimization from "../../assets/services/seo-optimization.jpg";
+import ecommerceSolutions from "../../assets/services/ecommerce-solutions.jpg";
+import maintenanceServices from "../../assets/services/maintenance.jpg";
+
+const services = [
+    // Website Development
+    {
+        title: "Veebiarendus",
+        description:
+            "Kujundame ja ehitame kiireid, tundlikke ja visuaalselt pilkupüüdvaid veebilehti, mis on kohandatud teie brändile, sihtrühmale ja ärieesmärkidele.",
+        image: websiteDevelopment,
+        features: [
+            "Kohandatud disain ja UX",
+            "Mobiilikeskne arendus",
+            "Jõudluse optimeerimine",
+            "Sisuhaldussüsteemi (CMS) integratsioon",
+        ],
+        url: "/services/website-development",
+    },
+
+    // AI Integration
+    {
+        title: "AI Integreerimine",
+        description:
+            "Tooge oma platvormile intelligentsed funktsioonid sujuva tehisintellekti integreerimisega – alates vestlusrobotitest ja automatiseerimisest kuni andmeanalüüsi ja isikupärastamiseni.",
+        image: aiIntegration,
+        features: [
+            "AI-põhised vestlusrobotid",
+            "Andmetöötlus ja analüütika",
+            "Isikupärastatud kasutajakogemused",
+            "API ja kolmanda osapoole AI-tööriistade integreerimine",
+        ],
+        url: "/services/ai-integration",
+    },
+
+    // Ecommerce Solutions
+    {
+        title: "E-kaubanduse lahendused",
+        description:
+            "Ehitatakse skaleeritavaid e-kaubanduse platvorme, mis on optimeeritud konversioonide, kasutajakogemuse ja sujuvate lao-/makseintegratsioonide jaoks.",
+        image: ecommerceSolutions,
+        features: [
+            "Kohandatud e-poed",
+            "Turvaline maksete integreerimine",
+            "Tootehaldusvahendid",
+            "Müügi- ja analüütika armatuurlauad",
+        ],
+        url: "/services/ecommerce-solutions",
+    },
+
+    // SEO Optimization
+    {
+        title: "SEO optimeerimine",
+        description:
+            "Parandage oma nähtavust otsingumootorites tõestatud SEO strateegiate, tehniliste auditite, sisu optimeerimise ja jõudluse parandamise kaudu.",
+        image: seoOptimization,
+        features: [
+            "Tehnilised SEO auditid",
+            "Märksõnade uurimine",
+            "Lehe sisu optimeerimine",
+            "Jõudluse ja Core Web Vitalsi häälestamine",
+        ],
+        url: "/services/seo-optimization",
+    },
+
+    // Website Maintenance
+    {
+        title: "Veebilehe hooldus",
+        description:
+            "Hoidke oma veebileht sujuvalt toimivana meie põhjalike hooldusteenustega, mis hõlmavad turvauuendusi, jõudluse optimeerimist ja pidevat tuge.",
+        image: maintenanceServices,
+        features: [
+            "Turvauuendused ja jälgimine",
+            "Jõudluse optimeerimine",
+            "Regulaarsed varukoopiad",
+            "Sisu uuendamine ja tugi",
+        ],
+        url: "/services/maintenance",
+    },
+];
+
+const faq = [
+    {
+        question:
+            "Mis teeb VXIT.IO-st teistest veebiarendusagentuuridest erineva?",
+        answer: "VXIT.IO on spetsialiseerunud suure jõudlusega kohandatud veebilehtede loomisele tipptasemel tehisintellekti integratsiooniga. Keskendume elegantsete disainilahenduste pakkumisele, mis soodustavad reaalset ärikasvu, mitte lihtsalt ilusate veebilehtede loomisele.",
+    },
+    {
+        question: "Kui kaua tavaline projekt aega võtab?",
+        answer: "Projektide ajakava varieerub keerukusest olenevalt. Standardne veebileht võtab aega 2-4 nädalat, samas kui kohandatud tehisintellekti integratsioonid või keerukad e-kaubanduse lahendused võivad võtta 6-8 nädalat. Pakume konsultatsiooni käigus üksikasjalikku ajakava.",
+    },
+    {
+        question: "Kas pakute pidevat tuge ja hooldust?",
+        answer: "Absoluutselt! Pakume põhjalikku järelkäivituse tuge, sealhulgas uuendusi, turvaseiret, jõudluse optimeerimist ja tehnilist abi, et tagada teie saidi parim toimimine.",
+    },
+    {
+        question: "Mida teie AI (tehisintellekti) integreerimise teenused hõlmavad?",
+        answer: "Meie AI integreerimisteenused hõlmavad vestlusroboteid, automatiseeritud sisu genereerimist, isikupärastatud kasutajakogemusi, ennustavat analüütikat ja kohandatud AI-tööriistu, mis on kohandatud teie ärivajadustele.",
+    },
+    {
+        question: "Kas saate aidata parandada minu olemasoleva veebilehe jõudlust?",
+        answer: "Jah! Pakume veebilehe auditeid, jõudluse optimeerimist, SEO parendusi ja moderniseerimisteenuseid, et muuta teie olemasolev sait suure jõudlusega digitaalseks varaks.",
+    },
+    {
+        question: "Milline on teie hinnastruktuur?",
+        answer: "Pakume paindlikku hinnakujundust vastavalt projekti ulatusele ja nõudmistele. Võtke meiega ühendust tasuta konsultatsiooni saamiseks, kus pakume üksikasjaliku hinnapakkumise, mis on kohandatud teie konkreetsetele vajadustele ja eelarvele.",
+    },
+    // Additional FAQ items
+    {
+        question: "Kas pakute sisuhaldussüsteemi (CMS) lahendusi?",
+        answer: "Jah, saame integreerida populaarseid CMS platvorme nagu WordPress, Strapi või ehitada kohandatud peata CMS-lahendusi, et anda teile täielik kontroll oma veebilehe sisu ja töövoogude üle.",
+    },
+    {
+        question: "Milliste tehnoloogiate ja raamistikutega te töötate?",
+        answer: "Töötame kaasaegsete tehnoloogiatega, sealhulgas Astro, TypeScript, Node.js, React, PHP ja erinevate AI API-dega. Valime parima tehnoloogiavaliku vastavalt teie projekti nõuetele ja pikaajalistele eesmärkidele.",
+    },
+    {
+        question: "Kas saate integreerida kolmanda osapoole teenuseid ja API-sid?",
+        answer: "Absoluutselt! Saame integreerida kõik kolmanda osapoole teenused ja API-d, näiteks analüütika, maksete töötlemise ja sotsiaalmeedia.",
+    },
+    {
+        question: "Kuidas te tagate veebilehe turvalisuse?",
+        answer: "Rakendame tööstusstandardi kohaseid turvameetmeid, sealhulgas SSL-sertifikaate, turvalisi kodeerimispraktikaid, regulaarseid turvauuendusi, varundussüsteeme ja potentsiaalsete ohtude jälgimist. Turvalisus on igasse projekti algusest peale sisse ehitatud.",
+    },
+    {
+        question: "Kas saate aidata mobiilirakenduste arendusega?",
+        answer: "Kuigi meie peamine fookus on veebiarendus, saame luua progressiivseid veebirakendusi (PWA), mis pakuvad rakendusesarnaseid kogemusi mobiilseadmetes. Native mobiilirakenduste puhul saame soovitada usaldusväärseid partnereid oma võrgustikust.",
+    },
+    {
+        question: "Mis juhtub, kui vajan muudatusi pärast veebilehe käivitamist?",
+        answer: "Pakume paindlikke käivitusjärgseid tugipakette, mis hõlmavad sisu uuendusi, funktsioonide lisamist, disaini muudatusi ja tehnilist hooldust. Väikesed uuendused on sageli meie hooldusplaanidesse kaasatud.",
+    },
+    {
+        question: "Kas teete koostööd igas suuruses ettevõtetega?",
+        answer: "Jah, me teeme koostööd idufirmade, väikeettevõtete, keskmise suurusega ettevõtete ja suurettevõtete klientidega. Meie lahendused on skaleeritavad ja neid saab kohandada iga eelarve ja ärivajaduse järgi.",
+    },
+    {
+        question: "Mis siis, kui mul on juba veebileht, kuid vajan selle ümberkujundamist?",
+        answer: "Oleme spetsialiseerunud veebilehtede ümberkujundamisele ja moderniseerimisele. Saame migreerida teie olemasoleva sisu, parandada disaini ja kasutajakogemust, lisada uusi funktsioone ja tagada, et kõik töötab sujuvalt kaasaegsete standarditega.",
+    },
+];
+---
+
+<Layout title="Avaleht - VXIT.IO">
+    <main>
+        <Hero
+            title="VXIT.IO"
+            subtitle="Innovatiivsed veebilahendused ja AI-põhised platvormid teie ärikasvu kiirendamiseks, klientide kaasatuse suurendamiseks ja teie digitaalse kohaloleku tulevikukindlaks muutmiseks."
+            cta
+        />
+        <section class="about-us">
+            <SectionTitle>Meist</SectionTitle>
+            <p id="animatedParagraph">
+                <span>VXIT.IO</span>
+                <span>on</span>
+                <span>pühendunud</span>
+                <span>kvaliteetsete</span>
+                <span>digitaalsete</span>
+                <span>lahenduste</span>
+                <span>pakkumisele,</span>
+                <span>mis</span>
+                <span>annavad</span>
+                <span>ettevõtetele</span>
+                <span>võimaluse</span>
+                <span>digitaalsel</span>
+                <span>maastikul</span>
+                <span>edukalt</span>
+                <span>tegutseda.</span>
+                <span>Meie</span>
+                <span>ekspertide</span>
+                <span>meeskond</span>
+                <span>on</span>
+                <span>pühendunud</span>
+                <span>tipptasemele,</span>
+                <span>innovatsioonile</span>
+                <span>ja</span>
+                <span>klientide</span>
+                <span>rahulolule.</span>
+            </p>
+        </section>
+        <section>
+            <SectionTitle>Saavutused</SectionTitle>
+            <div class="stats">
+                <div class="stats-grid" data-aos="fade-up">
+                    <div class="stat-card">
+                        <p class="stat-number">98%</p>
+                        <p class="stat-label">Klientide rahulolu</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-number">99%</p>
+                        <p class="stat-label">Käideldavus</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-number">100%</p>
+                        <p class="stat-label">Pühendumus</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-number">5+</p>
+                        <p class="stat-label">Aastat kogemust</p>
+                    </div>
+                </div>
+                <!-- <div class="reviews" data-aos="fade-down">
+                    <div class="review-card">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>
+                            "VXIT.IO transformed our online presence completely.
+                            The AI integration they implemented increased our
+                            customer engagement by 300%."
+                        </p>
+                        <div class="review-author">
+                            <p>
+                                <strong>Sarah Chen</strong><br />
+                                CEO, TechFlow Solutions
+                            </p>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>
+                            "Outstanding service and attention to detail. Our
+                            e-commerce sales doubled within 3 months of
+                            launching the new site."
+                        </p>
+                        <div class="review-author">
+                            <p>
+                                <strong>Marcus Rodriguez</strong><br />
+                                Founder, EcoMarket
+                            </p>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>
+                            "The team's expertise in modern web technologies is
+                            unmatched. They delivered beyond our expectations."
+                        </p>
+                        <div class="review-author">
+                            <p>
+                                <strong>Dr. Emily Watson</strong><br />
+                                Director, MedTech Innovations
+                            </p>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </section>
+        <section>
+            <SectionTitle>Meie teenused</SectionTitle>
+            <div class="services">
+                {
+                    services.map((service, i) => (
+                        <div
+                            class="service-card"
+                            data-aos={i % 2 === 0 ? "fade-left" : "fade-right"}
+                        >
+                            <div class="service-info">
+                                <h3>{service.title}</h3>
+                                <p>{service.description}</p>
+                                <ul>
+                                    {service.features.map((feature) => (
+                                        <li>{feature}</li>
+                                    ))}
+                                </ul>
+                                <a
+                                    class="button"
+                                    href={getRelativeLocaleUrl(
+                                        locale,
+                                        service.url,
+                                    )}
+                                >
+                                    Vaata teenust
+                                    <i class="fa-solid fa-arrow-right" />
+                                </a>
+                            </div>
+                            <Image src={service.image} alt={service.title} />
+                        </div>
+                    ))
+                }
+            </div>
+        </section>
+        <section>
+            <SectionTitle>Korduma kippuvad küsimused</SectionTitle>
+            <div class="faq">
+                {
+                    faq.map((item, index) => (
+                        <div
+                            class={`faq-item ${index >= 6 ? "additional-faq" : ""}`}
+                            data-aos="fade-up"
+                        >
+                            <button class="faq-question" data-index={index}>
+                                <span>{item.question}</span>
+                                <i class="fa-solid fa-chevron-down" />
+                            </button>
+                            <div class="faq-answer">
+                                <p>{item.answer}</p>
+                            </div>
+                        </div>
+                    ))
+                }
+                <div class="faq-more-container">
+                    <button class="faq-more-button" id="faqMoreButton">
+                        <span class="more-text">Näita rohkem küsimusi</span>
+                        <span class="less-text" style="display: none;"
+                            >Näita vähem küsimusi</span
+                        >
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
+<style>
+    /* --- Services Section --- */
+    .services {
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.4s ease;
+        overflow-x: hidden;
+        padding-top: var(--space-4);
+    }
+    .service-card {
+        display: flex;
+        gap: var(--space-8);
+        justify-content: center;
+        align-items: center;
+        padding: var(--space-4) var(--space-8);
+    }
+    .service-card:nth-child(odd) {
+        flex-direction: row-reverse;
+    }
+    .service-card img {
+        width: 33%;
+        height: 100%;
+        object-fit: cover;
+        padding: var(--space-8);
+        border-radius: 3rem;
+    }
+    .service-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: var(--space-4);
+        width: 66%;
+    }
+    .service-info h3 {
+        font-size: var(--font-size-4xl);
+        background: linear-gradient(
+            to bottom,
+            var(--accent-primary),
+            light-dark(var(--accent-secondary), var(--color-primary))
+        );
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .service-info p {
+        font-size: var(--font-size-xl);
+    }
+    .service-info ul {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-4);
+    }
+    .service-info ul li {
+        padding-left: var(--space-6);
+        font-size: var(--font-size-lg);
+    }
+    .button {
+        display: flex;
+        width: fit-content;
+        gap: var(--space-2);
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: var(--color-primary);
+        border: 1px solid var(--color-tertiary);
+        border-radius: var(--radius-full);
+        padding: var(--space-4) var(--space-8);
+        transition:
+            border 0.3s ease,
+            background 0.3s ease;
+    }
+    .button:hover {
+        border-color: var(--accent-primary);
+        background: rgba(var(--accent-primary-rgb), 0.2);
+    }
+
+    /* --- About Section --- */
+    .about-us {
+        width: calc(100% - 2 * var(--space-6));
+        padding: var(--space-6);
+    }
+    .about-us p {
+        max-width: 1200px;
+        margin: auto;
+        font-size: var(--font-size-4xl);
+        word-break: break-word;
+    }
+    .about-us p span {
+        opacity: 0.25;
+        transition: opacity 0.5s;
+        display: inline-block;
+    }
+
+    /* --- Stats Section --- */
+    .stats {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-16);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: var(--space-6);
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--space-6);
+    }
+
+    .stat-card {
+        display: flex;
+        gap: var(--space-2);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: var(--space-8) var(--space-6);
+        border: 1px solid var(--color-tertiary);
+        border-radius: var(--radius-2xl);
+        transition: all 0.4s ease;
+    }
+    .stat-card:hover {
+        transform: translateY(-8px);
+        border-color: rgba(var(--accent-primary-rgb), 0.5);
+        box-shadow: 0 20px 40px rgba(var(--accent-primary-rgb), 0.2);
+    }
+
+    .stat-number {
+        font-size: var(--font-size-6xl);
+        font-weight: var(--font-weight-bold);
+        background: linear-gradient(
+            225deg,
+            var(--accent-primary) 0%,
+            var(--accent-secondary) 100%
+        );
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .stat-label {
+        font-size: var(--font-size-xl);
+    }
+
+    /* --- Reviews Section --- */
+    .reviews {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--space-6);
+    }
+
+    .review-card {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-6);
+        position: relative;
+        background: var(--color-secondary);
+        border: 1px solid var(--color-tertiary);
+        border-radius: var(--radius-2xl);
+        padding: var(--space-8);
+        transition: all 0.4s ease;
+    }
+    .review-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.1) 0%,
+            transparent 50%,
+            rgba(var(--accent-primary-rgb), 0.1) 100%
+        );
+        border-radius: var(--radius-2xl);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+    .review-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(var(--accent-primary-rgb), 0.5);
+        box-shadow: 0 15px 30px rgba(var(--accent-primary-rgb), 0.2);
+    }
+    .review-card:hover::before {
+        opacity: 1;
+    }
+
+    .stars {
+        display: flex;
+        gap: var(--space-1);
+    }
+    .stars i {
+        color: #ffd700;
+        filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.3));
+    }
+
+    .review-card p {
+        font-size: var(--font-size-lg);
+        line-height: var(--line-height-relaxed);
+        color: var(--color-primary);
+        font-style: italic;
+    }
+    .review-author strong {
+        font-size: var(--font-size-xl);
+    }
+
+    /* --- FAQ Section --- */
+    .faq {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 var(--space-6);
+    }
+    .faq-item {
+        border-bottom: 1px solid var(--color-tertiary);
+    }
+
+    .additional-faq {
+        display: none;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+    }
+
+    .additional-faq.show {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .faq-more-container {
+        display: flex;
+        justify-content: center;
+        padding: var(--space-8) 0 var(--space-4) 0;
+    }
+
+    .faq-more-button {
+        display: flex;
+        gap: var(--space-2);
+        justify-content: center;
+        align-items: center;
+        background: none;
+        border: 1px solid var(--color-tertiary);
+        border-radius: var(--radius-full);
+        padding: var(--space-4) var(--space-8);
+        color: var(--color-primary);
+        cursor: pointer;
+        font-size: var(--font-size-lg);
+        font-weight: var(--font-weight-semibold);
+        transition: all 0.3s ease;
+    }
+
+    .faq-more-button:hover {
+        border-color: var(--accent-primary);
+        background: rgba(var(--accent-primary-rgb), 0.2);
+        transform: translateY(-2px);
+    }
+
+    .faq-more-button i {
+        font-size: var(--font-size-base);
+        transition: transform 0.3s ease;
+        color: var(--accent-primary);
+    }
+
+    .faq-more-button.expanded i {
+        transform: rotate(180deg);
+    }
+
+    .faq-question {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--space-6) 0;
+        background: none;
+        border: none;
+        color: inherit;
+        cursor: pointer;
+        font-size: var(--font-size-2xl);
+        font-weight: var(--font-weight-semibold);
+        text-align: left;
+        transition: color 0.3s ease;
+    }
+    .faq-question:hover {
+        color: var(--accent-primary);
+    }
+    .faq-question i {
+        font-size: var(--font-size-lg);
+        transition: transform 0.3s ease;
+        color: var(--accent-primary);
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition:
+            max-height 0.3s ease,
+            padding 0.3s ease;
+    }
+    .faq-answer p {
+        font-size: var(--font-size-lg);
+        line-height: 1.6;
+        color: light-dark(rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.8));
+        margin: 0;
+    }
+
+    .faq-item.active .faq-question i {
+        transform: rotate(180deg);
+    }
+    .faq-item.active .faq-answer {
+        max-height: 200px;
+        padding-bottom: var(--space-6);
+    }
+
+    @media (max-width: 768px) {
+        .about-us p {
+            font-size: var(--font-size-3xl);
+        }
+
+        .service-card {
+            flex-direction: column;
+        }
+        .service-card:nth-child(odd) {
+            flex-direction: column;
+        }
+        .service-info {
+            width: auto;
+        }
+        .service-card img {
+            width: 100%;
+        }
+
+        .stats-grid {
+            gap: var(--space-4);
+        }
+        .stat-card {
+            padding: var(--space-6) var(--space-4);
+        }
+        .stat-number {
+            font-size: var(--font-size-5xl);
+        }
+        .stat-suffix {
+            font-size: var(--font-size-2xl);
+        }
+    }
+</style>
+<script>
+    // Word-by-word scroll reveal for About
+    window.addEventListener("scroll", () => {
+        const p = document.querySelector("#animatedParagraph");
+        if (!p) return;
+        const words = p.querySelectorAll("#animatedParagraph span");
+
+        const rect = p.getBoundingClientRect();
+        const windowHeight =
+            window.innerHeight || document.documentElement.clientHeight;
+
+        if (rect.top < windowHeight && rect.bottom > 0) {
+            // Calculate how much of the paragraph is visible
+            const visibleRatio = Math.min(
+                1,
+                (windowHeight - rect.top - 250) / rect.height,
+            );
+            const revealCount = Math.floor(words.length * visibleRatio);
+            words.forEach((word, i) => {
+                (word as HTMLElement).style.opacity =
+                    i < revealCount ? "1" : "0.25";
+            });
+        } else {
+            words.forEach(
+                (word) => ((word as HTMLElement).style.opacity = "0.25"),
+            );
+        }
+    });
+
+    // FAQ accordion functionality
+    document.addEventListener("DOMContentLoaded", () => {
+        const faqQuestions = document.querySelectorAll(".faq-question");
+        const faqMoreButton = document.getElementById("faqMoreButton");
+        const additionalFaqs = document.querySelectorAll(".additional-faq");
+        const moreText = faqMoreButton?.querySelector(
+            ".more-text",
+        ) as HTMLElement;
+        const lessText = faqMoreButton?.querySelector(
+            ".less-text",
+        ) as HTMLElement;
+
+        // FAQ accordion functionality
+        faqQuestions.forEach((question) => {
+            question.addEventListener("click", () => {
+                const faqItem = question.parentElement;
+                if (!faqItem) return;
+
+                const isActive = faqItem.classList.contains("active");
+
+                // Close all other FAQ items
+                document.querySelectorAll(".faq-item").forEach((item) => {
+                    item.classList.remove("active");
+                });
+
+                // Toggle current item
+                if (!isActive) {
+                    faqItem.classList.add("active");
+                }
+            });
+        });
+
+        // Show More/Less functionality
+        if (faqMoreButton) {
+            faqMoreButton.addEventListener("click", () => {
+                const isExpanded = faqMoreButton.classList.contains("expanded");
+
+                if (isExpanded) {
+                    // Hide additional FAQs
+                    additionalFaqs.forEach((faq, index) => {
+                        setTimeout(() => {
+                            faq.classList.remove("show");
+                            (faq as HTMLElement).style.display = "none";
+                        }, index * 50);
+                    });
+
+                    // Update button text and icon
+                    if (moreText) moreText.style.display = "inline";
+                    if (lessText) lessText.style.display = "none";
+                    faqMoreButton.classList.remove("expanded");
+                } else {
+                    // Show additional FAQs
+                    additionalFaqs.forEach((faq, index) => {
+                        setTimeout(() => {
+                            (faq as HTMLElement).style.display = "block";
+                            setTimeout(() => {
+                                faq.classList.add("show");
+                            }, 10);
+                        }, index * 50);
+                    });
+
+                    // Update button text and icon
+                    if (moreText) moreText.style.display = "none";
+                    if (lessText) lessText.style.display = "inline";
+                    faqMoreButton.classList.add("expanded");
+                }
+            });
+        }
+    });
+</script>

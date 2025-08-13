@@ -1,0 +1,118 @@
+---
+import ServiceLayout from "../../../layouts/ServiceLayout.astro";
+
+const aiData = {
+    title: "AI integratsioon - VXIT.IO",
+    description:
+        "Nutikad tehisintellekti integreerimise teenused teie digitaalse kohaloleku automatiseerimiseks ja täiustamiseks. Vestlusrobotitest ennustava analüüsini.",
+    hero: {
+        title: "AI integratsioon",
+        subtitle:
+            "Muutke oma äri intelligentse automatiseerimisega. Integreerime tipptasemel AI lahendused, mis parandavad kasutajakogemust ja lihtsustavad tegevusi.",
+    },
+    individualPlan: {
+        name: "Põhiautomatiseerimine",
+        price: "Alates 199€",
+        description:
+            "AI-põhised funktsioonid isiklikele veebisaitidele ja väikestele projektidele",
+        features: [
+            "Põhiline vestlusroboti integratsioon",
+            "Sisu genereerimise tööriistad",
+            "Nutikad kontaktivormid",
+            "Automaatsed vastused",
+            "Analüütika ülevaated",
+            "Toimivuse jälgimine",
+        ],
+        timeline: "1-2 nädalat",
+    },
+    businessPlan: {
+        name: "Äriautomaatika",
+        price: "Alates 349€",
+        description: "Põhjalik AI lahendus äri automatiseerimiseks",
+        features: [
+            "Täiustatud vestlusrobot NLP-ga",
+            "Ennustav analüütika",
+            "Kliendikäitumise analüüs",
+            "Automaatsed turundustööriistad",
+            "AI-põhised soovitused",
+            "Reaalajas andmetöötlus",
+            "Mitmeplatvormiline juurutamine",
+            "Täpsem aruandlus",
+            "API integratsioonid",
+        ],
+        timeline: "2-3 nädalat",
+    },
+    benefits: [
+        {
+            title: "24/7 automatiseerimine",
+            description:
+                "AI töötab ööpäevaringselt, et teenindada teie kliente ja optimeerida protsesse.",
+            icon: "fas fa-robot",
+        },
+        {
+            title: "Andmepõhised ülevaated",
+            description:
+                "Saate oma andmetest kasulikke ülevaateid täiustatud analüüsi ja aruandlusega.",
+            icon: "fas fa-chart-line",
+        },
+        {
+            title: "Parem kasutajakogemus",
+            description:
+                "Pakkuge isikupärastatud kogemusi, mis kohanduvad kasutaja käitumise ja eelistustega.",
+            icon: "fas fa-user-friends",
+        },
+        {
+            title: "Kuluefektiivsus",
+            description:
+                "Vähendage tegevuskulusid intelligentse automatiseerimise ja optimeerimise kaudu.",
+            icon: "fas fa-dollar-sign",
+        },
+        {
+            title: "Skaleeritavad lahendused",
+            description:
+                "AI lahendused, mis kasvavad koos teie ettevõttega ja kohanduvad muutuvate vajadustega.",
+            icon: "fas fa-expand-arrows-alt",
+        },
+        {
+            title: "Konkurentsieelis",
+            description:
+                "Püsige konkurentidest ees tipptasemel AI tehnoloogiaga.",
+            icon: "fas fa-trophy",
+        },
+    ],
+    process: [
+        {
+            step: 1,
+            title: "AI audit ja strateegia",
+            description:
+                "Analüüsime teie praeguseid protsesse ja tuvastame võimalused AI integreerimiseks maksimaalse mõju saavutamiseks.",
+        },
+        {
+            step: 2,
+            title: "Lahenduse disain",
+            description:
+                "Kujundame kohandatud AI lahendused, mis on kohandatud teie konkreetsetele ärivajadustele ja tehnilistele nõuetele.",
+        },
+        {
+            step: 3,
+            title: "Arendus ja koolitus",
+            description:
+                "Ehitage ja koolitage AI mudeleid, kasutades teie andmeid ja valdkonna parimaid tavasid optimaalse jõudluse tagamiseks.",
+        },
+        {
+            step: 4,
+            title: "Integratsioon ja testimine",
+            description:
+                "Integreerige AI lahendused sujuvalt teie olemasolevatesse süsteemidesse põhjaliku testimise ja valideerimisega.",
+        },
+        {
+            step: 5,
+            title: "Optimeerimine ja tugi",
+            description:
+                "Pidev jälgimine, optimeerimine ja tugi tagamaks, et teie AI lahendused pakuvad maksimaalset väärtust.",
+        },
+    ],
+};
+---
+
+<ServiceLayout {...aiData} />

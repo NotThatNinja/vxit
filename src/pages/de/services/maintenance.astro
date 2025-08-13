@@ -1,0 +1,128 @@
+---
+import ServiceLayout from "../../../layouts/ServiceLayout.astro";
+
+const maintenanceData = {
+    title: "Wartung & Zusätzliche Dienstleistungen - VXIT.IO",
+    hero: {
+        title: "Wartung & Dienstleistungen",
+        subtitle:
+            "Halten Sie Ihre Website mit unseren umfassenden Wartungsdiensten reibungslos am Laufen. Von Sicherheitsupdates bis zur Leistungsoptimierung stellen wir sicher, dass Ihre Website sicher, schnell und aktuell bleibt.",
+    },
+    individualPlan: {
+        name: "Basis-Wartung",
+        price: "Ab 8.99€/Monat",
+        description:
+            "Wesentliche Wartung für kleine Websites und persönliche Projekte",
+        features: [
+            "Wöchentliche Sicherheitsupdates",
+            "Monatliche Leistungsüberwachung",
+            "Basissicherungsdienst (wöchentlich)",
+            "SSL-Zertifikatsverwaltung",
+            "Kleine Inhaltsaktualisierungen",
+            "E-Mail-Support",
+            "Verfügbarkeitsüberwachung",
+            "Basis-Sicherheitsscans",
+        ],
+        timeline: "Laufender monatlicher Service",
+    },
+    businessPlan: {
+        name: "Professionelle Wartung",
+        price: "Ab 11.99€/Monat",
+        description: "Umfassende Wartung für Geschäftswebsites",
+        features: [
+            "Erweiterter Sicherungsdienst (täglich)",
+            "Leistungsoptimierung",
+            "Priorisierter E-Mail-Support",
+            "SEO-Überwachung & Berichterstattung",
+            "Erweiterte Sicherheitsscans",
+            "Monatliche Detailberichte",
+            "Malware-Entfernung & Wiederherstellung",
+            "Benutzerdefiniertes Analytics-Setup",
+            "Integrationssupport (Drittanbieter-Tools)",
+            "Verbesserungen der Barrierefreiheit",
+            "Schnellerer Notfall-Support (kritische Probleme)",
+        ],
+        timeline: "Laufender monatlicher Service",
+    },
+    benefits: [
+        {
+            title: "Sicherheitsschutz",
+            description:
+                "Kontinuierliche Überwachung und Updates zum Schutz vor Sicherheitsbedrohungen und Schwachstellen.",
+            icon: "fas fa-shield-alt",
+        },
+        {
+            title: "Leistungsoptimierung",
+            description:
+                "Regelmäßige Optimierung, um sicherzustellen, dass Ihre Website schnell lädt und effizient funktioniert.",
+            icon: "fas fa-tachometer-alt",
+        },
+        {
+            title: "Regelmäßige Backups",
+            description:
+                "Automatisierte Backups zum Schutz Ihrer Daten und zur schnellen Wiederherstellung bei Bedarf.",
+            icon: "fas fa-cloud-upload-alt",
+        },
+        {
+            title: "Inhaltsaktualisierungen",
+            description:
+                "Professionelle Unterstützung bei Inhaltsaktualisierungen, Änderungen und Ergänzungen Ihrer Website.",
+            icon: "fas fa-edit",
+        },
+        {
+            title: "Verfügbarkeitsüberwachung",
+            description:
+                "24/7-Überwachung, um sicherzustellen, dass Ihre Website für Ihre Besucher immer zugänglich ist.",
+            icon: "fas fa-eye",
+        },
+        {
+            title: "Technischer Support",
+            description:
+                "Kompetenter technischer Support, wenn Sie Hilfe benötigen oder Probleme mit Ihrer Website auftreten.",
+            icon: "fas fa-headset",
+        },
+    ],
+    additionalServices: [
+        {
+            title: "Kleine Änderungen",
+            description:
+                "Kleine Updates am Inhalt Ihrer Website (Text, Bilder usw.)",
+            price: "Ab 15€",
+        },
+        {
+            title: "Mittlere Änderungen",
+            description:
+                "Moderate Updates einschließlich Stiländerungen, Umstrukturierung von Inhalten oder Hinzufügen von Funktionen",
+            price: "Ab 55€",
+        },
+        {
+            title: "Größere Änderungen",
+            description:
+                "Umfassende Änderungen wie die Erstellung neuer Seiten, das Hinzufügen komplexer Funktionen oder signifikante Design-Updates",
+            price: "Ab 95€",
+        },
+        {
+            title: "Migrationsdienste",
+            description: "Sichere Website-Migration zu neuem Hosting oder einer neuen Plattform",
+            price: "Ab 150€",
+        },
+        {
+            title: "Website-Optimierung",
+            description:
+                "Leistungs-, Barrierefreiheits- und SEO-Bewertung und -Verbesserungen (für Nicht-vxit-Websites)",
+            price: "Ab 250€",
+        },
+        {
+            title: "CMS-Integration",
+            description:
+                "Integration von Content-Management-Systemen für einfachere Website-Updates (aktualisieren Sie Ihre Website ohne Programmierkenntnisse)",
+            price: "Ab 200€",
+        },
+    ],
+};
+---
+
+<ServiceLayout {...maintenanceData} />
+<style>
+    /* Additional styles specific to maintenance page could go here */
+</style>

@@ -16,7 +16,6 @@ export const translations = {
         privacyPolicy: "Privacy Policy",
         legalNotes: "Legal Notes",
         copyright: "© 2025 VXIT.IO OÜ - All rights reserved",
-        location: "Tallinn, EE",
     },
     it: {
         slogan:
@@ -35,7 +34,6 @@ export const translations = {
         privacyPolicy: "Privacy Policy",
         legalNotes: "Note Legali",
         copyright: "© 2025 VXIT.IO OÜ - Tutti i diritti riservati",
-        location: "Tallinn, EE",
     },
     es: {
         slogan:
@@ -54,7 +52,6 @@ export const translations = {
         privacyPolicy: "Política de Privacidad",
         legalNotes: "Aviso Legal",
         copyright: "© 2025 VXIT.IO OÜ - Todos los derechos reservados",
-        location: "Tallin, EE",
     },
     et: {
         slogan:
@@ -73,7 +70,6 @@ export const translations = {
         privacyPolicy: "Privaatsuspoliitika",
         legalNotes: "Õiguslik teave",
         copyright: "© 2025 VXIT.IO OÜ - Kõik õigused kaitstud",
-        location: "Tallinn, EE",
     },
     fr: {
         slogan:
@@ -92,7 +88,6 @@ export const translations = {
         privacyPolicy: "Politique de Confidentialité",
         legalNotes: "Mentions Légales",
         copyright: "© 2025 VXIT.IO OÜ - Tous droits réservés",
-        location: "Tallinn, EE",
     },
     de: {
         slogan:
@@ -111,6 +106,5 @@ export const translations = {
         privacyPolicy: "Datenschutzrichtlinie",
         legalNotes: "Rechtliche Hinweise",
         copyright: "© 2025 VXIT.IO OÜ - Alle Rechte vorbehalten",
-        location: "Tallinn, EE",
     },
 };

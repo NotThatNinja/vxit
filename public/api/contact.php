@@ -16,11 +16,11 @@ if (isset($_GET['action']) && $_GET['action'] === 'submit') {
     $json = file_get_contents('php://input');
     $data = json_decode($json, true);
 
-    $name = htmlspecialchars(trim($data['name']));
+    $name = trim($data['name']);
     $email = filter_var(trim($data['email']), FILTER_SANITIZE_EMAIL);
-    $phone = !empty(trim($data['phone'])) ? htmlspecialchars(trim($data['phone'])) : 'N/A';
-    $subject = htmlspecialchars(trim($data['subject']));
-    $message = htmlspecialchars(trim($data['message']));
+    $phone = !empty(trim($data['phone'])) ? trim($data['phone']) : 'N/A';
+    $subject = trim($data['subject']);
+    $message = trim($data['message']);
     $privacy = filter_var($data['privacy'], FILTER_VALIDATE_BOOLEAN);
 
     // Validation
@@ -72,7 +72,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'submit') {
         exit;
     }
 
-    // Submit form
+    // Submit form (remove newlines from name to prevent header injection)
     $safe_name = str_replace(["\r", "\n"], '', $name);
 
     $to = 'contactus@vxit.io';

@@ -10,6 +10,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.5.0",
     "@fontsource-variable/inter": "^5.2.6",
     "@fortawesome/fontawesome-free": "^7.0.0",
     "aos": "^2.3.4",
